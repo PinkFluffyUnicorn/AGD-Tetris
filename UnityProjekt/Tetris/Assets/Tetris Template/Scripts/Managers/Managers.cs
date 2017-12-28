@@ -89,6 +89,13 @@ public class Managers : MonoBehaviour
 	{
 		get { return _colorManager; }
 	}
+
+    private static LevelOverviewManager _levelOverviewManager;
+    public static LevelOverviewManager LevelOverviewer
+    {
+        get { return _levelOverviewManager;  }
+    }
+
 	void Awake ()
 	{
 		_gameManager = GetComponent<GameManager>();
@@ -102,6 +109,7 @@ public class Managers : MonoBehaviour
 		_gridManager = GetComponent<GridManager> ();
 		_spawnManager = GetComponent<SpawnManager> ();
 		_colorManager = GetComponent<ColorManager> ();
+        _levelOverviewManager = GetComponent<LevelOverviewManager>();
 
 		DontDestroyOnLoad(gameObject);
 	}

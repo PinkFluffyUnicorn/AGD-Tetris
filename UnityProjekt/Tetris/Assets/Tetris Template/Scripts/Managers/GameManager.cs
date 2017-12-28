@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 			currentState.OnDeactivate();
 		}
 
-		currentState = GetComponentInChildren(newStateType) as _StatesBase;
+		currentState = GetComponentInChildren(newStateType) as _StatesBase; // hier wird LevelOverview null 
 		if (currentState != null)
 		{
 			currentState.OnActivate();
