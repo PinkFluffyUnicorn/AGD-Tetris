@@ -32,7 +32,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-UnityProjekt/Tetris/Library/assetDatabase3
-UnityProjekt/Tetris/Library/CurrentLayout.dwlt
-UnityProjekt/Tetris/Library/metadata/00/00000000000000005100000000000000
-UnityProjekt/Tetris/Library/metadata/00/00000000000000008000000000000000
+
+*.UnityProjekt/Tetris/Library
