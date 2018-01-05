@@ -11,7 +11,8 @@ public enum ShapeType
     L,
     J,
     S,
-    Z
+    Z, 
+    E
 }
 
 public class TetrisShape : MonoBehaviour

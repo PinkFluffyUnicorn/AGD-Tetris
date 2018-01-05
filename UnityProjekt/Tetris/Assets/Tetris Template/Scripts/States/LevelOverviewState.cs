@@ -27,6 +27,8 @@ public class LevelOverviewState : _StatesBase
     // dass der Nutzer iwie navigieren kann? 
     public override void OnUpdate()
     {
+        if (Managers.Game.currentShape != null)
+            Managers.Game.currentShape.movementController.ShapeUpdate();
         Debug.Log("<color=yellow>Level Overview State</color> OnUpdate");
     }
 }
