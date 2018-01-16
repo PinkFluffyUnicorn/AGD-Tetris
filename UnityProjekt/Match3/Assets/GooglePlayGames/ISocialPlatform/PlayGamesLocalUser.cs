@@ -24,7 +24,7 @@ namespace GooglePlayGames
     /// <summary>
     /// Represents the Google Play Games local user.
     /// </summary>
-    public class PlayGamesLocalUser : PlayGamesUserProfile, ILocalUser
+    public class PlayGamesLocalUser : PlayGamesUserProfile, ILocalUser ///commented out by tobi
     {
         internal PlayGamesPlatform mPlatform;
 
@@ -270,6 +270,11 @@ namespace GooglePlayGames
                 // 0 = success
                 callback(CommonStatusCodes.Success, mStats);
             }
+        }
+
+        public void Authenticate(Action<bool, string> callback)
+        {
+            throw new NotImplementedException();
         }
     }
 }
