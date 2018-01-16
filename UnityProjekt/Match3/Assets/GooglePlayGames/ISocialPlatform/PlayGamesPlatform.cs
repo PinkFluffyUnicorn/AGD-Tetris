@@ -38,7 +38,7 @@ namespace GooglePlayGames
     /// implementation of the ISocialPlatform interface. Methods lacking an implementation
     /// or whose behavior is at variance with the standard are noted as such.
     /// </summary>
-    public class PlayGamesPlatform : ISocialPlatform
+    public class PlayGamesPlatform : ISocialPlatform ///commented out by tobi
     {
         /// <summary>Singleton instance</summary>
         private static volatile PlayGamesPlatform sInstance = null;
@@ -1298,6 +1298,11 @@ namespace GooglePlayGames
             }
 
             return id;
+        }
+
+        public void Authenticate(ILocalUser user, Action<bool, string> callback)
+        {
+            throw new NotImplementedException();
         }
     }
 }

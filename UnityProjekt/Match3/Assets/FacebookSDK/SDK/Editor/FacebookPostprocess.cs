@@ -54,10 +54,10 @@ namespace UnityEditor.FacebookEditor
                     Debug.LogError("The default Unity Bundle Identifier (com.Company.ProductName) will not work correctly.");
                 }
 
-                if (!FacebookAndroidUtil.SetupProperly)
-                {
-                    Debug.LogError("Your Android setup is not correct. See Settings in Facebook menu.");
-                }
+                //if (!FacebookAndroidUtil.SetupProperly)//mybe comment back in?
+                //{
+                //    Debug.LogError("Your Android setup is not correct. See Settings in Facebook menu.");
+                //}
 
                 if (!ManifestMod.CheckManifest())
                 {
