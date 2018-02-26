@@ -20,8 +20,8 @@ MonoBehaviour:
   constraint: MovesCounter
   tutorialAnimator: {fileID: 0}
   aims:
-  - name: ChocolateAim
-    amount: 5
+  - name: CookieAim
+    amount: 18
   preboosters:
   - name: LinePrebooster
     amount: 1
@@ -33,14 +33,20 @@ MonoBehaviour:
   cells:
     objects:
     - {fileID: 0}
+    - {fileID: 136582, guid: d477931b0584a14499f46a58be6fedc4, type: 2}
     - {fileID: 0}
+    - {fileID: 181002, guid: c0794c367bd05114890e60eba52cf0b3, type: 2}
     - {fileID: 0}
+    - {fileID: 136582, guid: d477931b0584a14499f46a58be6fedc4, type: 2}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 136582, guid: d477931b0584a14499f46a58be6fedc4, type: 2}
     - {fileID: 0}
+    - {fileID: 181002, guid: c0794c367bd05114890e60eba52cf0b3, type: 2}
     - {fileID: 0}
+    - {fileID: 136582, guid: d477931b0584a14499f46a58be6fedc4, type: 2}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -60,6 +66,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 181002, guid: c0794c367bd05114890e60eba52cf0b3, type: 2}
+    - {fileID: 181002, guid: c0794c367bd05114890e60eba52cf0b3, type: 2}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -76,6 +84,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 136582, guid: d477931b0584a14499f46a58be6fedc4, type: 2}
+    - {fileID: 136582, guid: d477931b0584a14499f46a58be6fedc4, type: 2}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -92,18 +102,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 181002, guid: c0794c367bd05114890e60eba52cf0b3, type: 2}
+    - {fileID: 181002, guid: c0794c367bd05114890e60eba52cf0b3, type: 2}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -207,7 +207,7 @@ MonoBehaviour:
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 121500, guid: 2b216a72bdc3296428ad996864be1fdf, type: 2}
     - {fileID: 121500, guid: 2b216a72bdc3296428ad996864be1fdf, type: 2}
     - {fileID: 121500, guid: 2b216a72bdc3296428ad996864be1fdf, type: 2}
@@ -237,7 +237,7 @@ MonoBehaviour:
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 121500, guid: 2b216a72bdc3296428ad996864be1fdf, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
