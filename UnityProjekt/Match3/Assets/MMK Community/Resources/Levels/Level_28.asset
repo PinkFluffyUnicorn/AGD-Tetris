@@ -20,7 +20,7 @@ MonoBehaviour:
   constraint: MovesCounter
   tutorialAnimator: {fileID: 0}
   aims:
-  - name: ChocolateAim
+  - name: IngridientAim
     amount: 8
   preboosters:
   - name: LinePrebooster
@@ -203,47 +203,40 @@ MonoBehaviour:
   elements:
     objects:
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
+    - {fileID: 159688, guid: 6fa58d1e979fa0c4b9be6321abb6d116, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
+    - {fileID: 159688, guid: 6fa58d1e979fa0c4b9be6321abb6d116, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
+    - {fileID: 159688, guid: 6fa58d1e979fa0c4b9be6321abb6d116, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
+    - {fileID: 159688, guid: 6fa58d1e979fa0c4b9be6321abb6d116, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 126054, guid: 3e4c5e876c6434c4aaa8e795354bf6e3, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 150472, guid: 06899371d2f2d12428fe901a47adab10, type: 2}
-    - {fileID: 150472, guid: 06899371d2f2d12428fe901a47adab10, type: 2}
+    - {fileID: 159688, guid: 6fa58d1e979fa0c4b9be6321abb6d116, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 159688, guid: 6fa58d1e979fa0c4b9be6321abb6d116, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 159688, guid: 6fa58d1e979fa0c4b9be6321abb6d116, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 159688, guid: 6fa58d1e979fa0c4b9be6321abb6d116, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 150472, guid: 06899371d2f2d12428fe901a47adab10, type: 2}
     - {fileID: 150472, guid: 06899371d2f2d12428fe901a47adab10, type: 2}
@@ -252,6 +245,8 @@ MonoBehaviour:
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 150472, guid: 06899371d2f2d12428fe901a47adab10, type: 2}
+    - {fileID: 150472, guid: 06899371d2f2d12428fe901a47adab10, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
@@ -279,10 +274,15 @@ MonoBehaviour:
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 150236, guid: 3cf27fdc376467d40b735cfa28d3dda3, type: 2}
+    - {fileID: 150236, guid: 3cf27fdc376467d40b735cfa28d3dda3, type: 2}
+    - {fileID: 150236, guid: 3cf27fdc376467d40b735cfa28d3dda3, type: 2}
+    - {fileID: 150236, guid: 3cf27fdc376467d40b735cfa28d3dda3, type: 2}
     - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
-    - {fileID: 191012, guid: d2be239dce257e842836f2076e870cd9, type: 2}
+    - {fileID: 155404, guid: 1a30aa0f9704d8e458526e11c0005ada, type: 2}
+    - {fileID: 155404, guid: 1a30aa0f9704d8e458526e11c0005ada, type: 2}
+    - {fileID: 155404, guid: 1a30aa0f9704d8e458526e11c0005ada, type: 2}
+    - {fileID: 155404, guid: 1a30aa0f9704d8e458526e11c0005ada, type: 2}
     rows: 9
     columns: 9
   attachments:
@@ -392,6 +392,24 @@ MonoBehaviour:
     row: 8
   - column: 8
     row: 8
-  despawnPositions: []
+  despawnPositions:
+  - column: 0
+    row: 0
+  - column: 1
+    row: 0
+  - column: 2
+    row: 0
+  - column: 3
+    row: 0
+  - column: 4
+    row: 0
+  - column: 5
+    row: 0
+  - column: 6
+    row: 0
+  - column: 7
+    row: 0
+  - column: 8
+    row: 0
   ingridientSpawners: []
-  type: 1
+  type: 0
