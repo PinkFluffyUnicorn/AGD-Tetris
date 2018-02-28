@@ -20,8 +20,8 @@ MonoBehaviour:
   constraint: MovesCounter
   tutorialAnimator: {fileID: 0}
   aims:
-  - name: ScoreAim
-    amount: 60000
+  - name: CookieAim
+    amount: 37
   preboosters:
   - name: LinePrebooster
     amount: 1
