@@ -21,7 +21,7 @@ MonoBehaviour:
   tutorialAnimator: {fileID: 0}
   aims:
   - name: CookieAim
-    amount: 36
+    amount: 54
   preboosters:
   - name: LinePrebooster
     amount: 1
