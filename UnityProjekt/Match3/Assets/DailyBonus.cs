@@ -5,29 +5,30 @@ using UnityEngine.UI;
 
 public class DailyBonus : MonoBehaviour
 {
-    //List: which day gets which Bonus
-    public bool BonusDay0 = false;
-    public bool BonusDay1 = false;
-    public bool BonusDay2 = false;
-    public bool BonusDay3 = false;
-    public bool BonusDay4 = false;
-    public bool BonusDay5 = false;
-    public bool BonusDay6 = false;
-    public bool BonusDay7 = false;
 
+    public Image BonusDay1Received, BonusDay2Received, BonusDay3Received, BonusDay4Received, BonusDay5Received, BonusDay6Received;
+    public Image BonusDay1, BonusDay2, BonusDay3, BonusDay4, BonusDay5, BonusDay6, BonusDay7;
+    private int Bonus;
 
-    // Use this for initialization
+    // Use this for initialization, calculate Bonus 0 based
     public void OnEnable()
     {
-        List<bool> BonusList = new List<bool> { BonusDay0, BonusDay1, BonusDay2, BonusDay3, BonusDay4, BonusDay5, BonusDay6, BonusDay7 };
+        List<Image> CurrentBonusList = new List<Image> { BonusDay1, BonusDay2, BonusDay3, BonusDay4, BonusDay5, BonusDay6, BonusDay7 };
+        List<Image> ReceivedBonusList = new List<Image> { BonusDay1Received, BonusDay2Received, BonusDay3Received, BonusDay4Received, BonusDay5Received, BonusDay6Received };
+        List<int> BonusList = new List<int> { 5, 9, 14, 20, 27, 36, 100};
+
         var lastDate = PlayerPrefs.GetInt("date", 0);
         var currentDate = System.DateTime.Now.Day;
-        // calculate number of days user has been getting bonus in a row 
+        // read out number of days user has been getting bonus in a row 
         int numberOfDailyBonus = PlayerPrefs.GetInt("NumberOfBonus", 0);
+
+
+        //--------------------Update numberOfDailyBonus-----------------------
+        //old numberOfDailyBonus gets stored and updated by ine if the user was there yesterday
 
         if (currentDate - lastDate == 1 || (currentDate == 1 && lastDate == 31))
         {
-            if (numberOfDailyBonus != 10) numberOfDailyBonus++; // user gets the same highest bonus after 10 days of getting bonus
+            if (numberOfDailyBonus < 6) numberOfDailyBonus++; // user gets the same highest bonus after 7 days of getting bonus
         }
         else if (currentDate == lastDate)
         {
@@ -37,16 +38,35 @@ public class DailyBonus : MonoBehaviour
         {
             numberOfDailyBonus = 0;
         }
-        if (numberOfDailyBonus != 10)
-        {
-            numberOfDailyBonus = numberOfDailyBonus + 1;
-        }
-        else
-        {
-            numberOfDailyBonus = numberOfDailyBonus;
-        }
 
 
+        //numberOfDailyBonus = 0; //for testing
+
+        //set pictures accordingly to Bonus, 
+        for (int i = 0; i < 6; i++)
+        {
+            if (i < numberOfDailyBonus)
+            {
+                ReceivedBonusList[i].enabled = true;
+            }
+            else
+            {
+                ReceivedBonusList[i].enabled = false;
+            }
+        }
+
+        for (int i = 0; i < 7; i++)
+        {
+            if (i == numberOfDailyBonus)
+            {
+                CurrentBonusList[i].enabled = true;
+                Bonus = BonusList[i];
+            }
+            else
+            {
+                CurrentBonusList[i].enabled = false;
+            }
+        }
 
         //update number of days user has been getting bonus in a row 
         PlayerPrefs.SetInt("NumberOfBonus", numberOfDailyBonus);
@@ -54,11 +74,14 @@ public class DailyBonus : MonoBehaviour
 
     public void OnDisable()
     {
-        // hier noch den Bonus den man erhält Updaten
+        // hier noch den Bonus den man erhält Updaten -> Bonus
 
 
         //set new date at the end of function so old date is still accessible
         PlayerPrefs.SetInt("date", System.DateTime.Now.Day);
+
+
+
 
         //close pop up 
         this.enabled = false;

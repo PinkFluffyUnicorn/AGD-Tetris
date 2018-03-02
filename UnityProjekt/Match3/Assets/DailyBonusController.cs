@@ -11,15 +11,15 @@ public class DailyBonusController : MonoBehaviour
 
     public void Start()
     {
-        //if(PlayerPrefs.GetInt("date", 0) == System.DateTime.Now.Day)
-        //{
-        //    //dont do anything
-        //}
-        //else
-        //{
-        //    DailyBonus.SetActive(true);
-        //}
-        DailyBonus.SetActive(true);
+        if (PlayerPrefs.GetInt("date", 0) == System.DateTime.Now.Day)
+        {
+            //dont do anything
+        }
+        else
+        {
+            DailyBonus.SetActive(true);
+        }
+        //DailyBonus.SetActive(true);
     }
 
 }
