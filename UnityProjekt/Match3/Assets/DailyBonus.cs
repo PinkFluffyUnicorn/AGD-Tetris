@@ -18,7 +18,7 @@ public class DailyBonus : MonoBehaviour
         List<int> BonusList = new List<int> { 5, 9, 14, 20, 27, 36, 100};
 
         var lastDate = PlayerPrefs.GetInt("date", 0);
-        var currentDate = System.DateTime.Now.Day;
+        var currentDate = System.DateTime.Now.DayOfYear;
         // read out number of days user has been getting bonus in a row 
         int numberOfDailyBonus = PlayerPrefs.GetInt("NumberOfBonus", 0);
 
@@ -26,7 +26,7 @@ public class DailyBonus : MonoBehaviour
         //--------------------Update numberOfDailyBonus-----------------------
         //old numberOfDailyBonus gets stored and updated by ine if the user was there yesterday
 
-        if (currentDate - lastDate == 1 || (currentDate == 1 && lastDate == 31))
+        if (currentDate - lastDate == 1)
         {
             if (numberOfDailyBonus < 6) numberOfDailyBonus++; // user gets the same highest bonus after 7 days of getting bonus
         }
@@ -78,10 +78,7 @@ public class DailyBonus : MonoBehaviour
 
 
         //set new date at the end of function so old date is still accessible
-        PlayerPrefs.SetInt("date", System.DateTime.Now.Day);
-
-
-
+        PlayerPrefs.SetInt("date", System.DateTime.Now.DayOfYear);
 
         //close pop up 
         this.enabled = false;

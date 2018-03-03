@@ -11,7 +11,7 @@ public class DailyBonusController : MonoBehaviour
 
     public void Start()
     {
-        if (PlayerPrefs.GetInt("date", 0) == System.DateTime.Now.Day)
+        if (PlayerPrefs.GetInt("date", 0) == System.DateTime.Now.DayOfYear)
         {
             //dont do anything
         }
