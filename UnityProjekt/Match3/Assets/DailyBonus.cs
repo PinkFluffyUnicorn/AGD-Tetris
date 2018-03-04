@@ -27,7 +27,7 @@ public class DailyBonus : MonoBehaviour
         //--------------------Update numberOfDailyBonus-----------------------
         //old numberOfDailyBonus gets stored and updated by ine if the user was there yesterday
 
-        if (true/*currentDate - lastDate == 1*/)
+        if (currentDate - lastDate == 1)
         {
             if (numberOfDailyBonus < 6)
                 numberOfDailyBonus++; // user gets the same highest bonus after 7 days of getting bonus
