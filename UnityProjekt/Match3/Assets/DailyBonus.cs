@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class DailyBonus : MonoBehaviour
 {
+    public GameObject moneyHandler;
 
     public Image BonusDay1Received, BonusDay2Received, BonusDay3Received, BonusDay4Received, BonusDay5Received, BonusDay6Received;
     public Image BonusDay1, BonusDay2, BonusDay3, BonusDay4, BonusDay5, BonusDay6, BonusDay7;
     private int Bonus;
 
     // Use this for initialization, calculate Bonus 0 based
-    public void OnEnable()
+    public void Start()
     {
         List<Image> CurrentBonusList = new List<Image> { BonusDay1, BonusDay2, BonusDay3, BonusDay4, BonusDay5, BonusDay6, BonusDay7 };
         List<Image> ReceivedBonusList = new List<Image> { BonusDay1Received, BonusDay2Received, BonusDay3Received, BonusDay4Received, BonusDay5Received, BonusDay6Received };
@@ -26,9 +27,11 @@ public class DailyBonus : MonoBehaviour
         //--------------------Update numberOfDailyBonus-----------------------
         //old numberOfDailyBonus gets stored and updated by ine if the user was there yesterday
 
-        if (currentDate - lastDate == 1)
+        if (true/*currentDate - lastDate == 1*/)
         {
-            if (numberOfDailyBonus < 6) numberOfDailyBonus++; // user gets the same highest bonus after 7 days of getting bonus
+            if (numberOfDailyBonus < 6)
+                numberOfDailyBonus++; // user gets the same highest bonus after 7 days of getting bonus
+            moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(BonusList[numberOfDailyBonus]);
         }
         else if (currentDate == lastDate)
         {

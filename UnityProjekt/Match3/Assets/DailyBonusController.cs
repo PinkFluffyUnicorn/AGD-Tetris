@@ -19,7 +19,7 @@ public class DailyBonusController : MonoBehaviour
         {
             DailyBonus.SetActive(true);
         }
-        //DailyBonus.SetActive(true);
+        DailyBonus.SetActive(true);//TODO: delete when debugging done
     }
 
 }
