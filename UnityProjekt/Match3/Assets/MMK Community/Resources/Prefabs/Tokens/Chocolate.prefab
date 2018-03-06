@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 11426366}
   - component: {fileID: 11458718}
   - component: {fileID: 11421896}
+  - component: {fileID: 114627294550807282}
+  - component: {fileID: 114593031667499970}
   m_Layer: 0
   m_Name: Chocolate
   m_TagString: Untagged
@@ -211,3 +213,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 126054}
   m_IsPrefabParent: 1
+--- !u!114 &114593031667499970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648f786dc4acf764eb26ae5c0ce075e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: ChocklateDestroyd
+  trackOnStart: 0
+  trackOnDestroy: 1
+--- !u!114 &114627294550807282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb80a42346a358449f18f13b7e73067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Chocklate
+  trackOnStart: 0
+  trackOnDestroy: 0

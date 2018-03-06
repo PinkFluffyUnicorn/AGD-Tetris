@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 11486260}
   - component: {fileID: 11410998}
   - component: {fileID: 11433418}
+  - component: {fileID: 114012521237505572}
+  - component: {fileID: 114121751180181348}
   m_Layer: 0
   m_Name: Lines horizontal attachment
   m_TagString: Untagged
@@ -239,3 +241,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 137144}
   m_IsPrefabParent: 1
+--- !u!114 &114012521237505572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb80a42346a358449f18f13b7e73067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: HorizontalBomb
+  trackOnStart: 0
+  trackOnDestroy: 0
+--- !u!114 &114121751180181348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648f786dc4acf764eb26ae5c0ce075e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: HorizontalBombDestroyd
+  trackOnStart: 0
+  trackOnDestroy: 1

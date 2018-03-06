@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 11473566}
   - component: {fileID: 11407684}
   - component: {fileID: 11486972}
+  - component: {fileID: 114482776034266798}
+  - component: {fileID: 114554254197821518}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -194,3 +196,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159688}
   m_IsPrefabParent: 1
+--- !u!114 &114482776034266798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb80a42346a358449f18f13b7e73067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Stone
+  trackOnStart: 0
+  trackOnDestroy: 0
+--- !u!114 &114554254197821518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648f786dc4acf764eb26ae5c0ce075e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Stone1Destroyd
+  trackOnStart: 0
+  trackOnDestroy: 1

@@ -26,12 +26,11 @@ public class DailyBonus : MonoBehaviour
 
         //--------------------Update numberOfDailyBonus-----------------------
         //old numberOfDailyBonus gets stored and updated by ine if the user was there yesterday
-
         if (currentDate - lastDate == 1)
         {
+            moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(BonusList[numberOfDailyBonus]);
             if (numberOfDailyBonus < 6)
                 numberOfDailyBonus++; // user gets the same highest bonus after 7 days of getting bonus
-            moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(BonusList[numberOfDailyBonus]);
         }
         else if (currentDate == lastDate)
         {

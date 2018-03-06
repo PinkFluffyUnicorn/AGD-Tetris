@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 11485014}
   - component: {fileID: 11463898}
   - component: {fileID: 11407520}
+  - component: {fileID: 114963420077450888}
+  - component: {fileID: 114897294300636688}
   m_Layer: 0
   m_Name: Bomb Attachment
   m_TagString: Untagged
@@ -235,3 +237,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 164946}
   m_IsPrefabParent: 1
+--- !u!114 &114897294300636688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648f786dc4acf764eb26ae5c0ce075e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: BombDestroyd
+  trackOnStart: 0
+  trackOnDestroy: 1
+--- !u!114 &114963420077450888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648f786dc4acf764eb26ae5c0ce075e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 
+  trackOnStart: 0
+  trackOnDestroy: 0
