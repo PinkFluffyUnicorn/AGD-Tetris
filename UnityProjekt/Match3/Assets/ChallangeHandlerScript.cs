@@ -9,11 +9,13 @@ public class ChallangeHandlerScript : MonoBehaviour {
     public GameObject challange2Done;
     public GameObject challange3Done;
 
-    public GameObject challange1;
-    public GameObject challange2;
-    public GameObject challange3;
+    public Text challange1Description;
+    public Text challange2Description;
+    public Text challange3Description;
 
+    public Image challange1Image, challange2Image, challange3Image;
 
+    public Image BlueToken, ChocklateToken, ColorBomb, GreenToken, Ingridient1Token, Ingridient2Token, OrangeToken, PurpleToken, RedToken, Stone1Token, Stone2Token, YellowToken, Coockie1Token, Coockie2Token, BombToken, HorizontalBombToken, VerticalBombToken, GamesWonToken, GamesStartedToken;
     public GameObject moneyHandler;
 
     List<Challange> allChallanges;
@@ -44,18 +46,22 @@ public class ChallangeHandlerScript : MonoBehaviour {
     void Start () {
 
         //initialize all the challanges here
+        print("initializeNewChallanges");
         initializeNewChallanges();
         allChallanges = new List<Challange> { Challange1, Challange2, Challange3, Challange4, Challange5, Challange6, Challange7, Challange8, Challange9, Challange10, Challange11, Challange12, Challange13, Challange14, Challange15, Challange16, Challange17, Challange18 };
 
+        print("initializeCurrentChallanges");
         //fill old challanges
         initializeCurrentChallanges();
+        print("Challange1: "+currentChallange1.Description + " Done: " +currentChallange1.done+" count: "+currentChallange1.count+" startValue: "+currentChallange1.startValue);
 
+        print("checkIfChallangeIsDone");
         //check if challange was complete. if so, generate a new one
         checkIfChallangeIsDone();
-
+        print("updatePlayerPrefs");
         //update playerPrefs
         updateCurrentChallanges();
-
+        print("updateGui");
         //update the challanges gui
         updateChallangesGui();
     }
@@ -65,6 +71,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 		
 	}
 
+    
     void initializeNewChallanges()
     {
         //TODO: randomize goal and reward
@@ -294,7 +301,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
             //generate a new Challange
             currentChallange1 = allChallanges[generateNewChallangeId()];
         }
-        if(currentChallange1.done == 0 && currentChallange1.goal == currentChallange1.count)
+        if(currentChallange1.done == 0 && currentChallange1.goal <= currentChallange1.count)
         {
             //open popup for the player
             challange1Done.SetActive(true);
@@ -310,7 +317,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
             //generate a new Challange
             currentChallange2 = allChallanges[generateNewChallangeId()];
         }
-        if (currentChallange2.done == 0 && currentChallange2.goal == currentChallange2.count)
+        if (currentChallange2.done == 0 && currentChallange2.goal <= currentChallange2.count)
         {
             //open popup for the player
             challange1Done.SetActive(true);
@@ -326,7 +333,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
             //generate a new Challange
             currentChallange3 = allChallanges[generateNewChallangeId()];
         }
-        if (currentChallange3.done == 0 && currentChallange3.goal == currentChallange3.count)
+        if (currentChallange3.done == 0 && currentChallange3.goal <= currentChallange3.count)
         {
             //open popup for the player
             challange1Done.SetActive(true);
@@ -339,7 +346,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
     int generateNewChallangeId()
     {
         int rand = Random.Range(0, allChallanges.Count - 1);
-        while(rand != currentChallange1.id && rand != currentChallange2.id && rand != currentChallange3.id)
+        while(rand == currentChallange1.id || rand == currentChallange2.id || rand == currentChallange3.id)
         {
             rand = Random.Range(0, allChallanges.Count - 1);
         }
@@ -347,12 +354,79 @@ public class ChallangeHandlerScript : MonoBehaviour {
     }
     void updateChallangesGui()
     {
+        //TODO: hier die Progressbar für alle hinzufügen
+        //TODO: den Reward in der Gui setzen
         print("hi");
-        print(currentChallange1.Description);
-        print(challange1.GetComponent<Text>().text);
-        //challange1.GetComponent<Text>().text = currentChallange1.Description;
-        //challange2.GetComponent<Text>().text = currentChallange2.Description;
-        //challange3.GetComponent<Text>().text = currentChallange3.Description;
+        challange1Description.text = currentChallange1.Description;
+        switch (currentChallange1.PlayerPrefsId)
+        {
+            case "BlueTokenDestroyd": challange1Image = BlueToken; break;
+            case "ChocklateDestroyd": challange1Image = ChocklateToken; break;
+            case "ColorBombDestroyd": challange1Image = ColorBomb; break;
+            case "GreenTokenDestroyd": challange1Image = GreenToken; break;
+            case "Ingridient1Destroyd": challange1Image = Ingridient1Token; break;
+            case "Ingridient2Destroyd": challange1Image = Ingridient2Token; break;
+            case "OrangeTokenDestroyd": challange1Image = OrangeToken; break;
+            case "PurpleTokenDestroyd": challange1Image = PurpleToken; break;
+            case "RedTokenDestroyd": challange1Image = RedToken; break;
+            case "Stone1Destroyd": challange1Image = Stone1Token; break;
+            case "Stone2Destroyd": challange1Image = Stone2Token; break;
+            case "YellowTokenDestroyd": challange1Image = YellowToken; break;
+            case "Coockie1Destroyd": challange1Image = Coockie1Token; break;
+            case "Coockie2Destroyd": challange1Image = Coockie2Token; break;
+            case "BombDestroyd": challange1Image = BombToken; break;
+            case "HorizontalBombDestroyd": challange1Image = HorizontalBombToken; break;
+            case "VerticalBombDestroyd": challange1Image = VerticalBombToken; break;
+            case "GameWon": challange1Image = GamesWonToken; break;
+            case "GameStarted": challange1Image = GamesStartedToken; break;
+        }
+        challange2Description.text = currentChallange2.Description;
+        switch (currentChallange2.PlayerPrefsId)
+        {
+            case "BlueTokenDestroyd": challange2Image = BlueToken; break;
+            case "ChocklateDestroyd": challange2Image = ChocklateToken; break;
+            case "ColorBombDestroyd": challange2Image = ColorBomb; break;
+            case "GreenTokenDestroyd": challange2Image = GreenToken; break;
+            case "Ingridient1Destroyd": challange2Image = Ingridient1Token; break;
+            case "Ingridient2Destroyd": challange2Image = Ingridient2Token; break;
+            case "OrangeTokenDestroyd": challange2Image = OrangeToken; break;
+            case "PurpleTokenDestroyd": challange2Image = PurpleToken; break;
+            case "RedTokenDestroyd": challange2Image = RedToken; break;
+            case "Stone1Destroyd": challange2Image = Stone1Token; break;
+            case "Stone2Destroyd": challange2Image = Stone2Token; break;
+            case "YellowTokenDestroyd": challange2Image = YellowToken; break;
+            case "Coockie1Destroyd": challange2Image = Coockie1Token; break;
+            case "Coockie2Destroyd": challange2Image = Coockie2Token; break;
+            case "BombDestroyd": challange2Image = BombToken; break;
+            case "HorizontalBombDestroyd": challange2Image = HorizontalBombToken; break;
+            case "VerticalBombDestroyd": challange2Image = VerticalBombToken; break;
+            case "GameWon": challange2Image = GamesWonToken; break;
+            case "GameStarted": challange2Image = GamesStartedToken; break;
+        }
+        challange3Description.text = currentChallange3.Description;
+        switch (currentChallange3.PlayerPrefsId)
+        {
+            case "BlueTokenDestroyd": challange3Image = BlueToken; break;
+            case "ChocklateDestroyd": challange3Image = ChocklateToken; break;
+            case "ColorBombDestroyd": challange3Image = ColorBomb; break;
+            case "GreenTokenDestroyd": challange3Image = GreenToken; break;
+            case "Ingridient1Destroyd": challange3Image = Ingridient1Token; break;
+            case "Ingridient2Destroyd": challange3Image = Ingridient2Token; break;
+            case "OrangeTokenDestroyd": challange3Image = OrangeToken; break;
+            case "PurpleTokenDestroyd": challange3Image = PurpleToken; break;
+            case "RedTokenDestroyd": challange3Image = RedToken; break;
+            case "Stone1Destroyd": challange3Image = Stone1Token; break;
+            case "Stone2Destroyd": challange3Image = Stone2Token; break;
+            case "YellowTokenDestroyd": challange3Image = YellowToken; break;
+            case "Coockie1Destroyd": challange3Image = Coockie1Token; break;
+            case "Coockie2Destroyd": challange3Image = Coockie2Token; break;
+            case "BombDestroyd": challange3Image = BombToken; break;
+            case "HorizontalBombDestroyd": challange3Image = HorizontalBombToken; break;
+            case "VerticalBombDestroyd": challange3Image = VerticalBombToken; break;
+            case "GameWon": challange3Image = GamesWonToken; break;
+            case "GameStarted": challange3Image = GamesStartedToken; break;
+        }
+
     }
 }
 

@@ -8304,7 +8304,7 @@ GameObject:
   - component: {fileID: 336909185}
   - component: {fileID: 336909184}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Challange3Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16509,8 +16509,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611740715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79, y: 140, z: 0}
-  m_LocalScale: {x: 0.1462963, y: 0.1462963, z: 0.1462963}
+  m_LocalPosition: {x: 182.5, y: 324.5, z: 0}
+  m_LocalScale: {x: 0.33796296, y: 0.33796296, z: 0.33796296}
   m_Children:
   - {fileID: 1844419283}
   - {fileID: 1785659727}
@@ -18368,7 +18368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &670092772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21187,8 +21187,9 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 759863235}
+  - component: {fileID: 759863236}
   - component: {fileID: 759863234}
+  - component: {fileID: 759863235}
   m_Layer: 0
   m_Name: ChallangeHandler
   m_TagString: Untagged
@@ -21207,8 +21208,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dab8b307d4a8f478f54a27139505e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &759863235
-Transform:
+  challange1Done: {fileID: 159644698}
+  challange2Done: {fileID: 2133377229}
+  challange3Done: {fileID: 1965272964}
+  challange1Description: {fileID: 1189945665}
+  challange2Description: {fileID: 998943747}
+  challange3Description: {fileID: 336909184}
+  moneyHandler: {fileID: 355497608}
+--- !u!222 &759863235
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 759863233}
+--- !u!224 &759863236
+RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -21220,6 +21234,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 182.37631, y: 316.25415}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &761495150
 GameObject:
   m_ObjectHideFlags: 0
@@ -21306,6 +21325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b4e02e62a96a741b32eb43c2a41491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyHandler: {fileID: 355497608}
+  moneyCount: {fileID: 761495152}
 --- !u!1 &763462975
 GameObject:
   m_ObjectHideFlags: 0
@@ -26742,6 +26763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76b38f1b64135b408e065661cfe242f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectUsernamePanel: {fileID: 1297452566}
 --- !u!114 &965991807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27706,7 +27728,7 @@ GameObject:
   - component: {fileID: 998943748}
   - component: {fileID: 998943747}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Challange2Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32799,7 +32821,7 @@ GameObject:
   - component: {fileID: 1189945666}
   - component: {fileID: 1189945665}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Challange1Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36648,6 +36670,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24eed93965f67e84dbcc9774a9f57b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputText: {fileID: 0}
+  outputText: {fileID: 0}
+  popupToClose: {fileID: 0}
 --- !u!95 &1297452569
 Animator:
   serializedVersion: 3
