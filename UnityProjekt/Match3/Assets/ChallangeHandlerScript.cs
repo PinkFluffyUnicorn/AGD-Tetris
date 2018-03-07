@@ -13,9 +13,12 @@ public class ChallangeHandlerScript : MonoBehaviour {
     public Text challange2Description;
     public Text challange3Description;
 
-    public Image challange1Image, challange2Image, challange3Image;
+    //public Image challange1Image, challange2Image, challange3Image;
 
-    public Image BlueToken, ChocklateToken, ColorBomb, GreenToken, Ingridient1Token, Ingridient2Token, OrangeToken, PurpleToken, RedToken, Stone1Token, Stone2Token, YellowToken, Coockie1Token, Coockie2Token, BombToken, HorizontalBombToken, VerticalBombToken, GamesWonToken, GamesStartedToken;
+    public Image C1BlueToken, C1ColorBomb, C1GreenToken, C1Ingridient1Token, C1Ingridient2Token, C1OrangeToken, C1PurpleToken, C1RedToken, C1Stone1Token, C1Stone2Token, C1YellowToken, C1Coockie1Token, C1Coockie2Token, C1BombToken, C1HorizontalBombToken, C1VerticalBombToken, C1GamesWonToken, C1GamesStartedToken;
+    public Image C2BlueToken, C2ColorBomb, C2GreenToken, C2Ingridient1Token, C2Ingridient2Token, C2OrangeToken, C2PurpleToken, C2RedToken, C2Stone1Token, C2Stone2Token, C2YellowToken, C2Coockie1Token, C2Coockie2Token, C2BombToken, C2HorizontalBombToken, C2VerticalBombToken, C2GamesWonToken, C2GamesStartedToken;
+    public Image C3BlueToken, C3ColorBomb, C3GreenToken, C3Ingridient1Token, C3Ingridient2Token, C3OrangeToken, C3PurpleToken, C3RedToken, C3Stone1Token, C3Stone2Token, C3YellowToken, C3Coockie1Token, C3Coockie2Token, C3BombToken, C3HorizontalBombToken, C3VerticalBombToken, C3GamesWonToken, C3GamesStartedToken;
+
     public GameObject moneyHandler;
 
     List<Challange> allChallanges;
@@ -83,15 +86,6 @@ public class ChallangeHandlerScript : MonoBehaviour {
         Challange1.id = 0;
         Challange1.reward = 1;
         Challange1.done = 0;
-
-        Challange2.PlayerPrefsId = "ChocklateDestroyd";
-        Challange2.goal = 1;
-        Challange2.count = 0;
-        Challange2.startValue = PlayerPrefs.GetInt(Challange2.PlayerPrefsId);
-        Challange2.Description = "Destroy " + Challange2.goal + " chocklate Stones!";
-        Challange2.id = 1;
-        Challange2.reward = 1;
-        Challange2.done = 0;
 
         Challange3.PlayerPrefsId = "ColorBombDestroyd";
         Challange3.goal = 1;
@@ -360,71 +354,68 @@ public class ChallangeHandlerScript : MonoBehaviour {
         challange1Description.text = currentChallange1.Description;
         switch (currentChallange1.PlayerPrefsId)
         {
-            case "BlueTokenDestroyd": challange1Image = BlueToken; break;
-            case "ChocklateDestroyd": challange1Image = ChocklateToken; break;
-            case "ColorBombDestroyd": challange1Image = ColorBomb; break;
-            case "GreenTokenDestroyd": challange1Image = GreenToken; break;
-            case "Ingridient1Destroyd": challange1Image = Ingridient1Token; break;
-            case "Ingridient2Destroyd": challange1Image = Ingridient2Token; break;
-            case "OrangeTokenDestroyd": challange1Image = OrangeToken; break;
-            case "PurpleTokenDestroyd": challange1Image = PurpleToken; break;
-            case "RedTokenDestroyd": challange1Image = RedToken; break;
-            case "Stone1Destroyd": challange1Image = Stone1Token; break;
-            case "Stone2Destroyd": challange1Image = Stone2Token; break;
-            case "YellowTokenDestroyd": challange1Image = YellowToken; break;
-            case "Coockie1Destroyd": challange1Image = Coockie1Token; break;
-            case "Coockie2Destroyd": challange1Image = Coockie2Token; break;
-            case "BombDestroyd": challange1Image = BombToken; break;
-            case "HorizontalBombDestroyd": challange1Image = HorizontalBombToken; break;
-            case "VerticalBombDestroyd": challange1Image = VerticalBombToken; break;
-            case "GameWon": challange1Image = GamesWonToken; break;
-            case "GameStarted": challange1Image = GamesStartedToken; break;
+            case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
+            case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
+            case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
+            case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
+            case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
+            case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
+            case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
+            case "RedTokenDestroyd": C1RedToken.enabled = true; break;
+            case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
+            case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
+            case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
+            case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
+            case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
+            case "BombDestroyd": C1BombToken.enabled = true; break;
+            case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
+            case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
+            case "GameWon": C1GamesWonToken.enabled = true; break;
+            case "GameStarted": C1GamesStartedToken.enabled = true; break;
         }
         challange2Description.text = currentChallange2.Description;
         switch (currentChallange2.PlayerPrefsId)
         {
-            case "BlueTokenDestroyd": challange2Image = BlueToken; break;
-            case "ChocklateDestroyd": challange2Image = ChocklateToken; break;
-            case "ColorBombDestroyd": challange2Image = ColorBomb; break;
-            case "GreenTokenDestroyd": challange2Image = GreenToken; break;
-            case "Ingridient1Destroyd": challange2Image = Ingridient1Token; break;
-            case "Ingridient2Destroyd": challange2Image = Ingridient2Token; break;
-            case "OrangeTokenDestroyd": challange2Image = OrangeToken; break;
-            case "PurpleTokenDestroyd": challange2Image = PurpleToken; break;
-            case "RedTokenDestroyd": challange2Image = RedToken; break;
-            case "Stone1Destroyd": challange2Image = Stone1Token; break;
-            case "Stone2Destroyd": challange2Image = Stone2Token; break;
-            case "YellowTokenDestroyd": challange2Image = YellowToken; break;
-            case "Coockie1Destroyd": challange2Image = Coockie1Token; break;
-            case "Coockie2Destroyd": challange2Image = Coockie2Token; break;
-            case "BombDestroyd": challange2Image = BombToken; break;
-            case "HorizontalBombDestroyd": challange2Image = HorizontalBombToken; break;
-            case "VerticalBombDestroyd": challange2Image = VerticalBombToken; break;
-            case "GameWon": challange2Image = GamesWonToken; break;
-            case "GameStarted": challange2Image = GamesStartedToken; break;
+            case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
+            case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
+            case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
+            case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
+            case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
+            case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
+            case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
+            case "RedTokenDestroyd": C2RedToken.enabled = true; break;
+            case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
+            case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
+            case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
+            case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
+            case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
+            case "BombDestroyd": C2BombToken.enabled = true; break;
+            case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
+            case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
+            case "GameWon": C2GamesWonToken.enabled = true; break;
+            case "GameStarted": C2GamesStartedToken.enabled = true; break;
         }
         challange3Description.text = currentChallange3.Description;
         switch (currentChallange3.PlayerPrefsId)
         {
-            case "BlueTokenDestroyd": challange3Image = BlueToken; break;
-            case "ChocklateDestroyd": challange3Image = ChocklateToken; break;
-            case "ColorBombDestroyd": challange3Image = ColorBomb; break;
-            case "GreenTokenDestroyd": challange3Image = GreenToken; break;
-            case "Ingridient1Destroyd": challange3Image = Ingridient1Token; break;
-            case "Ingridient2Destroyd": challange3Image = Ingridient2Token; break;
-            case "OrangeTokenDestroyd": challange3Image = OrangeToken; break;
-            case "PurpleTokenDestroyd": challange3Image = PurpleToken; break;
-            case "RedTokenDestroyd": challange3Image = RedToken; break;
-            case "Stone1Destroyd": challange3Image = Stone1Token; break;
-            case "Stone2Destroyd": challange3Image = Stone2Token; break;
-            case "YellowTokenDestroyd": challange3Image = YellowToken; break;
-            case "Coockie1Destroyd": challange3Image = Coockie1Token; break;
-            case "Coockie2Destroyd": challange3Image = Coockie2Token; break;
-            case "BombDestroyd": challange3Image = BombToken; break;
-            case "HorizontalBombDestroyd": challange3Image = HorizontalBombToken; break;
-            case "VerticalBombDestroyd": challange3Image = VerticalBombToken; break;
-            case "GameWon": challange3Image = GamesWonToken; break;
-            case "GameStarted": challange3Image = GamesStartedToken; break;
+            case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
+            case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
+            case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
+            case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
+            case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
+            case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
+            case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
+            case "RedTokenDestroyd": C3RedToken.enabled = true; break;
+            case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
+            case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
+            case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
+            case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
+            case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
+            case "BombDestroyd": C3BombToken.enabled = true; break;
+            case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
+            case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
+            case "GameWon": C3GamesWonToken.enabled = true; break;
+            case "GameStarted": C3GamesStartedToken.enabled = true; break;
         }
 
     }
