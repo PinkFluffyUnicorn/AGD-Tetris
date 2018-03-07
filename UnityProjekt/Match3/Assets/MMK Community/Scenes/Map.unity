@@ -17733,8 +17733,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611740715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.5, y: 163, z: 0}
-  m_LocalScale: {x: 0.16944444, y: 0.16944444, z: 0.16944444}
+  m_LocalPosition: {x: 133, y: 236, z: 0}
+  m_LocalScale: {x: 0.24629632, y: 0.24629632, z: 0.24629632}
   m_Children:
   - {fileID: 1844419283}
   - {fileID: 1785659727}
@@ -19728,7 +19728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &670092772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22729,13 +22729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dab8b307d4a8f478f54a27139505e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  challange1Done: {fileID: 159644698}
-  challange2Done: {fileID: 2133377229}
-  challange3Done: {fileID: 1965272964}
-  challange1Description: {fileID: 1189945665}
-  challange2Description: {fileID: 998943747}
-  challange3Description: {fileID: 336909184}
-  moneyHandler: {fileID: 355497608}
 --- !u!222 &759863235
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22918,8 +22911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b4e02e62a96a741b32eb43c2a41491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyHandler: {fileID: 355497608}
-  moneyCount: {fileID: 761495152}
 --- !u!1 &763462975
 GameObject:
   m_ObjectHideFlags: 0
@@ -28720,7 +28711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76b38f1b64135b408e065661cfe242f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectUsernamePanel: {fileID: 1297452566}
 --- !u!114 &965991807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39239,9 +39229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24eed93965f67e84dbcc9774a9f57b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputText: {fileID: 0}
-  outputText: {fileID: 0}
-  popupToClose: {fileID: 0}
 --- !u!95 &1297452569
 Animator:
   serializedVersion: 3
