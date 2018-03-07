@@ -11762,6 +11762,7 @@ GameObject:
   - component: {fileID: 442673855}
   - component: {fileID: 442673854}
   - component: {fileID: 442673853}
+  - component: {fileID: 442673856}
   m_Layer: 5
   m_Name: Base
   m_TagString: Untagged
@@ -11839,6 +11840,21 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 442673851}
+--- !u!114 &442673856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 442673851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a9998924354ae46a6d94cfe6d3fe89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  first: {fileID: 910625205}
+  second: {fileID: 842791618}
+  third: {fileID: 842791618}
+  levelNumber: {fileID: 1260858904}
 --- !u!1 &445386964
 GameObject:
   m_ObjectHideFlags: 0
@@ -17745,8 +17761,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611740715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.5, y: 163, z: 0}
-  m_LocalScale: {x: 0.16944444, y: 0.16944444, z: 0.16944444}
+  m_LocalPosition: {x: 574, y: 279.5, z: 0}
+  m_LocalScale: {x: 1.062963, y: 1.062963, z: 1.062963}
   m_Children:
   - {fileID: 1844419283}
   - {fileID: 1785659727}
@@ -25640,7 +25656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1297452568}
+      - m_Target: {fileID: 0}
         m_MethodName: selectPressed
         m_Mode: 1
         m_Arguments:
@@ -39238,9 +39254,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297452566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24eed93965f67e84dbcc9774a9f57b62, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b1279877fa494b4088d73b23b0cb6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputText: {fileID: 1536876987}
+  outputText: {fileID: 1394642180}
+  popupToClose: {fileID: 1297452566}
 --- !u!95 &1297452569
 Animator:
   serializedVersion: 3
