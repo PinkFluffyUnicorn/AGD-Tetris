@@ -9,6 +9,11 @@ public class EventController : MonoBehaviour {
     public GameObject Event1;
     public GameObject Event2;
 
+    private int StartEvent1;
+    private int StartEvent2;
+    private int DurationEvent1 = 30; //in minutes
+    private int DurationEvent2 = 30; //in minutes
+
 
     // Use this for initialization
     void Start ()
@@ -34,6 +39,26 @@ public class EventController : MonoBehaviour {
         {
             Event2.SetActive(true);
             PlayerPrefs.SetInt("Event2", 1);
+            StartEvent2 = System.DateTime.Now.TimeOfDay.Minutes;
+        }
+    }
+
+    public void Update()
+    {
+        if(PlayerPrefs.GetInt("Event2GoingOn",0) == 1)
+        {
+            if(System.DateTime.Now.TimeOfDay.Minutes - StartEvent2 > DurationEvent2)
+            {
+                PlayerPrefs.SetInt("Event2GoingOn", 0);
+            }
+        }
+
+        if (PlayerPrefs.GetInt("Event1GoingOn", 0) == 1)
+        {
+            if (System.DateTime.Now.TimeOfDay.Minutes - StartEvent1 > DurationEvent1)
+            {
+                PlayerPrefs.SetInt("Event1GoingOn", 0);
+            }
         }
     }
 
