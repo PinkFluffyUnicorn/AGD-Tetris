@@ -55,26 +55,36 @@ public class AddScoreToLeaderbord : MonoBehaviour {
 
     IEnumerator checkUsernameInOnlineDatabase()
     {
-        WWW www = new WWW(webURL + publicCode + "/quote/" + WWW.EscapeURL(PlayerPrefs.GetString("Username"))+"/3");
+        WWW www = new WWW(webURL + publicCode + "/pipe/" + WWW.EscapeURL(PlayerPrefs.GetString("Username")));
         yield return www;
+
+        string realLevelNumber = levelNumber.text;
+        realLevelNumber = realLevelNumber.Substring(6);
 
         if (string.IsNullOrEmpty(www.error))
         {
             print(www.text);
-            string[] enterys = www.text.Split(new[] {","}, StringSplitOptions.None);
-            print(enterys.Length);
-            if (enterys.Length >= 2)
-                first.text = enterys[1] + " " + enterys[0];
-            if (enterys.Length >= 4)
-                second.text = enterys[3] + " " + enterys[2];
-            if (enterys.Length >= 6)
-                third.text = enterys[5] + " " + enterys[4];
+            string[] downloads = www.text.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            List<string> results = new List<string>();
+            for (int i = 0; i < downloads.Length; i++)
+            {
+                string[] pipeCut = downloads[i].Split(new[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
+                if (realLevelNumber == pipeCut[0].Substring(Math.Max(0, pipeCut[0].Length - 1)))
+                    results.Add(pipeCut[1] + " " + pipeCut[0].Remove(pipeCut[0].Length - 1, 1));
+            }
+            if (results.Count >= 1)
+                first.text = results[0];
+            if (results.Count >= 2)
+                second.text = results[1];
+            if (results.Count >= 3)
+                third.text = results[2];
+
         }
         else
         {
             print("Upload Error: " + www.error);
             //TODO: put my own score first
         }
-            
+
     }
 }

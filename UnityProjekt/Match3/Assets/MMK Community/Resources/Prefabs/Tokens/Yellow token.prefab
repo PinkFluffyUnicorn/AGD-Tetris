@@ -18,8 +18,7 @@ GameObject:
   - component: {fileID: 11413036}
   - component: {fileID: 11408374}
   - component: {fileID: 11431202}
-  - component: {fileID: 114178772876172436}
-  - component: {fileID: 114822769870569350}
+  - component: {fileID: 114589143758594062}
   m_Layer: 0
   m_Name: Yellow token
   m_TagString: Untagged
@@ -234,7 +233,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135326}
   m_IsPrefabParent: 1
---- !u!114 &114178772876172436
+--- !u!114 &114589143758594062
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -242,21 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 135326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb80a42346a358449f18f13b7e73067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: YellowToken
-  trackOnStart: 0
-  trackOnDestroy: 0
---- !u!114 &114822769870569350
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 648f786dc4acf764eb26ae5c0ce075e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5994a8924f25487478f021266e61e2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: YellowTokenDestroyd
