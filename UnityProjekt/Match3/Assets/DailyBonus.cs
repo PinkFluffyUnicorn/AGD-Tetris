@@ -14,6 +14,7 @@ public class DailyBonus : MonoBehaviour
     // Use this for initialization, calculate Bonus 0 based
     public void Start()
     {
+
         List<Image> CurrentBonusList = new List<Image> { BonusDay1, BonusDay2, BonusDay3, BonusDay4, BonusDay5, BonusDay6, BonusDay7 };
         List<Image> ReceivedBonusList = new List<Image> { BonusDay1Received, BonusDay2Received, BonusDay3Received, BonusDay4Received, BonusDay5Received, BonusDay6Received };
         List<int> BonusList = new List<int> { 5, 9, 14, 20, 27, 36, 100};
