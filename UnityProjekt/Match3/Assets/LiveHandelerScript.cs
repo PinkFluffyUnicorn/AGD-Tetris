@@ -7,13 +7,13 @@ public class LiveHandelerScript : MonoBehaviour {
 
     private int nextLiveIn = 0;
     private string timerOutput;
-    private int timeToNextLive = 1; //Minuten bis zum nächsten Leben 
+    private int timeToNextLive = 2; //Minuten bis zum nächsten Leben 
 
 	// Use this for initialization
 	void Start () {
 
         nextLiveIn = PlayerPrefs.GetInt("NextLifeIn", 0); // um diese Uhrzeit in Sekunden gibt es ein neues Leben 
-        
+        // hier noch aufrechnen dass die Zeit auch während abwesendsein weiter gezählt wird 
     }
 	
 	// Update is called once per frame
@@ -33,7 +33,7 @@ public class LiveHandelerScript : MonoBehaviour {
                 }
                 else
                 {
-                    nextLiveIn = currentTime + (timeToNextLive * 60 - currentTime - nextLiveIn); // nächstes Leben in einer halben Stunde
+                    nextLiveIn = currentTime + (timeToNextLive * 60 - (currentTime - nextLiveIn)); // nächstes Leben in einer halben Stunde
                     PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
                 }
             }
@@ -94,6 +94,10 @@ public class LiveHandelerScript : MonoBehaviour {
     {
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = time % 60;
+        if (seconds < 10)
+        {
+            return minutes + ":0" + seconds;
+        }
         return minutes + ":" + seconds;
     }
 
