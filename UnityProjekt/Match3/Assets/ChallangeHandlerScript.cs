@@ -348,6 +348,25 @@ public class ChallangeHandlerScript : MonoBehaviour {
     }
     void updateChallangesGui()
     {
+        List<Image> Challenge1Bilder = new List<Image>{ C1BlueToken, C1ColorBomb, C1GreenToken, C1Ingridient1Token, C1Ingridient2Token, C1OrangeToken, C1PurpleToken, C1RedToken, C1Stone1Token, C1Stone2Token, C1YellowToken, C1Coockie1Token, C1Coockie2Token, C1BombToken, C1HorizontalBombToken, C1VerticalBombToken, C1GamesWonToken, C1GamesStartedToken };
+        List<Image> Challenge2Bilder = new List<Image> { C2BlueToken, C2ColorBomb, C2GreenToken, C2Ingridient1Token, C2Ingridient2Token, C2OrangeToken, C2PurpleToken, C2RedToken, C2Stone1Token, C2Stone2Token, C2YellowToken, C2Coockie1Token, C2Coockie2Token, C2BombToken, C2HorizontalBombToken, C2VerticalBombToken, C2GamesWonToken, C2GamesStartedToken };
+        List<Image> Challenge3Bilder = new List<Image> { C3BlueToken, C3ColorBomb, C3GreenToken, C3Ingridient1Token, C3Ingridient2Token, C3OrangeToken, C3PurpleToken, C3RedToken, C3Stone1Token, C3Stone2Token, C3YellowToken, C3Coockie1Token, C3Coockie2Token, C3BombToken, C3HorizontalBombToken, C3VerticalBombToken, C3GamesWonToken, C3GamesStartedToken };
+        //alle Bilder auf nicht angezeigt setzen, damit später nur die richtigen aktiviert werden 
+        for(int i = 0; i < Challenge1Bilder.Count ; i++)
+        {
+            Challenge1Bilder[i].enabled = false;
+        }
+        for (int i = 0; i < Challenge2Bilder.Count; i++)
+        {
+            Challenge2Bilder[i].enabled = false;
+        }
+        for (int i = 0; i < Challenge3Bilder.Count; i++)
+        {
+            Challenge3Bilder[i].enabled = false;
+        }
+
+
+
         //TODO: hier die Progressbar für alle hinzufügen
         //TODO: den Reward in der Gui setzen
         print("hi");
