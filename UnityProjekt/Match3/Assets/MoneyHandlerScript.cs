@@ -24,7 +24,7 @@ public class MoneyHandlerScript : MonoBehaviour {
     public bool subtractMoney(int money)
     {
         int moneyLeft = getMoney() - money;
-        if (money >= 0)
+        if (moneyLeft >= 0)
         {
             PlayerPrefs.SetInt("Money", moneyLeft);
             return true;

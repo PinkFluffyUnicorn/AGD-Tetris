@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PurchaseScript : MonoBehaviour {
+public class BuyFlowerBooster : MonoBehaviour {
 
     public GameObject moneyHandler;
     public int amount;
+    public int price;
     public GameObject enoughMoney;
     public GameObject notEnoughMoney;
 
     // Use this for initialization
-    void Start () {
-        
+    void Start()
+    {
+
 
     }
-	
+
     public void OnClick()
     {
-        if (moneyHandler.GetComponent<MoneyHandlerScript>().subtractMoney(amount))
+        if (moneyHandler.GetComponent<MoneyHandlerScript>().subtractMoney(amount * price))
         {
             enoughMoney.SetActive(true);
         }
@@ -26,5 +28,4 @@ public class PurchaseScript : MonoBehaviour {
             notEnoughMoney.SetActive(true);
         }
     }
-	
 }

@@ -67,6 +67,9 @@ public class InitializePlayerPrefs : MonoBehaviour {
             //Events 
             PlayerPrefs.SetInt("StartDay", System.DateTime.Now.DayOfYear);
 
+            //Lives
+            PlayerPrefs.SetInt("Lives", 5);
+
             PlayerPrefs.SetInt("FirstLogIn", 0);
         }
     }
