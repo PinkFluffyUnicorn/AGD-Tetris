@@ -13,14 +13,21 @@ public class LiveHandelerScript : MonoBehaviour {
 	void Start () {
 
         nextLiveIn = PlayerPrefs.GetInt("NextLifeIn", 0); // um diese Uhrzeit in Sekunden gibt es ein neues Leben 
-        // hier noch aufrechnen dass die Zeit auch während abwesendsein weiter gezählt wird 
+        // hier noch aufrechnen dass die Zeit auch während Abwesenheit weiter gezählt wird 
+        int today = System.DateTime.Now.DayOfYear;
+        int lastDay = PlayerPrefs.GetInt("LastLifeDate", 0);
+        if(lastDay < today - 1)
+        {
+            PlayerPrefs.SetInt("Lives", 5);
+            PlayerPrefs.SetInt("NextLifeIn", 0);
+        }
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
         int Lives = PlayerPrefs.GetInt("Lives", 0);
-		if(Lives != 5)
+		if(Lives < 5)
         {
             int currentTime = Mathf.FloorToInt((float)System.DateTime.Now.TimeOfDay.TotalSeconds);
             if(currentTime >= nextLiveIn)

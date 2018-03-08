@@ -70,6 +70,7 @@ public class InitializePlayerPrefs : MonoBehaviour {
             //Lives
             PlayerPrefs.SetInt("Lives", 5);
             PlayerPrefs.SetInt("NextLifeIn", 0);
+            PlayerPrefs.SetInt("LastLifeDate", System.DateTime.Now.DayOfYear);
 
             PlayerPrefs.SetInt("FirstLogIn", 0);
         }
