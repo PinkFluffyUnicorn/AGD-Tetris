@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LiveHandelerScript : MonoBehaviour {
-    //private int timer = 0; // so viele Minuten bis zum neuen automatischen Leben
-    private int nextLiveIn = 0; // um diese Uhrzeit in Sekunden gibt es ein neues Leben 
+
+    private int nextLiveIn = 0;
     private string timerOutput;
-    private int timeToNextLive = 30; //Minuten bis zum nächsten Leben 
+    private int timeToNextLive = 1; //Minuten bis zum nächsten Leben 
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+        nextLiveIn = PlayerPrefs.GetInt("NextLifeIn", 0); // um diese Uhrzeit in Sekunden gibt es ein neues Leben 
+        
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -23,14 +25,16 @@ public class LiveHandelerScript : MonoBehaviour {
             int currentTime = Mathf.FloorToInt((float)System.DateTime.Now.TimeOfDay.TotalSeconds);
             if(currentTime >= nextLiveIn)
             {
-                PlayerPrefs.SetInt("Lives", Lives + 1);
-                if(Lives + 1 == 5)
+                Lives += 1;
+                PlayerPrefs.SetInt("Lives", Lives);
+                if(Lives == 5)
                 {
                     timerOutput = "Full";
                 }
                 else
                 {
                     nextLiveIn = currentTime + (timeToNextLive * 60 - currentTime - nextLiveIn); // nächstes Leben in einer halben Stunde
+                    PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
                 }
             }
             else
@@ -57,8 +61,12 @@ public class LiveHandelerScript : MonoBehaviour {
         else
         {
             int currentTime = Mathf.FloorToInt((float)System.DateTime.Now.TimeOfDay.TotalSeconds);
-            nextLiveIn = currentTime + timeToNextLive * 60; //halbe Stunde
-            timerOutput = calculateTime(nextLiveIn - currentTime);
+            if (nextLiveIn < currentTime) // Timer nu updaten wenn nicht schon ein Leben runtergezählt wird 
+            {
+                nextLiveIn = currentTime + timeToNextLive * 60; //halbe Stunde
+                timerOutput = calculateTime(nextLiveIn - currentTime);
+                PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
+            }
         }
         PlayerPrefs.SetInt("Lives", amount);
         
@@ -73,6 +81,7 @@ public class LiveHandelerScript : MonoBehaviour {
             PlayerPrefs.SetInt("Lives", currentLives - amount);
             int currentTime = Mathf.FloorToInt((float)System.DateTime.Now.TimeOfDay.TotalSeconds);
             nextLiveIn = currentTime + timeToNextLive * 60; //halbe Stunde
+            PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
             return true;
         }
     }
