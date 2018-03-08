@@ -61,6 +61,12 @@ public class InitializePlayerPrefs : MonoBehaviour {
             PlayerPrefs.SetInt("currentChallange3.done", 1);
             PlayerPrefs.SetInt("currentChallange3.startValue", 0);
 
+            //Daily Bonus 
+            PlayerPrefs.SetInt("NumberOfBonus", 0);
+
+            //Events 
+            PlayerPrefs.SetInt("StartDay", System.DateTime.Now.DayOfYear);
+
             PlayerPrefs.SetInt("FirstLogIn", 0);
         }
     }

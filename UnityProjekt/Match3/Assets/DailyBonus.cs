@@ -33,10 +33,6 @@ public class DailyBonus : MonoBehaviour
             if (numberOfDailyBonus < 6)
                 numberOfDailyBonus++; // user gets the same highest bonus after 7 days of getting bonus
         }
-        else if (currentDate == lastDate)
-        {
-            //same Day, dont receive any Bonus
-        }
         else // on first days or when user has not started game yesterday
         {
             numberOfDailyBonus = 0;

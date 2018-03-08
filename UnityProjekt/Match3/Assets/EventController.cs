@@ -8,19 +8,12 @@ public class EventController : MonoBehaviour {
     public GameObject AdvertiseEvent2;
     public GameObject Event1;
     public GameObject Event2;
-    public GameObject AdvertiseQuestionaire;
-    public GameObject Questionaire;
 
 
     // Use this for initialization
     void Start ()
     {
-        //Datum des ersten tages setzen, wenn es noch nicht gesetzt ist 
-        if(!PlayerPrefs.HasKey("StartDay"))
-        {
-            PlayerPrefs.SetInt("StartDay", System.DateTime.Now.DayOfYear);
-        }
-
+       
 		//abfragen ob heute der Tag ist um das Event anzuzeigen 
         if(CalculateDaysSinceStart() == 1 && PlayerPrefs.GetInt("AdvertiseEvent1", 0) == 0)
         {
@@ -41,16 +34,6 @@ public class EventController : MonoBehaviour {
         {
             Event2.SetActive(true);
             PlayerPrefs.SetInt("Event2", 1);
-        }
-        if (CalculateDaysSinceStart() == 6 && PlayerPrefs.GetInt("AdvQuestionaire", 0) == 0)
-        {
-            AdvertiseQuestionaire.SetActive(true);
-            PlayerPrefs.SetInt("AdvQuestionaire", 1);
-        }
-        if (CalculateDaysSinceStart() == 7 && PlayerPrefs.GetInt("Questionaire", 0) == 0)
-        {
-            Questionaire.SetActive(true);
-            PlayerPrefs.SetInt("Questionaire", 1);
         }
     }
 
