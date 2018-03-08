@@ -66,6 +66,12 @@ public class InitializePlayerPrefs : MonoBehaviour {
 
             //Events 
             PlayerPrefs.SetInt("StartDay", System.DateTime.Now.DayOfYear);
+            PlayerPrefs.SetInt("AdvertiseEvent1", 0);
+            PlayerPrefs.SetInt("AdvertiseEvent2", 0);
+            PlayerPrefs.SetInt("Event1", 0);
+            PlayerPrefs.SetInt("Event2", 0);
+            PlayerPrefs.SetInt("Event1GoingOn", 0);
+            PlayerPrefs.SetInt("Event2GoingOn", 0);
 
             //Lives
             PlayerPrefs.SetInt("Lives", 5);
