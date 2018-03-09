@@ -16,6 +16,7 @@ public class MoneyHandlerScript : MonoBehaviour {
 
     public void addMoney(int money)
     {
+        if (PlayerPrefs.GetInt("Event1GoingOn", 0) == 1) money = money * 2;
         if (money < 0)
             return;
         PlayerPrefs.SetInt("Money", getMoney() + money);

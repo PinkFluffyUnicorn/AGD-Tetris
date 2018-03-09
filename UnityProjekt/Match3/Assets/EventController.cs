@@ -45,7 +45,9 @@ public class EventController : MonoBehaviour {
     private int CalculateDaysSinceStart()
     {
         int currentDay = System.DateTime.Now.DayOfYear;
+        //PlayerPrefs.SetInt("StartDay", );
         int startDay = PlayerPrefs.GetInt("StartDay");
+
         return currentDay - startDay;
     }
 }

@@ -7,7 +7,8 @@ public class InitializePlayerPrefs : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //PlayerPrefs.DeleteAll();
-        if(PlayerPrefs.GetInt("FirstLogin", 1) == 1)
+        int FirstLogin = PlayerPrefs.GetInt("FirstLogin", 1);
+        if (FirstLogin == 1)
         {
             PlayerPrefs.SetInt("Money", 10);
             PlayerPrefs.SetInt("BlueTokenDestroyd", 0);
@@ -78,7 +79,7 @@ public class InitializePlayerPrefs : MonoBehaviour {
             PlayerPrefs.SetInt("NextLifeIn", 0);
             PlayerPrefs.SetInt("LastLifeDate", System.DateTime.Now.DayOfYear);
 
-            PlayerPrefs.SetInt("FirstLogIn", 0);
+            PlayerPrefs.SetInt("FirstLogin", 0);
         }
     }
 	

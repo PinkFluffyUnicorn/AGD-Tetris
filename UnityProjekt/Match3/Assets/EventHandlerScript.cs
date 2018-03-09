@@ -11,23 +11,23 @@ public class EventHandlerScript : MonoBehaviour {
 
     void Start()
     {
-
+        int DaysSinceStart = CalculateDaysSinceStart();
         //abfragen ob heute der Tag ist um das Event anzuzeigen 
-        if (CalculateDaysSinceStart() == 1 && PlayerPrefs.GetInt("AdvertiseEvent1", 0) == 0)
+        if (DaysSinceStart == 1 && PlayerPrefs.GetInt("AdvertiseEvent1", 0) == 0)
         {
             PlayerPrefs.SetInt("AdvertiseEvent1", 1);
         }
-        if (CalculateDaysSinceStart() == 2 && PlayerPrefs.GetInt("Event1", 0) == 0)
+        if (DaysSinceStart == 2 && PlayerPrefs.GetInt("Event1", 0) == 0)
         {
             PlayerPrefs.SetInt("Event1", 1);
             PlayerPrefs.SetInt("Event1GoingOn", 1);
             StartEvent1 = (int)System.DateTime.Now.TimeOfDay.TotalSeconds;
         }
-        if (CalculateDaysSinceStart() == 3 && PlayerPrefs.GetInt("AdvertiseEvent2", 0) == 0)
+        if (DaysSinceStart == 3 && PlayerPrefs.GetInt("AdvertiseEvent2", 0) == 0)
         {
             PlayerPrefs.SetInt("AdvertiseEvent2", 1);
         }
-        if (CalculateDaysSinceStart() == 4 && PlayerPrefs.GetInt("Event2", 0) == 0)
+        if (DaysSinceStart == 4 && PlayerPrefs.GetInt("Event2", 0) == 0)
         {
             PlayerPrefs.SetInt("Event2", 1);
             PlayerPrefs.SetInt("Event2GoingOn", 1);
@@ -77,6 +77,7 @@ public class EventHandlerScript : MonoBehaviour {
     private int CalculateDaysSinceStart()
     {
         int currentDay = System.DateTime.Now.DayOfYear;
+        //PlayerPrefs.SetInt("StartDay", 67);
         int startDay = PlayerPrefs.GetInt("StartDay");
         return currentDay - startDay;
     }
