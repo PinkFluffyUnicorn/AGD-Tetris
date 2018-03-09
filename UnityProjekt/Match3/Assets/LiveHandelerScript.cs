@@ -11,47 +11,62 @@ public class LiveHandelerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-        nextLiveIn = PlayerPrefs.GetInt("NextLifeIn", 0); // um diese Uhrzeit in Sekunden gibt es ein neues Leben 
-        // hier noch aufrechnen dass die Zeit auch während Abwesenheit weiter gezählt wird 
-        int today = System.DateTime.Now.DayOfYear;
-        int lastDay = PlayerPrefs.GetInt("LastLifeDate", 0);
-        if(lastDay < today - 1)
+        if (PlayerPrefs.GetInt("Event2GoingOn", 0) == 1)
         {
             PlayerPrefs.SetInt("Lives", 5);
             PlayerPrefs.SetInt("NextLifeIn", 0);
+        }
+        else
+        {
+            nextLiveIn = PlayerPrefs.GetInt("NextLifeIn", 0); // um diese Uhrzeit in Sekunden gibt es ein neues Leben 
+                                                              // hier noch aufrechnen dass die Zeit auch während Abwesenheit weiter gezählt wird 
+            int today = System.DateTime.Now.DayOfYear;
+            int lastDay = PlayerPrefs.GetInt("LastLifeDate", 0);
+            if (lastDay < today - 1)
+            {
+                PlayerPrefs.SetInt("Lives", 5);
+                PlayerPrefs.SetInt("NextLifeIn", 0);
+            }
         }
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        int Lives = PlayerPrefs.GetInt("Lives", 0);
-		if(Lives < 5)
+        if (PlayerPrefs.GetInt("Event2GoingOn", 0) == 1)
         {
-            int currentTime = Mathf.FloorToInt((float)System.DateTime.Now.TimeOfDay.TotalSeconds);
-            if(currentTime >= nextLiveIn)
+            //PlayerPrefs.SetInt("Lives", 5);
+            timerOutput = "Full";
+        }
+        else
+        {
+            int Lives = PlayerPrefs.GetInt("Lives", 0);
+            if (Lives < 5)
             {
-                Lives += 1;
-                PlayerPrefs.SetInt("Lives", Lives);
-                if(Lives == 5)
+                int currentTime = Mathf.FloorToInt((float)System.DateTime.Now.TimeOfDay.TotalSeconds);
+                if (currentTime >= nextLiveIn)
                 {
-                    timerOutput = "Full";
+                    Lives += 1;
+                    PlayerPrefs.SetInt("Lives", Lives);
+                    if (Lives == 5)
+                    {
+                        timerOutput = "Full";
+                    }
+                    else
+                    {
+                        nextLiveIn = currentTime + (timeToNextLive * 60 - (currentTime - nextLiveIn)); // nächstes Leben in einer halben Stunde
+                        PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
+                    }
                 }
                 else
                 {
-                    nextLiveIn = currentTime + (timeToNextLive * 60 - (currentTime - nextLiveIn)); // nächstes Leben in einer halben Stunde
-                    PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
+                    timerOutput = calculateTime(nextLiveIn - currentTime);
                 }
             }
             else
             {
-                timerOutput = calculateTime(nextLiveIn - currentTime);
+                timerOutput = "Full";
             }
-        }
-        else
-        {
-            timerOutput = "Full";
         }
 	}
 
@@ -81,15 +96,22 @@ public class LiveHandelerScript : MonoBehaviour {
 
     public bool subtractLives(int amount)
     {
-        int currentLives = PlayerPrefs.GetInt("Lives", 0);
-        if (currentLives - amount < 0) return false;
+        if (PlayerPrefs.GetInt("Event2GoingOn", 0) == 1)
+        {
+            return true;
+        }
         else
         {
-            PlayerPrefs.SetInt("Lives", currentLives - amount);
-            int currentTime = Mathf.FloorToInt((float)System.DateTime.Now.TimeOfDay.TotalSeconds);
-            nextLiveIn = currentTime + timeToNextLive * 60; //halbe Stunde
-            PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
-            return true;
+            int currentLives = PlayerPrefs.GetInt("Lives", 0);
+            if (currentLives - amount < 0) return false;
+            else
+            {
+                PlayerPrefs.SetInt("Lives", currentLives - amount);
+                int currentTime = Mathf.FloorToInt((float)System.DateTime.Now.TimeOfDay.TotalSeconds);
+                nextLiveIn = currentTime + timeToNextLive * 60; //halbe Stunde
+                PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
+                return true;
+            }
         }
     }
     public int getLives()
