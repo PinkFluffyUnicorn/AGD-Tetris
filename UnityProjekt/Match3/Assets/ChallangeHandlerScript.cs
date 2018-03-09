@@ -17,6 +17,10 @@ public class ChallangeHandlerScript : MonoBehaviour {
     public Text Challenge2reward;
     public Text Challenge3reward;
 
+    public Slider Challenge1Slider;
+    public Slider Challenge2Slider;
+    public Slider Challenge3Slider;
+
     //public Image challange1Image, challange2Image, challange3Image;
 
     public Image C1BlueToken, C1ColorBomb, C1GreenToken, C1Ingridient1Token, C1Ingridient2Token, C1OrangeToken, C1PurpleToken, C1RedToken, C1Stone1Token, C1Stone2Token, C1YellowToken, C1Coockie1Token, C1Coockie2Token, C1BombToken, C1HorizontalBombToken, C1VerticalBombToken, C1GamesWonToken, C1GamesStartedToken;
@@ -376,6 +380,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         print("hi");
         challange1Description.text = currentChallange1.Description;
         Challenge1reward.text = currentChallange1.reward.ToString();
+        Challenge1Slider.value = currentChallange1.count / currentChallange1.goal;
         switch (currentChallange1.PlayerPrefsId)
         {
             case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
@@ -399,6 +404,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         }
         challange2Description.text = currentChallange2.Description;
         Challenge2reward.text = currentChallange2.reward.ToString();
+        Challenge2Slider.value = currentChallange2.count / currentChallange2.goal;
         switch (currentChallange2.PlayerPrefsId)
         {
             case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
@@ -422,6 +428,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         }
         challange3Description.text = currentChallange3.Description;
         Challenge3reward.text = currentChallange3.reward.ToString();
+        Challenge3Slider.value = currentChallange3.count / currentChallange3.goal;
         switch (currentChallange3.PlayerPrefsId)
         {
             case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
