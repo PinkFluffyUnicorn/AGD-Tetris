@@ -10,7 +10,7 @@ public class InitializePlayerPrefs : MonoBehaviour {
         int FirstLogin = PlayerPrefs.GetInt("FirstLogin", 1);
         if (FirstLogin == 1)
         {
-            PlayerPrefs.SetInt("Money", 10);
+            PlayerPrefs.SetInt("Money", 100);
             PlayerPrefs.SetInt("BlueTokenDestroyd", 0);
             PlayerPrefs.SetInt("ChocklateDestroyd", 0);
             PlayerPrefs.SetInt("ColorBombDestroyd", 0);
@@ -73,6 +73,10 @@ public class InitializePlayerPrefs : MonoBehaviour {
             PlayerPrefs.SetInt("Event2", 0);
             PlayerPrefs.SetInt("Event1GoingOn", 0);
             PlayerPrefs.SetInt("Event2GoingOn", 0);
+            PlayerPrefs.SetInt("Event2Start", 0);
+            PlayerPrefs.SetInt("Event2Duration", 0);
+            PlayerPrefs.SetInt("Event1Start", 0);
+            PlayerPrefs.SetInt("Event1Duration", 0);
 
             //Lives
             PlayerPrefs.SetInt("Lives", 5);

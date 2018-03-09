@@ -20,7 +20,7 @@ public class BuyLivesBooster : MonoBehaviour {
 
     public void OnClick()
     {
-        if (moneyHandler.GetComponent<MoneyHandlerScript>().subtractMoney(amount * price))
+        if (moneyHandler.GetComponent<MoneyHandlerScript>().subtractMoney(price))
         {
             enoughMoney.SetActive(true);
             LiveHandler.GetComponent<LiveHandelerScript>().addLives(amount);

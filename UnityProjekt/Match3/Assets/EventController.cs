@@ -28,17 +28,17 @@ public class EventController : MonoBehaviour {
         if(CalculateDaysSinceStart() == 2 && PlayerPrefs.GetInt("Event1", 0) == 1)
         {
             Event1.SetActive(true);
-            PlayerPrefs.SetInt("AdvertiseEvent1", 2);
+            PlayerPrefs.SetInt("Event1", 2);
         }
         if (CalculateDaysSinceStart() == 3 && PlayerPrefs.GetInt("AdvertiseEvent2", 0) == 1)
         {
             AdvertiseEvent2.SetActive(true);
-            PlayerPrefs.SetInt("AdvertiseEvent1", 2);
+            PlayerPrefs.SetInt("AdvertiseEvent2", 2);
         }
         if (CalculateDaysSinceStart() == 4 && PlayerPrefs.GetInt("Event2", 0) == 1)
         {
             Event2.SetActive(true);
-            PlayerPrefs.SetInt("AdvertiseEvent1", 2);
+            PlayerPrefs.SetInt("Event2", 2);
         }
     }
 

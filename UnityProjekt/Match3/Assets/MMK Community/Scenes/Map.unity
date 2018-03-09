@@ -8393,7 +8393,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TOMRROW'S EVENT
+  m_Text: EVENT
 --- !u!222 &315131743
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10050,7 +10050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &361564696
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15999,8 +15999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyHandler: {fileID: 355497608}
-  amount: 3
   price: 80
+  amount: 3
   enoughMoney: {fileID: 254519146}
   notEnoughMoney: {fileID: 1864072655}
 --- !u!1 &528743268
@@ -33427,7 +33427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1093008663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -53737,8 +53737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyHandler: {fileID: 355497608}
-  amount: 3
   price: 80
+  amount: 3
   enoughMoney: {fileID: 254519146}
   notEnoughMoney: {fileID: 1864072655}
 --- !u!1 &1708564825
@@ -54284,8 +54284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyHandler: {fileID: 355497608}
-  amount: 3
   price: 80
+  amount: 3
   enoughMoney: {fileID: 254519146}
   notEnoughMoney: {fileID: 1864072655}
 --- !u!1 &1732259232
@@ -59257,8 +59257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyHandler: {fileID: 355497608}
-  amount: 3
   price: 80
+  amount: 3
   enoughMoney: {fileID: 254519146}
   notEnoughMoney: {fileID: 1864072655}
 --- !u!1 &1901415395
@@ -60743,7 +60743,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TOMRROW'S EVENT
+  m_Text: EVENT
 --- !u!222 &1960142514
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -65261,8 +65261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyHandler: {fileID: 355497608}
-  amount: 3
   price: 80
+  amount: 3
   enoughMoney: {fileID: 254519146}
   notEnoughMoney: {fileID: 1864072655}
 --- !u!1 &2078889917

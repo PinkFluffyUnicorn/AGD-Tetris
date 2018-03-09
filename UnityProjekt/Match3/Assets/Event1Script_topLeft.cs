@@ -16,6 +16,7 @@ public class Event1Script_topLeft : MonoBehaviour {
             Panel.SetActive(true);
             Background.SetActive(true);
         }
+       
 	}
 	
 	// Update is called once per frame
@@ -24,6 +25,11 @@ public class Event1Script_topLeft : MonoBehaviour {
         {
             Panel.SetActive(true);
             Background.SetActive(true);
+        }
+        else
+        {
+            Panel.SetActive(false);
+            Background.SetActive(false);
         }
     }
 }

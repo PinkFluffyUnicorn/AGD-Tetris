@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class EventHandlerScript : MonoBehaviour {
 
-    private int StartEvent1;
-    private int StartEvent2;
-    private int DurationEvent1 = 30 * 60; //in seconds
-    private int DurationEvent2 = 30 * 60; //in minutes
-
     void Start()
     {
         int DaysSinceStart = CalculateDaysSinceStart();
@@ -21,7 +16,8 @@ public class EventHandlerScript : MonoBehaviour {
         {
             PlayerPrefs.SetInt("Event1", 1);
             PlayerPrefs.SetInt("Event1GoingOn", 1);
-            StartEvent1 = (int)System.DateTime.Now.TimeOfDay.TotalSeconds;
+            PlayerPrefs.SetInt("Event1Start", (int)System.DateTime.Now.TimeOfDay.TotalSeconds);
+            PlayerPrefs.SetInt("Event1Duration", 30 * 60);
         }
         if (DaysSinceStart == 3 && PlayerPrefs.GetInt("AdvertiseEvent2", 0) == 0)
         {
@@ -31,7 +27,8 @@ public class EventHandlerScript : MonoBehaviour {
         {
             PlayerPrefs.SetInt("Event2", 1);
             PlayerPrefs.SetInt("Event2GoingOn", 1);
-            StartEvent2 = (int)System.DateTime.Now.TimeOfDay.TotalSeconds; ;
+            PlayerPrefs.SetInt("Event2Start", (int)System.DateTime.Now.TimeOfDay.TotalSeconds);
+            PlayerPrefs.SetInt("Event2Duration", 30 * 60);
         }
     }
 
@@ -39,7 +36,7 @@ public class EventHandlerScript : MonoBehaviour {
     {
         if (PlayerPrefs.GetInt("Event2GoingOn", 0) == 1)
         {
-            if ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - StartEvent2 > DurationEvent2)
+            if ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - getStartEvent2() > getDurationEvent2())
             {
                 PlayerPrefs.SetInt("Event2GoingOn", 0);
             }
@@ -47,7 +44,7 @@ public class EventHandlerScript : MonoBehaviour {
 
         if (PlayerPrefs.GetInt("Event1GoingOn", 0) == 1)
         {
-            if ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - StartEvent1 > DurationEvent1)
+            if ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - getStartEvent1() > getDurationEvent1())
             {
                 PlayerPrefs.SetInt("Event1GoingOn", 0);
             }
@@ -56,28 +53,28 @@ public class EventHandlerScript : MonoBehaviour {
 
     public int getStartEvent2()
     {
-        return StartEvent2;
+        return PlayerPrefs.GetInt("Event2Start", 0);
     }
 
     public int getStartEvent1()
     {
-        return StartEvent1;
+        return PlayerPrefs.GetInt("Event1Start", 0);
     }
 
     public int getDurationEvent1()
     {
-        return DurationEvent1;
+        return PlayerPrefs.GetInt("Event1Duration", 0);
     }
 
     public int getDurationEvent2()
     {
-        return DurationEvent2;
+        return PlayerPrefs.GetInt("Event2Duration", 0);
     }
 
     private int CalculateDaysSinceStart()
     {
         int currentDay = System.DateTime.Now.DayOfYear;
-        //PlayerPrefs.SetInt("StartDay", 67);
+        
         int startDay = PlayerPrefs.GetInt("StartDay");
         return currentDay - startDay;
     }

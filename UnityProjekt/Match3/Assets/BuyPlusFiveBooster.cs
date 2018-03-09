@@ -5,8 +5,8 @@ using UnityEngine;
 public class BuyPlusFiveBooster : MonoBehaviour {
 
     public GameObject moneyHandler;
-    public int amount;
     public int price;
+    public int amount;
     public GameObject enoughMoney;
     public GameObject notEnoughMoney;
 
@@ -19,7 +19,7 @@ public class BuyPlusFiveBooster : MonoBehaviour {
 
     public void OnClick()
     {
-        if (moneyHandler.GetComponent<MoneyHandlerScript>().subtractMoney(amount * price))
+        if (moneyHandler.GetComponent<MoneyHandlerScript>().subtractMoney(price))
         {
             enoughMoney.SetActive(true);
         }
