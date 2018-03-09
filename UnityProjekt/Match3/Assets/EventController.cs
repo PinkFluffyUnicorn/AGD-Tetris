@@ -8,57 +8,37 @@ public class EventController : MonoBehaviour {
     public GameObject AdvertiseEvent2;
     public GameObject Event1;
     public GameObject Event2;
-
-    private int StartEvent1;
-    private int StartEvent2;
-    private int DurationEvent1 = 30; //in minutes
-    private int DurationEvent2 = 30; //in minutes
+    public GameObject EventHandler;
 
 
     // Use this for initialization
     void Start ()
     {
-       
-		//abfragen ob heute der Tag ist um das Event anzuzeigen 
-        if(CalculateDaysSinceStart() == 1 && PlayerPrefs.GetInt("AdvertiseEvent1", 0) == 0)
+        int StartEvent2 = EventHandler.GetComponent<EventHandlerScript>().getStartEvent2();
+        int StartEvent1 = EventHandler.GetComponent<EventHandlerScript>().getStartEvent1();
+        int DurationEvent2 = EventHandler.GetComponent<EventHandlerScript>().getDurationEvent2();
+        int DurationEvent1 = EventHandler.GetComponent<EventHandlerScript>().getDurationEvent1();
+
+        //abfragen ob heute der Tag ist um das Event anzuzeigen 
+        if (CalculateDaysSinceStart() == 1 && PlayerPrefs.GetInt("AdvertiseEvent1", 0) == 1)
         {
             AdvertiseEvent1.SetActive(true);
-            PlayerPrefs.SetInt("AdvertiseEvent1", 1);
+            PlayerPrefs.SetInt("AdvertiseEvent1", 2);
         }
-        if(CalculateDaysSinceStart() == 2 && PlayerPrefs.GetInt("Event1", 0) == 0)
+        if(CalculateDaysSinceStart() == 2 && PlayerPrefs.GetInt("Event1", 0) == 1)
         {
             Event1.SetActive(true);
-            PlayerPrefs.SetInt("Event1", 1);
+            PlayerPrefs.SetInt("AdvertiseEvent1", 2);
         }
-        if (CalculateDaysSinceStart() == 3 && PlayerPrefs.GetInt("AdvertiseEvent2", 0) == 0)
+        if (CalculateDaysSinceStart() == 3 && PlayerPrefs.GetInt("AdvertiseEvent2", 0) == 1)
         {
             AdvertiseEvent2.SetActive(true);
-            PlayerPrefs.SetInt("AdvertiseEvent2", 1);
+            PlayerPrefs.SetInt("AdvertiseEvent1", 2);
         }
-        if (CalculateDaysSinceStart() == 4 && PlayerPrefs.GetInt("Event2", 0) == 0)
+        if (CalculateDaysSinceStart() == 4 && PlayerPrefs.GetInt("Event2", 0) == 1)
         {
             Event2.SetActive(true);
-            PlayerPrefs.SetInt("Event2", 1);
-            StartEvent2 = System.DateTime.Now.TimeOfDay.Minutes;
-        }
-    }
-
-    public void Update()
-    {
-        if(PlayerPrefs.GetInt("Event2GoingOn",0) == 1)
-        {
-            if(System.DateTime.Now.TimeOfDay.Minutes - StartEvent2 > DurationEvent2)
-            {
-                PlayerPrefs.SetInt("Event2GoingOn", 0);
-            }
-        }
-
-        if (PlayerPrefs.GetInt("Event1GoingOn", 0) == 1)
-        {
-            if (System.DateTime.Now.TimeOfDay.Minutes - StartEvent1 > DurationEvent1)
-            {
-                PlayerPrefs.SetInt("Event1GoingOn", 0);
-            }
+            PlayerPrefs.SetInt("AdvertiseEvent1", 2);
         }
     }
 
