@@ -7,6 +7,8 @@ public class EventHandlerScript : MonoBehaviour {
     void Start()
     {
         int DaysSinceStart = CalculateDaysSinceStart();
+        int DurationEvent1 = 30 * 60;
+        int DurationEvent2 = 30 * 60;
         //abfragen ob heute der Tag ist um das Event anzuzeigen 
         if (DaysSinceStart == 1 && PlayerPrefs.GetInt("AdvertiseEvent1", 0) == 0)
         {
@@ -16,8 +18,13 @@ public class EventHandlerScript : MonoBehaviour {
         {
             PlayerPrefs.SetInt("Event1", 1);
             PlayerPrefs.SetInt("Event1GoingOn", 1);
-            PlayerPrefs.SetInt("Event1Start", (int)System.DateTime.Now.TimeOfDay.TotalSeconds);
-            PlayerPrefs.SetInt("Event1Duration", 30 * 60);
+            int start = (int)System.DateTime.Now.TimeOfDay.TotalSeconds;
+            PlayerPrefs.SetInt("Event1Start", start);
+            if(start + DurationEvent1 > 24 * 60 * 60)// falls das Event länger als bis Mitternacht gehen würde, so kürzen dass es nur bis Mitternacht geht 
+            {
+                DurationEvent1 = (24 * 60 * 60) - start - 1;
+            }
+            PlayerPrefs.SetInt("Event1Duration", DurationEvent1);            
         }
         if (DaysSinceStart == 3 && PlayerPrefs.GetInt("AdvertiseEvent2", 0) == 0)
         {
@@ -27,8 +34,13 @@ public class EventHandlerScript : MonoBehaviour {
         {
             PlayerPrefs.SetInt("Event2", 1);
             PlayerPrefs.SetInt("Event2GoingOn", 1);
-            PlayerPrefs.SetInt("Event2Start", (int)System.DateTime.Now.TimeOfDay.TotalSeconds);
-            PlayerPrefs.SetInt("Event2Duration", 30 * 60);
+            int start = (int)System.DateTime.Now.TimeOfDay.TotalSeconds;
+            PlayerPrefs.SetInt("Event2Start", start);
+            if (start + DurationEvent2 > 24 * 60 * 60)// falls das Event länger als bis Mitternacht gehen würde, so kürzen dass es nur bis Mitternacht geht 
+            {
+                DurationEvent2 = (24 * 60 * 60) - start - 1;
+            }
+            PlayerPrefs.SetInt("Event2Duration", DurationEvent2);
         }
     }
 
