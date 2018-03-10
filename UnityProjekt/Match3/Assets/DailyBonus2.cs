@@ -12,7 +12,6 @@ public class DailyBonus2 : MonoBehaviour {
     {
         //1 am ersten Tag usw.bis 6 
         int numberOfDailyBonus = PlayerPrefs.GetInt("NumberOfBonus", 0);
-        numberOfDailyBonus = 6;
 
         // das für morgen, die noch nicht erhaltenen & die schon erhaltenen 
         List<Image> CurrentBonusList = new List<Image> { BonusDay1, BonusDay2, BonusDay3, BonusDay4, BonusDay5, BonusDay6, BonusDay7 };

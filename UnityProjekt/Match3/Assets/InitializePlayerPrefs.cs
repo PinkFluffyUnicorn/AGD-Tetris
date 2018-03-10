@@ -64,6 +64,8 @@ public class InitializePlayerPrefs : MonoBehaviour {
 
             //Daily Bonus 
             PlayerPrefs.SetInt("NumberOfBonus", 0);
+            PlayerPrefs.SetInt("date", System.DateTime.Now.DayOfYear);
+            PlayerPrefs.SetInt("StartDayBonus", 0);
 
             //Events 
             PlayerPrefs.SetInt("StartDay", System.DateTime.Now.DayOfYear);

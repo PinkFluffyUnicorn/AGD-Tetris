@@ -11,15 +11,17 @@ public class DailyBonusController : MonoBehaviour
 
     public void Start()
     {
-        if (PlayerPrefs.GetInt("date", 0) == System.DateTime.Now.DayOfYear) // same day, bonus was received already 
+        int startDay = PlayerPrefs.GetInt("StartDay", 0);
+        int StartDayBonus = PlayerPrefs.GetInt("StartDayBonus", 0);
+        if (PlayerPrefs.GetInt("date", 0) != System.DateTime.Now.DayOfYear || (System.DateTime.Now.DayOfYear == startDay && StartDayBonus == 0)) // same day, bonus was received already 
         {
-            //dont do anything
+            DailyBonus.SetActive(true);
+            PlayerPrefs.SetInt("StartDayBonus", 1);
         }
         else
         {
-            DailyBonus.SetActive(true);
+            DailyBonus.SetActive(false);
         }
-        //DailyBonus.SetActive(true);//TODO: delete when debugging done
     }
 
 }
