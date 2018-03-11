@@ -349,9 +349,9 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
 
         //testing
-        currentChallange1.done = 1;
-        currentChallange2.done = 1;
-        currentChallange3.done = 1;
+        //currentChallange1.done = 1;
+        //currentChallange2.done = 1;
+        //currentChallange3.done = 1;
     }
     void updateCurrentChallanges()
     {
