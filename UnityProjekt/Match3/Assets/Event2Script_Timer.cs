@@ -13,23 +13,53 @@ public class Event2Script_Timer : MonoBehaviour {
 	void Start ()
     {
         int StartEvent2 = EventHandler.GetComponent<EventHandlerScript>().getStartEvent2();
-        int StartEvent1 = EventHandler.GetComponent<EventHandlerScript>().getStartEvent1();
         int DurationEvent2 = EventHandler.GetComponent<EventHandlerScript>().getDurationEvent2();
-        int DurationEvent1 = EventHandler.GetComponent<EventHandlerScript>().getDurationEvent1();
+
         if (PlayerPrefs.GetInt("Event2GoingOn", 0) == 1)
         {
             Panel.SetActive(true);
             int time = DurationEvent2 - ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - StartEvent2);
+            float hoursHelp = ((time / 60) / 60);
+            int hours = Mathf.FloorToInt(hoursHelp);
             int seconds = time % 60;
-            int minutes = time / 60;
-            if(seconds < 10)
+            int minutes = (int)(hoursHelp - (float)hours) * 60;
+            if (hours == 0)
             {
-                timer.text = minutes + ":0" + seconds;
+                if (seconds < 10)
+                {
+                    timer.text = minutes + ":0" + seconds;
+                }
+                else
+                {
+                    timer.text = minutes + ":" + seconds;
+                }
             }
             else
             {
-                timer.text = minutes + ":" + seconds;
+                if(minutes < 10)
+                {
+                    if (seconds < 10)
+                    {
+                        timer.text = hours+":0"+minutes + ":0" + seconds;
+                    }
+                    else
+                    {
+                        timer.text = hours+":0"+minutes + ":" + seconds;
+                    }
+                }
+                else
+                {
+                    if (seconds < 10)
+                    {
+                        timer.text = hours+":"+minutes + ":0" + seconds;
+                    }
+                    else
+                    {
+                        timer.text = hours+":"+minutes + ":" + seconds;
+                    }
+                }
             }
+
         }
         else
         {
@@ -41,22 +71,51 @@ public class Event2Script_Timer : MonoBehaviour {
     void Update ()
     {
         int StartEvent2 = EventHandler.GetComponent<EventHandlerScript>().getStartEvent2();
-        int StartEvent1 = EventHandler.GetComponent<EventHandlerScript>().getStartEvent1();
         int DurationEvent2 = EventHandler.GetComponent<EventHandlerScript>().getDurationEvent2();
-        int DurationEvent1 = EventHandler.GetComponent<EventHandlerScript>().getDurationEvent1();
+        
         if (PlayerPrefs.GetInt("Event2GoingOn", 0) == 1)
         {
             Panel.SetActive(true);
             int time = DurationEvent2 - ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - StartEvent2);
+            float hoursHelp = ((time / 60) / 60);
+            int hours = Mathf.FloorToInt(hoursHelp);
             int seconds = time % 60;
-            int minutes = time / 60;
-            if (seconds < 10)
+            int minutes = (int)(hoursHelp - (float)hours) * 60;
+            if (hours == 0)
             {
-                timer.text = minutes + ":0" + seconds;
+                if (seconds < 10)
+                {
+                    timer.text = minutes + ":0" + seconds;
+                }
+                else
+                {
+                    timer.text = minutes + ":" + seconds;
+                }
             }
             else
             {
-                timer.text = minutes + ":" + seconds;
+                if (minutes < 10)
+                {
+                    if (seconds < 10)
+                    {
+                        timer.text = hours + ":0" + minutes + ":0" + seconds;
+                    }
+                    else
+                    {
+                        timer.text = hours + ":0" + minutes + ":" + seconds;
+                    }
+                }
+                else
+                {
+                    if (seconds < 10)
+                    {
+                        timer.text = hours + ":" + minutes + ":0" + seconds;
+                    }
+                    else
+                    {
+                        timer.text = hours + ":" + minutes + ":" + seconds;
+                    }
+                }
             }
         }
         else

@@ -7,8 +7,8 @@ public class EventHandlerScript : MonoBehaviour {
     void Start()
     {
         int DaysSinceStart = CalculateDaysSinceStart();
-        int DurationEvent1 = 30 * 60;
-        int DurationEvent2 = 30 * 60;
+        int DurationEvent1 = 3* 60 * 60;
+        int DurationEvent2 = 3 * 60 * 60;
         //abfragen ob heute der Tag ist um das Event anzuzeigen 
         if (DaysSinceStart == 1 && PlayerPrefs.GetInt("AdvertiseEvent1", 0) == 0)
         {
