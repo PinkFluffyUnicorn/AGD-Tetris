@@ -39,7 +39,7 @@ public class AddScoreToLeaderbord : MonoBehaviour {
         string realHighScore = highscore.text;
         realHighScore = realHighScore.Replace(" ", "");
         //TODO: just replace the highscore when its actually higher
-        WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(PlayerPrefs.GetString("Username"))+ realLevelNumber + "/"+ realHighScore);//all scores are 1
+        WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(PlayerPrefs.GetString("Username")) + "_"+ realLevelNumber+ "/" + realHighScore);//all scores are 1
         yield return www;
 
         if (!string.IsNullOrEmpty(www.error))
@@ -70,7 +70,7 @@ public class AddScoreToLeaderbord : MonoBehaviour {
             {
                 string[] pipeCut = downloads[i].Split(new[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
                 if (realLevelNumber == pipeCut[0].Substring(Math.Max(0, pipeCut[0].Length - 1)))
-                    results.Add(pipeCut[1] + " " + pipeCut[0].Remove(pipeCut[0].Length - 1, 1));
+                    results.Add(pipeCut[1] + " " + pipeCut[0].Remove(pipeCut[0].Length - 1, 1));//TODO: change to split at _
             }
             if (results.Count >= 1)
                 first.text = results[0];

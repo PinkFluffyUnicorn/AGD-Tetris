@@ -28,7 +28,7 @@ public class selectUsernameScript : MonoBehaviour {
 
     public void selectPressed()
     {
-        StartCoroutine(checkUsernameInOnlineDatabase(inputText.text));
+        StartCoroutine(checkUsernameInOnlineDatabase(inputText.text)); //TODO: check if username vontains any _
     }
     IEnumerator uploadUsernameToOnlineDatabase(string username)
     {

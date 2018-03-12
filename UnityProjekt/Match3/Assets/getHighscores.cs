@@ -14,6 +14,9 @@ public class getHighscores : MonoBehaviour
     public Text third;
 
     public Text levelNumber;
+    public string oldLevelNumber;
+
+    public GameObject highscoreHandler;
 
 
     //Important, never delete! http://dreamlo.com/lb/AeuoLJscsEaYq3tKbd2xNAHRAWjegmS0WKnD39Wdex_A
@@ -26,25 +29,36 @@ public class getHighscores : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        oldLevelNumber = levelNumber.text;
     }
 
     void OnEnable()
     {
-        StartCoroutine(checkUsernameInOnlineDatabase());
+        //StartCoroutine(checkUsernameInOnlineDatabase()); //TODO: delete maybe
     }
 
     void OnDisable()
     {
-        first.text = "---";
-        second.text = "---";
-        third.text = "---";
+        //first.text = "---";
+        //second.text = "---";
+        //third.text = "---";
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (oldLevelNumber != levelNumber.text)
+        {
+            List<string> results = highscoreHandler.GetComponent<DownloadHighscores>().getHighscores(Int32.Parse(levelNumber.text.Substring(6)));
 
+            if (results.Count >= 1)
+                first.text = results[0];
+            if (results.Count >= 2)
+                second.text = results[1];
+            if (results.Count >= 3)
+                third.text = results[2];
+        }
+        oldLevelNumber = levelNumber.text;
     }
 
     IEnumerator checkUsernameInOnlineDatabase()
