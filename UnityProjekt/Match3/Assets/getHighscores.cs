@@ -14,7 +14,7 @@ public class getHighscores : MonoBehaviour
     public Text third;
 
     public Text levelNumber;
-    public string oldLevelNumber;
+    public string oldLevelNumber = "";
 
     public GameObject highscoreHandler;
 
@@ -53,10 +53,16 @@ public class getHighscores : MonoBehaviour
 
             if (results.Count >= 1)
                 first.text = results[0];
+            else
+                first.text = "---";
             if (results.Count >= 2)
                 second.text = results[1];
+            else
+                second.text = "---";
             if (results.Count >= 3)
                 third.text = results[2];
+            else
+                third.text = "---";
         }
         oldLevelNumber = levelNumber.text;
     }

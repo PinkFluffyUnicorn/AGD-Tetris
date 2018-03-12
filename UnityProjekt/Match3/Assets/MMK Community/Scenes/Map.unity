@@ -12434,6 +12434,8 @@ MonoBehaviour:
   second: {fileID: 842791618}
   third: {fileID: 1040805239}
   levelNumber: {fileID: 1260858904}
+  oldLevelNumber: 
+  highscoreHandler: {fileID: 1364386350}
 --- !u!1 &447222296
 GameObject:
   m_ObjectHideFlags: 0
