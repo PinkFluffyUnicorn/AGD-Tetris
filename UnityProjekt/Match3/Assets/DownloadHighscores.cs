@@ -112,7 +112,7 @@ public class DownloadHighscores : MonoBehaviour {
 
         for (int i = 0; i < highscores.Count; i++)
             usernames[i] = highscores[i]+ " " + usernames[i];//TODO: needs to be sorted!
-
+        usernames.Sort();
         return usernames;
     }
 
