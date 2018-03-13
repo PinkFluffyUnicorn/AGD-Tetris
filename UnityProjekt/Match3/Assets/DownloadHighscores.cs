@@ -6,7 +6,6 @@ using UnityEngine;
 public class DownloadHighscores : MonoBehaviour {
 
     List<List<HighscoreEntery>> allHighscores; //list of lists of all highscores in a level
-    List<HighscoreEntery> allOverallHighscores; //list of the combined highscores of all Players //maybe save overall highscores in level[0]
 
     //Important, never delete! http://dreamlo.com/lb/AeuoLJscsEaYq3tKbd2xNAHRAWjegmS0WKnD39Wdex_A
     //Private Code: Qn3LrCq6SEamAobzoPhYkw2thZBJFFN0qsFOVnZjZtdg
@@ -82,6 +81,39 @@ public class DownloadHighscores : MonoBehaviour {
         }
 
         return highscoresSingleLevel;
+    }
+
+    public List<string> getOverallHighscores()
+    {
+        List<int> highscores = new List<int>();
+        List<string> usernames = new List<string>();
+
+        for (int i = 0; i < allHighscores.Count; i++)
+        {
+            for(int j = 0; j < allHighscores[i].Count; j++)
+            {
+                bool contained = false;
+                for (int k = 0; k < usernames.Count; k++)
+                {
+                    if (string.Equals(usernames[k], allHighscores[i][j].username))
+                    {
+                        highscores[k] += allHighscores[i][j].highscore;
+                        contained = true;
+                    }
+                        
+                }
+                if (!contained)
+                {
+                    usernames.Add(allHighscores[i][j].username);
+                    highscores.Add(allHighscores[i][j].highscore);
+                }
+            }
+        }
+
+        for (int i = 0; i < highscores.Count; i++)
+            usernames[i] = highscores[i]+ " " + usernames[i];//TODO: needs to be sorted!
+
+        return usernames;
     }
 
 }
