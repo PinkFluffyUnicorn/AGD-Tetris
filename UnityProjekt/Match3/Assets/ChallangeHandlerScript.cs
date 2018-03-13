@@ -59,7 +59,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         //initialize all the challanges here
         print("initializeNewChallanges");
         initializeNewChallanges();
-        allChallanges = new List<Challange> { Challange1, Challange2, Challange3, Challange4, Challange5, Challange6, Challange7, Challange8, Challange9, Challange10, Challange11, Challange12, Challange13, Challange14, Challange15, Challange16, Challange17, Challange18 };
+        allChallanges = new List<Challange> { Challange1/*, Challange2*/, Challange3, Challange4, Challange5, Challange6, Challange7, Challange8, Challange9, Challange10, Challange11, Challange12, Challange13, Challange14, Challange15, Challange16, Challange17, Challange18 };
 
         print("initializeCurrentChallanges");
         //fill old challanges
@@ -85,48 +85,37 @@ public class ChallangeHandlerScript : MonoBehaviour {
     
     void initializeNewChallanges()
     {
-        /*Umrechnungen für die rewards:
-            normale steine: 1/1
-            ingrediants:    3/1
-            normale Bomben: 4/1
-            Color Bomben:   5/1
-            h/v Bomben:     3/1
-            Games Won:      10/1
-            Games Started:  2/1
-
-        int rand = Random.Range(0, allChallanges.Count - 1);
-         */
 
         //TODO. randomize the miltiplikators a bit
          //t1 = all normal stones (blue, orange, yellow, 
         int t1Min = 12;
-        int t1Max = 33;
+        int t1Max = 36;
         int t1Multiplicator = 1;
 
         //t2 horizontal/vertical Bombs 
         int t2Min = 3;
-        int t2Max = 18;
-        int t2Multiplicator = 3;
+        int t2Max = 16;
+        int t2Multiplicator = 2;
 
         //t3 normale bomben
         int t3Min = 2;
         int t3Max = 12;
-        int t3Multiplicator = 4;
+        int t3Multiplicator = 3;
 
         //t4 Coockies 1 and 2
         int t4Min = 12;
-        int t4Max = 60;
+        int t4Max = 36;
         int t4Multiplicator = 1;
 
         //t5 ingrediant 1 and 2
         int t5Min = 3;
-        int t5Max = 15;
+        int t5Max = 6;
         int t5Multiplicator = 4;
 
         //t6 stone 1 and 2
         int t6Min = 5;
         int t6Max = 20;
-        int t6Multiplicator = 3;
+        int t6Multiplicator = 2;
 
         //t7 games started
         int t7Min = 3;
@@ -144,9 +133,9 @@ public class ChallangeHandlerScript : MonoBehaviour {
         int t9Multiplicator = 5;
 
         //t10 chocklate
-        int t10Min = 12;
-        int t10Max = 25;
-        int t10Multiplicator = 2;
+        //int t10Min = 12;
+        //int t10Max = 25;
+        //int t10Multiplicator = 2;
 
         int randMin = 0;
         int randMax = 5;
@@ -162,14 +151,14 @@ public class ChallangeHandlerScript : MonoBehaviour {
         Challange1.reward = (Challange1.goal * t1Multiplicator) + Random.Range(randMin, randMax);
         Challange1.done = 0;
 
-        Challange2.PlayerPrefsId = "ChocklateDestroyd";
-        Challange2.goal = Random.Range(t10Min, t10Max);
-        Challange2.count = 0;
-        Challange2.startValue = PlayerPrefs.GetInt(Challange1.PlayerPrefsId);
-        Challange2.Description = "Destroy " + Challange1.goal + " blue Stones!";
-        Challange2.id = 0;
-        Challange2.reward = (Challange2.goal * t10Multiplicator) + Random.Range(randMin, randMax);
-        Challange2.done = 0;
+        //Challange2.PlayerPrefsId = "ChocklateDestroyd";
+        //Challange2.goal = Random.Range(t10Min, t10Max);
+        //Challange2.count = 0;
+        //Challange2.startValue = PlayerPrefs.GetInt(Challange1.PlayerPrefsId);
+        //Challange2.Description = "Destroy " + Challange1.goal + " blue Stones!";
+        //Challange2.id = 0;
+        //Challange2.reward = (Challange2.goal * t10Multiplicator) + Random.Range(randMin, randMax);
+        //Challange2.done = 0;
 
         Challange3.PlayerPrefsId = "ColorBombDestroyd";
         Challange3.goal = Random.Range(t9Min, t9Max);
