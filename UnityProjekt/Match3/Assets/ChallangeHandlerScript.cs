@@ -256,7 +256,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         Challange12.goal = Random.Range(t4Min, t4Max);
         Challange12.count = 0;
         Challange12.startValue = PlayerPrefs.GetInt(Challange12.PlayerPrefsId);
-        Challange12.Description = "Destroy " + Challange12.goal + " yellow Coockies!";
+        Challange12.Description = "Destroy " + Challange12.goal + " yellow Cookies!";
         Challange12.id = 11;
         Challange12.reward = (Challange12.goal * t4Multiplicator) + Random.Range(randMin, randMax);
         Challange12.done = 0;
@@ -265,7 +265,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         Challange13.goal = Random.Range(t4Min, t4Max);
         Challange13.count = 0;
         Challange13.startValue = PlayerPrefs.GetInt(Challange13.PlayerPrefsId);
-        Challange13.Description = "Destroy " + Challange13.goal + " orange Coockies!";
+        Challange13.Description = "Destroy " + Challange13.goal + " orange Cookies!";
         Challange13.id = 12;
         Challange13.reward = (Challange13.goal * t4Multiplicator) + Random.Range(randMin, randMax);
         Challange13.done = 0;
