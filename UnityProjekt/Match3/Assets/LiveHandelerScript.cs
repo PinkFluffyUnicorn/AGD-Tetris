@@ -7,7 +7,7 @@ public class LiveHandelerScript : MonoBehaviour {
 
     private int nextLiveIn = 0;
     private string timerOutput;
-    private int timeToNextLive = 10; //Minuten bis zum nächsten Leben 
+    private int timeToNextLive = 20; //Minuten bis zum nächsten Leben 
 
 	// Use this for initialization
 	void Start () {
