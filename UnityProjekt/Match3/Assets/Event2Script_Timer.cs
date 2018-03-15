@@ -19,10 +19,10 @@ public class Event2Script_Timer : MonoBehaviour {
         {
             Panel.SetActive(true);
             int time = DurationEvent2 - ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - StartEvent2);
-            float hoursHelp = ((time / 60) / 60);
+            float hoursHelp = ((time / 60f) / 60f);
             int hours = Mathf.FloorToInt(hoursHelp);
             int seconds = time % 60;
-            int minutes = (int)(hoursHelp - (float)hours) * 60;
+            int minutes = Mathf.FloorToInt((hoursHelp - (float)hours) * 60f);
             if (hours == 0)
             {
                 if (seconds < 10)
@@ -72,15 +72,15 @@ public class Event2Script_Timer : MonoBehaviour {
     {
         int StartEvent2 = EventHandler.GetComponent<EventHandlerScript>().getStartEvent2();
         int DurationEvent2 = EventHandler.GetComponent<EventHandlerScript>().getDurationEvent2();
-        
+
         if (PlayerPrefs.GetInt("Event2GoingOn", 0) == 1)
         {
             Panel.SetActive(true);
             int time = DurationEvent2 - ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - StartEvent2);
-            float hoursHelp = ((time / 60) / 60);
+            float hoursHelp = ((time / 60f) / 60f);
             int hours = Mathf.FloorToInt(hoursHelp);
             int seconds = time % 60;
-            int minutes = (int)(hoursHelp - (float)hours) * 60;
+            int minutes = Mathf.FloorToInt((hoursHelp - (float)hours) * 60f);
             if (hours == 0)
             {
                 if (seconds < 10)

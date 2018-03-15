@@ -22,10 +22,10 @@ public class Event1Script_topLeft : MonoBehaviour {
             Panel.SetActive(true);
             Background.SetActive(true);
             int time = DurationEvent1 - ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - StartEvent1);
-            float hoursHelp = ((time / 60) / 60);
+            float hoursHelp = ((time / 60f) / 60f);
             int hours = Mathf.FloorToInt(hoursHelp);
             int seconds = time % 60;
-            int minutes = (int)(hoursHelp - (float)hours) * 60;
+            int minutes = Mathf.FloorToInt((hoursHelp - (float)hours) * 60f);
             if (hours == 0)
             {
                 if (seconds < 10)
@@ -73,18 +73,17 @@ public class Event1Script_topLeft : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if (PlayerPrefs.GetInt("Event1GoingOn", 0) == 1)
-        if(1 ==1)
+        if (PlayerPrefs.GetInt("Event1GoingOn", 0) == 1)
         {
             int StartEvent1 = EventHandler.GetComponent<EventHandlerScript>().getStartEvent1();
             int DurationEvent1 = EventHandler.GetComponent<EventHandlerScript>().getDurationEvent1();
             Panel.SetActive(true);
             Background.SetActive(true);
             int time = DurationEvent1 - ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - StartEvent1);
-            float hoursHelp = ((time / 60) / 60);
+            float hoursHelp = ((time / 60f) / 60f);
             int hours = Mathf.FloorToInt(hoursHelp);
             int seconds = time % 60;
-            int minutes = (int)(hoursHelp - (float)hours) * 60;
+            int minutes = Mathf.FloorToInt((hoursHelp - (float)hours) * 60f);
             if (hours == 0)
             {
                 if (seconds < 10)
