@@ -85,6 +85,11 @@ public class InitializePlayerPrefs : MonoBehaviour {
             PlayerPrefs.SetInt("NextLifeIn", 0);
             PlayerPrefs.SetInt("LastLifeDate", System.DateTime.Now.DayOfYear);
 
+            //Booster
+            PlayerPrefs.SetInt("PickAxeBooster", 3);
+            PlayerPrefs.SetInt("HandBooster", 3);
+            PlayerPrefs.SetInt("PlusFiveBooster", 3);
+
             PlayerPrefs.SetInt("FirstLogin", 0);
         }
     }
