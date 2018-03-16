@@ -28,8 +28,9 @@ public class DailyChallenge : MonoBehaviour {
     public Image C2BlueToken, C2ColorBomb, C2GreenToken, C2Ingridient1Token, C2Ingridient2Token, C2OrangeToken, C2PurpleToken, C2RedToken, C2Stone1Token, C2Stone2Token, C2YellowToken, C2Coockie1Token, C2Coockie2Token, C2BombToken, C2HorizontalBombToken, C2VerticalBombToken, C2GamesWonToken, C2GamesStartedToken;
     public Image C3BlueToken, C3ColorBomb, C3GreenToken, C3Ingridient1Token, C3Ingridient2Token, C3OrangeToken, C3PurpleToken, C3RedToken, C3Stone1Token, C3Stone2Token, C3YellowToken, C3Coockie1Token, C3Coockie2Token, C3BombToken, C3HorizontalBombToken, C3VerticalBombToken, C3GamesWonToken, C3GamesStartedToken;
 
-    public GameObject moneyHandler;
     public GameObject ChallengeHandler;
+
+    public GameObject ButtonGetReward;
 
     // Use this for initialization
     void Start ()
@@ -156,10 +157,23 @@ public class DailyChallenge : MonoBehaviour {
         C3GamesWonToken.enabled = Challenges.C3GamesWonToken.enabled;
         C3GamesStartedToken.enabled = Challenges.C3GamesStartedToken.enabled;
 
+
+
+        if (Challenge1Slider.value == 1 || Challenge2Slider.value == 1 || Challenge3Slider.value == 1)
+        {
+            ButtonGetReward.SetActive(true);
+        }
+        else
+        {
+            ButtonGetReward.SetActive(false);
+        }
+
     }
 
     // Update is called once per frame
     void Update () {
 		
 	}
+
+    
 }
