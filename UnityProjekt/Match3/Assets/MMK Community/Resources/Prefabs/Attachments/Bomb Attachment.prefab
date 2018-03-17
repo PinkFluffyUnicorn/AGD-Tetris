@@ -267,4 +267,4 @@ MonoBehaviour:
   BombRed: {fileID: 21300374, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
   BombPurple: {fileID: 21300372, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
   BombOrange: {fileID: 21300370, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
-  finalBomb: {fileID: 0}
+  finalBomb: {fileID: 164946}
