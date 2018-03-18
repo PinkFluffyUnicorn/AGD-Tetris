@@ -112,8 +112,32 @@ public class DownloadHighscores : MonoBehaviour {
 
         for (int i = 0; i < highscores.Count; i++)
             usernames[i] = highscores[i]+ " " + usernames[i];//TODO: needs to be sorted!
-        usernames.Sort();
+        listBubbleSort(usernames);
         return usernames;
+    }
+
+    static void listBubbleSort(List<string> data)
+    {
+        int i, j;
+        int N = data.Count;
+
+        for (j = N - 1; j > 0; j--)
+        {
+            for (i = 0; i < j; i++)
+            {
+                if (Int32.Parse(data[i].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0]) < Int32.Parse(data[i + 1].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0]))
+                    exchange(data, i, i + 1);
+            }
+        }
+    }
+
+    static void exchange(List<string> data, int m, int n)
+    {
+        string temporary;
+
+        temporary = data[m];
+        data[m] = data[n];
+        data[n] = temporary;
     }
 
 }
