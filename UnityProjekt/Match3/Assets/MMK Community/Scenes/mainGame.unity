@@ -7580,6 +7580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7472c3bd264745f4191b4df4516aeafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NotificationHandler: {fileID: 0}
 --- !u!4 &558343683
 Transform:
   m_ObjectHideFlags: 0
@@ -12414,7 +12415,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Swap 2 \nElements"
+  m_Text: "Swap adjacent \nElements"
 --- !u!222 &968252900
 CanvasRenderer:
   m_ObjectHideFlags: 0
