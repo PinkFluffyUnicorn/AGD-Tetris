@@ -90,6 +90,10 @@ public class InitializePlayerPrefs : MonoBehaviour {
             PlayerPrefs.SetInt("HandBooster", 3);
             PlayerPrefs.SetInt("PlusFiveBooster", 3);
 
+            //Notifications
+            PlayerPrefs.SetInt("NotifDaily", System.DateTime.Now.DayOfYear);
+            PlayerPrefs.SetInt("NotifLives", 0); //set to one if Lives were less than three, only if it gets full & was 1 send notification
+
             PlayerPrefs.SetInt("FirstLogin", 0);
         }
     }

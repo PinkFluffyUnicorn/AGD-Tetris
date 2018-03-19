@@ -8,6 +8,7 @@ public class LiveHandelerScript : MonoBehaviour {
     private int nextLiveIn = 0;
     private string timerOutput;
     private int timeToNextLive = 20; //Minuten bis zum nächsten Leben 
+    public GameObject NotificationHandler;
 
 	// Use this for initialization
 	void Start () {
@@ -24,8 +25,7 @@ public class LiveHandelerScript : MonoBehaviour {
             int lastDay = PlayerPrefs.GetInt("LastLifeDate", 0);
             if (lastDay < today)
             {
-                PlayerPrefs.SetInt("Lives", 5);
-                PlayerPrefs.SetInt("NextLifeIn", 0);
+                addLives(5);
             }
         }
     }
@@ -47,9 +47,7 @@ public class LiveHandelerScript : MonoBehaviour {
                 int lastDay = PlayerPrefs.GetInt("LastLifeDate", 0);
                 if (lastDay < today)
                 {
-                    PlayerPrefs.SetInt("Lives", 5);
-                    PlayerPrefs.SetInt("NextLifeIn", 0);
-                    PlayerPrefs.SetInt("LastLifeDate", System.DateTime.Now.DayOfYear);
+                    addLives(5);
                 }
                 else
                 {
@@ -85,10 +83,10 @@ public class LiveHandelerScript : MonoBehaviour {
     public void addLives(int amount)
     {
         int currentLives = PlayerPrefs.GetInt("Lives", 0);
-        currentLives += amount; 
-        if(amount > 5)
+        int newLives = currentLives +  amount; 
+        if(newLives >= 5)
         {
-            amount = 5;
+            newLives = 5;
             timerOutput = "Full";
         }
         else
@@ -101,8 +99,8 @@ public class LiveHandelerScript : MonoBehaviour {
                 PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
             }
         }
-        PlayerPrefs.SetInt("Lives", amount);
-        
+        PlayerPrefs.SetInt("LastLifeDate", System.DateTime.Now.DayOfYear);
+        PlayerPrefs.SetInt("Lives", newLives); 
     }
 
     public bool subtractLives(int amount)
@@ -121,6 +119,10 @@ public class LiveHandelerScript : MonoBehaviour {
                 int currentTime = Mathf.FloorToInt((float)System.DateTime.Now.TimeOfDay.TotalSeconds);
                 nextLiveIn = currentTime + timeToNextLive * 60; //halbe Stunde
                 PlayerPrefs.SetInt("NextLifeIn", nextLiveIn);
+                if(currentLives - amount < 3)
+                {
+                    PlayerPrefs.SetInt("NotifLives", 1);
+                }
                 return true;
             }
         }
