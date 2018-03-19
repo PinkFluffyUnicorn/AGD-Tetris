@@ -13,10 +13,16 @@ public class getHighscores : MonoBehaviour
     public Text second;
     public Text third;
 
+    public Text firstNumber;
+    public Text secondNumber;
+    public Text thirdNumber;
+
     public Text levelNumber;
     public string oldLevelNumber = "";
 
     public GameObject highscoreHandler;
+
+    int enterysInTable = 3;
 
 
     //Important, never delete! http://dreamlo.com/lb/AeuoLJscsEaYq3tKbd2xNAHRAWjegmS0WKnD39Wdex_A
@@ -39,9 +45,7 @@ public class getHighscores : MonoBehaviour
 
     void OnDisable()
     {
-        //first.text = "---";
-        //second.text = "---";
-        //third.text = "---";
+
     }
 
     // Update is called once per frame
@@ -49,56 +53,53 @@ public class getHighscores : MonoBehaviour
     {
         if (oldLevelNumber != levelNumber.text)
         {
-            List<string> results = highscoreHandler.GetComponent<DownloadHighscores>().getHighscores(Int32.Parse(levelNumber.text.Substring(6)));
+            List<string> data = highscoreHandler.GetComponent<DownloadHighscores>().getHighscores(Int32.Parse(levelNumber.text.Substring(6)));
 
-            if (results.Count >= 1)
-                first.text = results[0];
-            else
-                first.text = "---";
-            if (results.Count >= 2)
-                second.text = results[1];
-            else
-                second.text = "---";
-            if (results.Count >= 3)
-                third.text = results[2];
-            else
-                third.text = "---";
+            for (int i = 0; i < data.Count; i++)//somewhere in the middle
+            {
+                print(data[i]);
+                if (data[i].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0].Equals(PlayerPrefs.GetString("Username")))
+                {
+                    print(i);
+                    print(PlayerPrefs.GetString("Username"));
+                    
+
+                    if (i <= Mathf.FloorToInt((float)enterysInTable / 2f) || data.Count < enterysInTable)//higher
+                        fillTable(data, 0);
+                    else if (i >= (data.Count - Mathf.FloorToInt((float)enterysInTable / 2f)))//smaller
+                        fillTable(data, i + 1 - enterysInTable);
+                    else//in the middle
+                        fillTable(data, i - Mathf.FloorToInt((float)enterysInTable / 2f));
+                }
+            }
         }
         oldLevelNumber = levelNumber.text;
     }
 
-    IEnumerator checkUsernameInOnlineDatabase()
+    void fillTable(List<string> data, int startvalue)
     {
-        WWW www = new WWW(webURL + publicCode + "/pipe/" + WWW.EscapeURL(PlayerPrefs.GetString("Username")));
-        yield return www;
-
-        string realLevelNumber = levelNumber.text;
-        realLevelNumber = realLevelNumber.Substring(6);
-
-        if (string.IsNullOrEmpty(www.error))
+        if (data.Count >= startvalue + 1)
         {
-            print(www.text);
-            string[] downloads = www.text.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            List<string> results = new List<string>();
-            for (int i = 0; i < downloads.Length; i++)
-            {
-                string[] pipeCut = downloads[i].Split(new[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-                if (realLevelNumber == pipeCut[0].Substring(Math.Max(0, pipeCut[0].Length - 1)))
-                    results.Add(pipeCut[1] + " " + pipeCut[0].Remove(pipeCut[0].Length - 1, 1));
-            }
-            if (results.Count >= 1)
-                first.text = results[0];
-            if (results.Count >= 2)
-                second.text = results[1];
-            if (results.Count >= 3)
-                third.text = results[2];
-
+            first.text = data[startvalue + 0];
+            firstNumber.text = ""+(startvalue + 1);
         }
         else
-        {
-            print("Upload Error: " + www.error);
-            //TODO: put my own score first
-        }
+            first.text = "---";
 
+        if (data.Count >= startvalue + 2)
+        {
+            second.text = data[startvalue + 1];
+            secondNumber.text = "" + (startvalue + 2);
+        }
+        else
+            second.text = "---";
+
+        if (data.Count >= startvalue + 3)
+        {
+            third.text = data[startvalue + 2];
+            thirdNumber.text = "" + (startvalue + 3);
+        }
+        else
+            third.text = "---";
     }
 }

@@ -70,15 +70,35 @@ public class AddScoreToLeaderbord : MonoBehaviour {
             {
                 string[] pipeCut = downloads[i].Split(new[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
                 if (realLevelNumber == pipeCut[0].Substring(Math.Max(0, pipeCut[0].Length - 1)))
-                    results.Add(pipeCut[1] + " " + pipeCut[0].Remove(pipeCut[0].Length - 1, 1));//TODO: change to split at _
+                    results.Add(pipeCut[1] + " " + pipeCut[0].Remove(pipeCut[0].Length - 2, 2));//TODO: change to split at _
             }
-            if (results.Count >= 1)
-                first.text = results[0];
-            if (results.Count >= 2)
-                second.text = results[1];
-            if (results.Count >= 3)
-                third.text = results[2];
 
+            if (results[results.Count - 1].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1] == PlayerPrefs.GetString("Username") || results.Count < 0)//first/higher than the moddle or count smaller than three
+            {
+                if (results.Count >= 1)
+                    first.text = results[0];
+                if (results.Count >= 2)
+                    second.text = results[1];
+                if (results.Count >= 3)
+                    third.text = results[2];
+            }
+
+            if (results[results.Count - 1].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1] == PlayerPrefs.GetString("Username"))//last/smaller than the middle
+            {
+                first.text = results[results.Count - 3];
+                second.text = results[results.Count - 2];
+                third.text = results[results.Count - 1];
+            }
+
+            for(int i = 0; i < results.Count; i++)//somewhere in the middle
+            {
+                if (results[results.Count - 1].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1] == PlayerPrefs.GetString("Username"))
+                {
+                    first.text = results[i - 1];
+                    second.text = results[i];
+                    third.text = results[i + 1];
+                }
+            }
         }
         else
         {

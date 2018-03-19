@@ -35,7 +35,6 @@ public class DownloadHighscores : MonoBehaviour {
 
         if (string.IsNullOrEmpty(www.error))
         {
-            print(www.text);
             string[] downloads = www.text.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             for (int i = 0; i < downloads.Length; i++)
@@ -53,14 +52,6 @@ public class DownloadHighscores : MonoBehaviour {
                 }
 
             }
-
-            for (int i = 0; i < allHighscores.Count; i++)
-            {
-                for (int j = 0; j < allHighscores[i].Count; j++)
-                {
-                    print(allHighscores[i][j].username + " " + allHighscores[i][j].level + " " + allHighscores[i][j].highscore + " i=" + i + " j=" + j);
-                }
-            }
         }
         else
         {
@@ -77,7 +68,6 @@ public class DownloadHighscores : MonoBehaviour {
         foreach(HighscoreEntery h in allHighscores[levelNumber])
         {
             highscoresSingleLevel.Add(h.username + " " + h.highscore);
-            print(levelNumber + h.username + " " + h.highscore);
         }
 
         return highscoresSingleLevel;
@@ -111,7 +101,7 @@ public class DownloadHighscores : MonoBehaviour {
         }
 
         for (int i = 0; i < highscores.Count; i++)
-            usernames[i] = highscores[i]+ " " + usernames[i];//TODO: needs to be sorted!
+            usernames[i] = highscores[i]+ " " + usernames[i];
         listBubbleSort(usernames);
         return usernames;
     }
