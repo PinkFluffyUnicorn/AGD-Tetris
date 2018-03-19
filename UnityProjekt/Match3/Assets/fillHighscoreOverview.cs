@@ -17,6 +17,8 @@ public class fillHighscoreOverview : MonoBehaviour {
     public Text person9;
     public Text person10;
 
+    int enterysInTable = 10;
+
     public Text buttonText;//TODO: set here
     public Text descriptionText; //TODO: setHere
 
@@ -30,12 +32,12 @@ public class fillHighscoreOverview : MonoBehaviour {
         {
             if (data[i].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1] == PlayerPrefs.GetString("Username"))
             {
-                if (i < (float)data.Count / 2f)
+                if (i <= Mathf.FloorToInt((float)enterysInTable / 2f) || data.Count < enterysInTable)//higher
                     fillTable(data, 0);
-                else if (i > (float)data.Count / 2f)
-                    fillTable(data, data.Count - 1);
-                else
-                    fillTable(data, i - (int)((float)data.Count / 2f));
+                else if (i >= (data.Count - Mathf.FloorToInt((float)enterysInTable / 2f)))//smaller
+                    fillTable(data, i + 1 - enterysInTable);
+                else//in the middle
+                    fillTable(data, i - Mathf.FloorToInt((float)enterysInTable / 2f));
             }
         }
 
