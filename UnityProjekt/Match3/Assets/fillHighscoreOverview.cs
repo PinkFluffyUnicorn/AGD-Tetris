@@ -27,11 +27,12 @@ public class fillHighscoreOverview : MonoBehaviour {
     // Use this for initialization
     void Start () {
         List<string> data = highscoreDownloader.GetComponent<DownloadHighscores>().getOverallHighscores();
-
+        bool matched = false;
         for (int i = 0; i < data.Count; i++)//somewhere in the middle
         {
             if (data[i].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1] == PlayerPrefs.GetString("Username"))
             {
+                matched = true;
                 if (i <= Mathf.FloorToInt((float)enterysInTable / 2f) || data.Count < enterysInTable)//higher
                     fillTable(data, 0);
                 else if (i >= (data.Count - Mathf.FloorToInt((float)enterysInTable / 2f)))//smaller
@@ -40,6 +41,8 @@ public class fillHighscoreOverview : MonoBehaviour {
                     fillTable(data, i - Mathf.FloorToInt((float)enterysInTable / 2f));
             }
         }
+        if(!matched)
+            fillTable(data, 0);
 
     }
 	

@@ -54,16 +54,12 @@ public class getHighscores : MonoBehaviour
         if (oldLevelNumber != levelNumber.text)
         {
             List<string> data = highscoreHandler.GetComponent<DownloadHighscores>().getHighscores(Int32.Parse(levelNumber.text.Substring(6)));
-
+            bool matched = false;
             for (int i = 0; i < data.Count; i++)//somewhere in the middle
             {
-                print(data[i]);
+                matched = true;
                 if (data[i].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0].Equals(PlayerPrefs.GetString("Username")))
                 {
-                    print(i);
-                    print(PlayerPrefs.GetString("Username"));
-                    
-
                     if (i <= Mathf.FloorToInt((float)enterysInTable / 2f) || data.Count < enterysInTable)//higher
                         fillTable(data, 0);
                     else if (i >= (data.Count - Mathf.FloorToInt((float)enterysInTable / 2f)))//smaller
@@ -72,6 +68,8 @@ public class getHighscores : MonoBehaviour
                         fillTable(data, i - Mathf.FloorToInt((float)enterysInTable / 2f));
                 }
             }
+            if (!matched)
+                fillTable(data, 0);
         }
         oldLevelNumber = levelNumber.text;
     }
