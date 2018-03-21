@@ -32,12 +32,26 @@ public class DailyChallenge : MonoBehaviour {
 
     public GameObject ButtonGetReward;
 
+    Challange currentChallange1 = new Challange();
+    Challange currentChallange2 = new Challange();
+    Challange currentChallange3 = new Challange();
+
+    Challange oldChallange1 = new Challange();
+    Challange oldChallange2 = new Challange();
+    Challange oldChallange3 = new Challange();
+
     // Use this for initialization
     void Start ()
     {
         var Challenges = ChallengeHandler.GetComponent<ChallangeHandlerScript>();
 
+        currentChallange1 = Challenges.getCurrentChallenge1();
+        currentChallange2 = Challenges.getCurrentChallenge2();
+        currentChallange3 = Challenges.getCurrentChallenge3();
 
+        oldChallange1 = Challenges.getOldChallange1();
+        oldChallange2 = Challenges.getOldChallange2();
+        oldChallange3 = Challenges.getOldChallange3();
 
         List<Image> Challenge1Bilder = new List<Image> { C1BlueToken, C1ColorBomb, C1GreenToken, C1Ingridient1Token, C1Ingridient2Token, C1OrangeToken, C1PurpleToken, C1RedToken, C1Stone1Token, C1Stone2Token, C1YellowToken, C1Coockie1Token, C1Coockie2Token, C1BombToken, C1HorizontalBombToken, C1VerticalBombToken, C1GamesWonToken, C1GamesStartedToken };
         List<Image> Challenge2Bilder = new List<Image> { C2BlueToken, C2ColorBomb, C2GreenToken, C2Ingridient1Token, C2Ingridient2Token, C2OrangeToken, C2PurpleToken, C2RedToken, C2Stone1Token, C2Stone2Token, C2YellowToken, C2Coockie1Token, C2Coockie2Token, C2BombToken, C2HorizontalBombToken, C2VerticalBombToken, C2GamesWonToken, C2GamesStartedToken };
@@ -57,109 +71,177 @@ public class DailyChallenge : MonoBehaviour {
         }
 
 
-
-        //TODO: hier die Progressbar für alle hinzufügen
-        //TODO: den Reward in der Gui setzen
-        print("hi");
-        challange1Description.text = Challenges.challange1Description.text;
-        Challenge1reward.text = Challenges.Challenge1reward.text;
-        Challenge1Slider.value = Challenges.Challenge1Slider.value;
-
-        if(Challenge1Slider.value == 1)
+        if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1)// neue Challange 1
         {
+            challange1Description.text = oldChallange1.Description;
+            Challenge1reward.text = oldChallange1.reward.ToString();
+            Challenge1Slider.value = oldChallange1.count / oldChallange1.goal;
             challange1Done.SetActive(true);
+            switch (oldChallange1.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
+                case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C1RedToken.enabled = true; break;
+                case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C1BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
+                case "GameWon": C1GamesWonToken.enabled = true; break;
+                case "GameStarted": C1GamesStartedToken.enabled = true; break;
+            }
         }
         else
         {
+            challange1Description.text = currentChallange1.Description;
+            Challenge1reward.text = currentChallange1.reward.ToString();
+            Challenge1Slider.value = currentChallange1.count / currentChallange1.goal;
             challange1Done.SetActive(false);
+            switch (currentChallange1.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
+                case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C1RedToken.enabled = true; break;
+                case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C1BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
+                case "GameWon": C1GamesWonToken.enabled = true; break;
+                case "GameStarted": C1GamesStartedToken.enabled = true; break;
+            }
         }
 
-        C1BlueToken.enabled = Challenges.C1BlueToken.enabled;
-        C1ColorBomb.enabled = Challenges.C1ColorBomb.enabled;
-        C1GreenToken.enabled = Challenges.C1GreenToken.enabled;
-        C1Ingridient1Token.enabled = Challenges.C1Ingridient1Token.enabled;
-        C1Ingridient2Token.enabled = Challenges.C1Ingridient2Token.enabled;
-        C1OrangeToken.enabled = Challenges.C1OrangeToken.enabled;
-        C1PurpleToken.enabled = Challenges.C1PurpleToken.enabled;
-        C1RedToken.enabled = Challenges.C1RedToken.enabled;
-        C1Stone1Token.enabled = Challenges.C1Stone1Token.enabled;
-        C1Stone2Token.enabled = Challenges.C1Stone2Token.enabled;
-        C1YellowToken.enabled = Challenges.C1YellowToken.enabled;
-        C1Coockie1Token.enabled = Challenges.C1Coockie1Token.enabled;
-        C1Coockie2Token.enabled = Challenges.C1Coockie2Token.enabled;
-        C1BombToken.enabled = Challenges.C1BombToken.enabled;
-        C1HorizontalBombToken.enabled = Challenges.C1HorizontalBombToken.enabled;
-        C1VerticalBombToken.enabled = Challenges.C1VerticalBombToken.enabled;
-        C1GamesWonToken.enabled = Challenges.C1GamesWonToken.enabled;
-        C1GamesStartedToken.enabled = Challenges.C1GamesStartedToken.enabled;
 
-        challange2Description.text = Challenges.challange2Description.text;
-        Challenge2reward.text = Challenges.Challenge2reward.text;
-        Challenge2Slider.value = Challenges.Challenge2Slider.value;
-        if (Challenge2Slider.value == 1)
+        if (PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1)
         {
+            challange2Description.text = oldChallange2.Description;
+            Challenge2reward.text = oldChallange2.reward.ToString();
+            Challenge2Slider.value = oldChallange2.count / oldChallange2.goal;
             challange2Done.SetActive(true);
+            switch (oldChallange2.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
+                case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C2RedToken.enabled = true; break;
+                case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C2BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
+                case "GameWon": C2GamesWonToken.enabled = true; break;
+                case "GameStarted": C2GamesStartedToken.enabled = true; break;
+            }
         }
         else
         {
+            challange2Description.text = currentChallange2.Description;
+            Challenge2reward.text = currentChallange2.reward.ToString();
+            Challenge2Slider.value = currentChallange2.count / currentChallange2.goal;
             challange2Done.SetActive(false);
+            switch (currentChallange2.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
+                case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C2RedToken.enabled = true; break;
+                case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C2BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
+                case "GameWon": C2GamesWonToken.enabled = true; break;
+                case "GameStarted": C2GamesStartedToken.enabled = true; break;
+            }
         }
-
-        C2BlueToken.enabled = Challenges.C2BlueToken.enabled;
-        C2ColorBomb.enabled = Challenges.C2ColorBomb.enabled;
-        C2GreenToken.enabled = Challenges.C2GreenToken.enabled;
-        C2Ingridient1Token.enabled = Challenges.C2Ingridient1Token.enabled;
-        C2Ingridient2Token.enabled = Challenges.C2Ingridient2Token.enabled;
-        C2OrangeToken.enabled = Challenges.C2OrangeToken.enabled;
-        C2PurpleToken.enabled = Challenges.C2PurpleToken.enabled;
-        C2RedToken.enabled = Challenges.C2RedToken.enabled;
-        C2Stone1Token.enabled = Challenges.C2Stone1Token.enabled;
-        C2Stone2Token.enabled = Challenges.C2Stone2Token.enabled;
-        C2YellowToken.enabled = Challenges.C2YellowToken.enabled;
-        C2Coockie1Token.enabled = Challenges.C2Coockie1Token.enabled;
-        C2Coockie2Token.enabled = Challenges.C2Coockie2Token.enabled;
-        C2BombToken.enabled = Challenges.C2BombToken.enabled;
-        C2HorizontalBombToken.enabled = Challenges.C2HorizontalBombToken.enabled;
-        C2VerticalBombToken.enabled = Challenges.C2VerticalBombToken.enabled;
-        C2GamesWonToken.enabled = Challenges.C2GamesWonToken.enabled;
-        C2GamesStartedToken.enabled = Challenges.C2GamesStartedToken.enabled;
-
-
-        challange3Description.text = Challenges.challange3Description.text;
-        Challenge3reward.text = Challenges.Challenge3reward.text;
-        Challenge3Slider.value = Challenges.Challenge3Slider.value;
-
-        if (Challenge3Slider.value == 1)
+        if (PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
         {
+            challange3Description.text = oldChallange3.Description;
+            Challenge3reward.text = oldChallange3.reward.ToString();
+            Challenge3Slider.value = oldChallange3.count / oldChallange3.goal;
             challange3Done.SetActive(true);
+            switch (oldChallange3.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
+                case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C3RedToken.enabled = true; break;
+                case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C3BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
+                case "GameWon": C3GamesWonToken.enabled = true; break;
+                case "GameStarted": C3GamesStartedToken.enabled = true; break;
+            }
         }
         else
         {
+            challange3Description.text = currentChallange3.Description;
+            Challenge3reward.text = currentChallange3.reward.ToString();
+            Challenge3Slider.value = currentChallange3.count / currentChallange3.goal;
             challange3Done.SetActive(false);
+            switch (currentChallange3.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
+                case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C3RedToken.enabled = true; break;
+                case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C3BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
+                case "GameWon": C3GamesWonToken.enabled = true; break;
+                case "GameStarted": C3GamesStartedToken.enabled = true; break;
+            }
         }
-
-        C3BlueToken.enabled = Challenges.C3BlueToken.enabled;
-        C3ColorBomb.enabled = Challenges.C3ColorBomb.enabled;
-        C3GreenToken.enabled = Challenges.C3GreenToken.enabled;
-        C3Ingridient1Token.enabled = Challenges.C3Ingridient1Token.enabled;
-        C3Ingridient2Token.enabled = Challenges.C3Ingridient2Token.enabled;
-        C3OrangeToken.enabled = Challenges.C3OrangeToken.enabled;
-        C3PurpleToken.enabled = Challenges.C3PurpleToken.enabled;
-        C3RedToken.enabled = Challenges.C3RedToken.enabled;
-        C3Stone1Token.enabled = Challenges.C3Stone1Token.enabled;
-        C3Stone2Token.enabled = Challenges.C3Stone2Token.enabled;
-        C3YellowToken.enabled = Challenges.C3YellowToken.enabled;
-        C3Coockie1Token.enabled = Challenges.C3Coockie1Token.enabled;
-        C3Coockie2Token.enabled = Challenges.C3Coockie2Token.enabled;
-        C3BombToken.enabled = Challenges.C3BombToken.enabled;
-        C3HorizontalBombToken.enabled = Challenges.C3HorizontalBombToken.enabled;
-        C3VerticalBombToken.enabled = Challenges.C3VerticalBombToken.enabled;
-        C3GamesWonToken.enabled = Challenges.C3GamesWonToken.enabled;
-        C3GamesStartedToken.enabled = Challenges.C3GamesStartedToken.enabled;
-
-
-
-        if (Challenge1Slider.value == 1 || Challenge2Slider.value == 1 || Challenge3Slider.value == 1)
+        if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
         {
             ButtonGetReward.SetActive(true);
         }
@@ -171,9 +253,196 @@ public class DailyChallenge : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update ()
+    {
+
+        if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1)// neue Challange 1
+        {
+            challange1Description.text = oldChallange1.Description;
+            Challenge1reward.text = oldChallange1.reward.ToString();
+            Challenge1Slider.value = oldChallange1.count / oldChallange1.goal;
+            challange1Done.SetActive(true);
+            switch (oldChallange1.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
+                case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C1RedToken.enabled = true; break;
+                case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C1BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
+                case "GameWon": C1GamesWonToken.enabled = true; break;
+                case "GameStarted": C1GamesStartedToken.enabled = true; break;
+            }
+        }
+        else
+        {
+            challange1Description.text = currentChallange1.Description;
+            Challenge1reward.text = currentChallange1.reward.ToString();
+            Challenge1Slider.value = currentChallange1.count / currentChallange1.goal;
+            challange1Done.SetActive(false);
+            switch (currentChallange1.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
+                case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C1RedToken.enabled = true; break;
+                case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C1BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
+                case "GameWon": C1GamesWonToken.enabled = true; break;
+                case "GameStarted": C1GamesStartedToken.enabled = true; break;
+            }
+        }
+
+
+        if (PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1)
+        {
+            challange2Description.text = oldChallange2.Description;
+            Challenge2reward.text = oldChallange2.reward.ToString();
+            Challenge2Slider.value = oldChallange2.count / oldChallange2.goal;
+            challange2Done.SetActive(true);
+            switch (oldChallange2.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
+                case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C2RedToken.enabled = true; break;
+                case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C2BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
+                case "GameWon": C2GamesWonToken.enabled = true; break;
+                case "GameStarted": C2GamesStartedToken.enabled = true; break;
+            }
+        }
+        else
+        {
+            challange2Description.text = currentChallange2.Description;
+            Challenge2reward.text = currentChallange2.reward.ToString();
+            Challenge2Slider.value = currentChallange2.count / currentChallange2.goal;
+            challange2Done.SetActive(false);
+            switch (currentChallange2.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
+                case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C2RedToken.enabled = true; break;
+                case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C2BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
+                case "GameWon": C2GamesWonToken.enabled = true; break;
+                case "GameStarted": C2GamesStartedToken.enabled = true; break;
+            }
+        }
+        if (PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
+        {
+            challange3Description.text = oldChallange3.Description;
+            Challenge3reward.text = oldChallange3.reward.ToString();
+            Challenge3Slider.value = oldChallange3.count / oldChallange3.goal;
+            challange3Done.SetActive(true);
+            switch (oldChallange3.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
+                case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C3RedToken.enabled = true; break;
+                case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C3BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
+                case "GameWon": C3GamesWonToken.enabled = true; break;
+                case "GameStarted": C3GamesStartedToken.enabled = true; break;
+            }
+        }
+        else
+        {
+            challange3Description.text = currentChallange3.Description;
+            Challenge3reward.text = currentChallange3.reward.ToString();
+            Challenge3Slider.value = currentChallange3.count / currentChallange3.goal;
+            challange3Done.SetActive(false);
+            switch (currentChallange3.PlayerPrefsId)
+            {
+                case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
+                case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
+                case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
+                case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
+                case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
+                case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
+                case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
+                case "RedTokenDestroyd": C3RedToken.enabled = true; break;
+                case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
+                case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
+                case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
+                case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
+                case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
+                case "BombDestroyd": C3BombToken.enabled = true; break;
+                case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
+                case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
+                case "GameWon": C3GamesWonToken.enabled = true; break;
+                case "GameStarted": C3GamesStartedToken.enabled = true; break;
+            }
+        }
+
+        if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
+        {
+            ButtonGetReward.SetActive(true);
+        }
+        else
+        {
+            ButtonGetReward.SetActive(false);
+        }
+    }
+
+    public void ButtonGetRewardOnClick()
+    {
+        PlayerPrefs.SetInt("Challenge1.Completed", 0);
+        PlayerPrefs.SetInt("Challenge2.Completed", 0);
+        PlayerPrefs.SetInt("Challenge3.Completed", 0);
+    }
 
     
 }

@@ -53,6 +53,10 @@ public class ChallangeHandlerScript : MonoBehaviour {
     Challange currentChallange1 = new Challange();
     Challange currentChallange2 = new Challange();
     Challange currentChallange3 = new Challange();
+
+    Challange oldChallange1 = new Challange();
+    Challange oldChallange2 = new Challange();
+    Challange oldChallange3 = new Challange();
     // Use this for initialization
     void Start () {
 
@@ -382,6 +386,10 @@ public class ChallangeHandlerScript : MonoBehaviour {
             challange1Done.SetActive(true);
             //give the player his reward
             moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(currentChallange1.reward);
+            //store old Challenge to show in Pop Up
+            storeOldChallange(currentChallange1, 1);
+            oldChallange1 = currentChallange1;
+            PlayerPrefs.SetInt("Challenge1.Completed", 1);
             //generate new Challange
             currentChallange1 = allChallanges[generateNewChallangeId()];
         }
@@ -398,6 +406,10 @@ public class ChallangeHandlerScript : MonoBehaviour {
             challange1Done.SetActive(true);
             //give the player his reward
             moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(currentChallange2.reward);
+            //store old Challange for Pop UP
+            storeOldChallange(currentChallange2, 2);
+            oldChallange2 = currentChallange2;
+            PlayerPrefs.SetInt("Challenge2.Completed", 1);
             //generate new Challange
             currentChallange2 = allChallanges[generateNewChallangeId()];
         }
@@ -414,6 +426,10 @@ public class ChallangeHandlerScript : MonoBehaviour {
             challange1Done.SetActive(true);
             //give the player his reward
             moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(currentChallange3.reward);
+            //store old Challange for Pop UP
+            storeOldChallange(currentChallange1, 1);
+            oldChallange3 = currentChallange3;
+            PlayerPrefs.SetInt("Challenge3.Completed", 1);
             //generate new Challange
             currentChallange3 = allChallanges[generateNewChallangeId()];
         }
@@ -525,9 +541,52 @@ public class ChallangeHandlerScript : MonoBehaviour {
         }
 
     }
+
+    private void storeOldChallange(Challange currentChallange, int index)
+    {
+        PlayerPrefs.SetInt("oldChallange"+index+".goal", currentChallange.goal);
+        PlayerPrefs.SetInt("oldChallange" + index + ".count", currentChallange.count);
+        PlayerPrefs.SetString("oldChallange" + index + ".Description", currentChallange.Description);
+        PlayerPrefs.SetString("oldChallange" + index + ".PlayerPrefsId", currentChallange.PlayerPrefsId);
+        PlayerPrefs.SetInt("oldChallange" + index + ".id", currentChallange.id);
+        PlayerPrefs.SetInt("oldChallange" + index + ".reward", currentChallange.reward);
+        PlayerPrefs.SetInt("oldChallange" + index + ".done", currentChallange.done);
+    }
+
+    public Challange getCurrentChallenge1()
+    {
+        return currentChallange1;
+    }
+
+    public Challange getCurrentChallenge2()
+    {
+        return currentChallange2;
+    }
+
+    public Challange getCurrentChallenge3()
+    {
+        return currentChallange3;
+    }
+
+    public Challange getOldChallange1()
+    {
+        return oldChallange1;
+    }
+
+    public Challange getOldChallange2()
+    {
+        return oldChallange2;
+    }
+
+    public Challange getOldChallange3()
+    {
+        return oldChallange3;
+    }
+
+
 }
 
-struct Challange
+public struct Challange
 {
     public string Description;
     public string PlayerPrefsId;

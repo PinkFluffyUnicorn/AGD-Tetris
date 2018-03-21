@@ -62,6 +62,39 @@ public class InitializePlayerPrefs : MonoBehaviour {
             PlayerPrefs.SetInt("currentChallange3.done", 1);
             PlayerPrefs.SetInt("currentChallange3.startValue", 0);
 
+            PlayerPrefs.SetInt("oldChallange1.goal", 0);
+            PlayerPrefs.SetInt("oldChallange1.count", 0);
+            PlayerPrefs.SetString("oldChallange1.Description", "");
+            PlayerPrefs.SetString("oldChallange1.PlayerPrefsId", "");
+            PlayerPrefs.SetInt("oldChallange1.id", 0);
+            PlayerPrefs.SetInt("oldChallange1.reward", 0);
+            PlayerPrefs.SetInt("oldChallange1.done", 1);
+            PlayerPrefs.SetInt("oldChallange1.startValue", 0);
+
+            PlayerPrefs.SetInt("oldChallange2.goal", 0);
+            PlayerPrefs.SetInt("oldChallange2.count", 0);
+            PlayerPrefs.SetString("oldChallange2.Description", "");
+            PlayerPrefs.SetString("oldChallange2.PlayerPrefsId", "");
+            PlayerPrefs.SetInt("oldChallange2.id", 0);
+            PlayerPrefs.SetInt("oldChallange2.reward", 0);
+            PlayerPrefs.SetInt("oldChallange2.done", 1);
+            PlayerPrefs.SetInt("oldChallange2.startValue", 0);
+
+            PlayerPrefs.SetInt("oldChallange3.goal", 0);
+            PlayerPrefs.SetInt("oldChallange3.count", 0);
+            PlayerPrefs.SetString("oldChallange3.Description", "");
+            PlayerPrefs.SetString("oldChallange3.PlayerPrefsId", "");
+            PlayerPrefs.SetInt("oldChallange3.id", 0);
+            PlayerPrefs.SetInt("oldChallange3.reward", 0);
+            PlayerPrefs.SetInt("oldChallange3.done", 1);
+            PlayerPrefs.SetInt("oldChallange3.startValue", 0);
+
+            //Challenge done 
+            PlayerPrefs.SetInt("Challenge1.Completed", 0);// only 1 when an old Challenge is completed and has to be shown in POP UP 
+            PlayerPrefs.SetInt("Challenge2.Completed", 0);
+            PlayerPrefs.SetInt("Challenge3.Completed", 0);
+
+
             //Daily Bonus 
             PlayerPrefs.SetInt("NumberOfBonus", 0);
             PlayerPrefs.SetInt("date", System.DateTime.Now.DayOfYear);
