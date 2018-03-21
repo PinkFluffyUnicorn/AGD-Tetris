@@ -13,7 +13,16 @@ public class AddScoreToLeaderbord : MonoBehaviour {
     public Text first;
     public Text second;
     public Text third;
+    public Text firstNumber;
+    public Text secondNumber;
+    public Text thirdNumber;
 
+
+    public GameObject highscoreHandler;
+    int enterysInTable = 3;
+
+    static int usernameAt = 0;
+    static int dataAt = 1;
 
     //Important, never delete! http://dreamlo.com/lb/AeuoLJscsEaYq3tKbd2xNAHRAWjegmS0WKnD39Wdex_A
     //Private Code: Qn3LrCq6SEamAobzoPhYkw2thZBJFFN0qsFOVnZjZtdg
@@ -24,7 +33,43 @@ public class AddScoreToLeaderbord : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        StartCoroutine(uploadUsernameToOnlineDatabase());
+        
+        List<string> data = highscoreHandler.GetComponent<DownloadHighscores>().getHighscores(Int32.Parse(levelNumber.text.Substring(6)));
+        bool includet = false;
+        for (int i = 0; i < data.Count; i++)//somewhere in the middle
+        {
+            if (data[i].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[usernameAt].Equals(PlayerPrefs.GetString("Username"))) {
+                includet = true;
+                if(Int32.Parse(data[i].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[dataAt]) < Int32.Parse(highscore.text))
+                {
+                    data[i] = (PlayerPrefs.GetString("Username") + " " + highscore.text);
+                    print(PlayerPrefs.GetString("Username") + " " + highscore.text);
+                    listBubbleSort(data);
+                    StartCoroutine(uploadUsernameToOnlineDatabase());
+                    break;
+                }
+            }
+        }
+
+        if (!includet)
+        {
+            data.Add(highscore.text + " " + PlayerPrefs.GetString("Username"));
+            listBubbleSort(data);
+            StartCoroutine(uploadUsernameToOnlineDatabase());
+        }
+
+        for (int i = 0; i < data.Count; i++)//somewhere in the middle
+        {
+            if (data[i].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[usernameAt].Equals(PlayerPrefs.GetString("Username")))
+            {
+                if (i <= Mathf.FloorToInt((float)enterysInTable / 2f) || data.Count < enterysInTable)//higher
+                    fillTable(data, 0);
+                else if (i >= (data.Count - Mathf.FloorToInt((float)enterysInTable / 2f)))//smaller
+                    fillTable(data, i + 1 - enterysInTable);
+                else//in the middle
+                    fillTable(data, i - Mathf.FloorToInt((float)enterysInTable / 2f));
+            }
+        }
     }
 	
 	// Update is called once per frame
@@ -49,62 +94,61 @@ public class AddScoreToLeaderbord : MonoBehaviour {
         }
         else
         {
-            StartCoroutine(checkUsernameInOnlineDatabase());
+            //StartCoroutine(checkUsernameInOnlineDatabase());
         }
     }
 
-    IEnumerator checkUsernameInOnlineDatabase()
+    void fillTable(List<string> data, int startvalue)
     {
-        WWW www = new WWW(webURL + publicCode + "/pipe/" + WWW.EscapeURL(PlayerPrefs.GetString("Username")));
-        yield return www;
-
-        string realLevelNumber = levelNumber.text;
-        realLevelNumber = realLevelNumber.Substring(6);
-
-        if (string.IsNullOrEmpty(www.error))
+        if (data.Count >= startvalue + 1)
         {
-            print(www.text);
-            string[] downloads = www.text.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            List<string> results = new List<string>();
-            for (int i = 0; i < downloads.Length; i++)
-            {
-                string[] pipeCut = downloads[i].Split(new[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-                if (realLevelNumber == pipeCut[0].Substring(Math.Max(0, pipeCut[0].Length - 1)))
-                    results.Add(pipeCut[1] + " " + pipeCut[0].Remove(pipeCut[0].Length - 2, 2));//TODO: change to split at _
-            }
-
-            if (results[results.Count - 1].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1] == PlayerPrefs.GetString("Username") || results.Count < 0)//first/higher than the moddle or count smaller than three
-            {
-                if (results.Count >= 1)
-                    first.text = results[0];
-                if (results.Count >= 2)
-                    second.text = results[1];
-                if (results.Count >= 3)
-                    third.text = results[2];
-            }
-
-            if (results[results.Count - 1].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1] == PlayerPrefs.GetString("Username"))//last/smaller than the middle
-            {
-                first.text = results[results.Count - 3];
-                second.text = results[results.Count - 2];
-                third.text = results[results.Count - 1];
-            }
-
-            for(int i = 0; i < results.Count; i++)//somewhere in the middle
-            {
-                if (results[results.Count - 1].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1] == PlayerPrefs.GetString("Username"))
-                {
-                    first.text = results[i - 1];
-                    second.text = results[i];
-                    third.text = results[i + 1];
-                }
-            }
+            first.text = data[startvalue + 0];
+            firstNumber.text = "" + (startvalue + 1);
         }
         else
-        {
-            print("Upload Error: " + www.error);
-            //TODO: put my own score first
-        }
+            first.text = "---";
 
+        if (data.Count >= startvalue + 2)
+        {
+            print(data[startvalue + 1]);
+            print(startvalue + 2);
+            second.text = data[startvalue + 1];
+            secondNumber.text = "" + (startvalue + 2);
+        }
+        else
+            second.text = "---";
+
+        if (data.Count >= startvalue + 3)
+        {
+            third.text = data[startvalue + 2];
+            thirdNumber.text = "" + (startvalue + 3);
+        }
+        else
+            third.text = "---";
+    }
+
+    static void listBubbleSort(List<string> data)
+    {
+        int i, j;
+        int N = data.Count;
+
+        for (j = N - 1; j > 0; j--)
+        {
+            for (i = 0; i < j; i++)
+            {
+                print(data[i].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)[dataAt]);
+                if (Int32.Parse(data[i].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)[dataAt]) < Int32.Parse(data[i + 1].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)[dataAt]))
+                    exchange(data, i, i + 1);
+            }
+        }
+    }
+
+    static void exchange(List<string> data, int m, int n)
+    {
+        string temporary;
+
+        temporary = data[m];
+        data[m] = data[n];
+        data[n] = temporary;
     }
 }
