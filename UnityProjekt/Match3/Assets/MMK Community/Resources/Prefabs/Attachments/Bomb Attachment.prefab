@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 21289412}
   - component: {fileID: 9537018}
   - component: {fileID: 11477612}
-  - component: {fileID: 11464440}
   - component: {fileID: 11420830}
   - component: {fileID: 11471308}
   - component: {fileID: 11428398}
@@ -21,6 +20,7 @@ GameObject:
   - component: {fileID: 11407520}
   - component: {fileID: 114919429154152402}
   - component: {fileID: 114929431742833836}
+  - component: {fileID: 11464440}
   m_Layer: 0
   m_Name: Bomb Attachment
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1633650752, guid: c2ca72da8b13f33468a892f16080eaab, type: 3}
   m_Name: 
@@ -120,12 +120,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1403640638, guid: c2ca72da8b13f33468a892f16080eaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300370, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
+  sprite: {fileID: 21300376, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
   editorSprite: {fileID: 0}
   sortingLayerName: Tokens
   packing: 0
@@ -216,7 +216,7 @@ SpriteRenderer:
   m_SortingLayerID: 712495007
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300370, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
+  m_Sprite: {fileID: 21300374, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -267,4 +267,3 @@ MonoBehaviour:
   BombRed: {fileID: 21300374, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
   BombPurple: {fileID: 21300372, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
   BombOrange: {fileID: 21300370, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
-  finalBomb: {fileID: 164946}

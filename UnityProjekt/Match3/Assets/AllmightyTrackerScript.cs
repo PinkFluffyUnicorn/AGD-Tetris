@@ -27,12 +27,12 @@ public class AllmightyTrackerScript : MonoBehaviour {
         if (inFocus)
         {
             //your app is in the background, yay!!!!
-            print(DateTime.Now.ToString("dd.MM.yyy HH:mm:ss") + " active");
+            print(DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") + " active");
         }
         else
         {
             //the game is active! more yay!
-            print(DateTime.Now.ToString("dd.MM.yyy HH:mm:ss") + " inactive");
+            print(DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") + " inactive");
 
         }
     }
