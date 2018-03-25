@@ -33,4 +33,12 @@ public class BombColourHandler : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = Bombcolour;
         }
     }
+
+    void OnDestroy()
+    {
+        if (bomb)
+        {
+            PlayerPrefs.SetInt("BombDestroyd", PlayerPrefs.GetInt("BombDestroyd", 0) + 1);
+        }
+    }
 }
