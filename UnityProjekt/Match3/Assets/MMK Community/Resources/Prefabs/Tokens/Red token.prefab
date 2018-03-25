@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 11448384}
   - component: {fileID: 11400722}
   - component: {fileID: 114844890556234598}
+  - component: {fileID: 114162532320692222}
   m_Layer: 0
   m_Name: Red token
   m_TagString: Untagged
@@ -233,6 +234,18 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123904}
   m_IsPrefabParent: 1
+--- !u!114 &114162532320692222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce68d607052899479b13bff338cdfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bombcolour: {fileID: 21300374, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
 --- !u!114 &114844890556234598
 MonoBehaviour:
   m_ObjectHideFlags: 1

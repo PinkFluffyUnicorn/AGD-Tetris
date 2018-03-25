@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 11471544}
   - component: {fileID: 11456534}
   - component: {fileID: 114770958903765040}
+  - component: {fileID: 114824654122154572}
   m_Layer: 0
   m_Name: Purple token
   m_TagString: Untagged
@@ -247,3 +248,15 @@ MonoBehaviour:
   ID: PurpleTokenDestroyd
   trackOnStart: 0
   trackOnDestroy: 1
+--- !u!114 &114824654122154572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce68d607052899479b13bff338cdfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bombcolour: {fileID: 21300372, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}

@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 411316}
+  - component: {fileID: 11464440}
   - component: {fileID: 21289412}
   - component: {fileID: 9537018}
   - component: {fileID: 11477612}
@@ -19,8 +20,6 @@ GameObject:
   - component: {fileID: 11463898}
   - component: {fileID: 11407520}
   - component: {fileID: 114919429154152402}
-  - component: {fileID: 114929431742833836}
-  - component: {fileID: 11464440}
   m_Layer: 0
   m_Name: Bomb Attachment
   m_TagString: Untagged
@@ -120,12 +119,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164946}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1403640638, guid: c2ca72da8b13f33468a892f16080eaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300376, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
+  sprite: {fileID: 0}
   editorSprite: {fileID: 0}
   sortingLayerName: Tokens
   packing: 0
@@ -216,7 +215,7 @@ SpriteRenderer:
   m_SortingLayerID: 712495007
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300374, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -224,7 +223,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1001 &100100000
 Prefab:
@@ -251,19 +250,3 @@ MonoBehaviour:
   ID: BombDestroyd
   trackOnStart: 0
   trackOnDestroy: 1
---- !u!114 &114929431742833836
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce68d607052899479b13bff338cdfde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BombBlue: {fileID: 21300366, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
-  BombGreen: {fileID: 21300368, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
-  BombRed: {fileID: 21300374, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
-  BombPurple: {fileID: 21300372, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
-  BombOrange: {fileID: 21300370, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}

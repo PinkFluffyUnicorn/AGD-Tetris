@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 11430018}
   - component: {fileID: 11456310}
   - component: {fileID: 114950819199978144}
+  - component: {fileID: 114662609581110142}
   m_Layer: 0
   m_Name: Green token
   m_TagString: Untagged
@@ -233,6 +234,18 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 198518}
   m_IsPrefabParent: 1
+--- !u!114 &114662609581110142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce68d607052899479b13bff338cdfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bombcolour: {fileID: 21300368, guid: 12b899fa8ee8b7f4b92a74630c9e5888, type: 3}
 --- !u!114 &114950819199978144
 MonoBehaviour:
   m_ObjectHideFlags: 1

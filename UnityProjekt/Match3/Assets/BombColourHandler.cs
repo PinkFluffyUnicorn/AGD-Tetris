@@ -6,22 +6,31 @@ using UnityEngine.UI;
 public class BombColourHandler : MonoBehaviour
 {
 
-    public Sprite BombBlue;
-    public Sprite BombGreen;
-    public Sprite BombRed;
-    public Sprite BombPurple;
-    public Sprite BombOrange;
+    public Sprite Bombcolour;
+    bool bomb = false;
 
 	// Use this for initialization
 	void Start ()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = BombBlue;
+        BombAction[] allChildren = GetComponentsInChildren<BombAction>();
+      
+            if(allChildren.Length > 0 )
+            {
+                bomb = true;
+            }
+
+        if(bomb)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = Bombcolour;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //finalBomb = BombBlue;
-        gameObject.GetComponent<SpriteRenderer>().sprite = BombBlue;
+        if (bomb)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = Bombcolour;
+        }
     }
 }
