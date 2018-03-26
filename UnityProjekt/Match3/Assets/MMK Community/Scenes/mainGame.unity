@@ -2186,7 +2186,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 232126926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: -784.7783, z: 0}
+  m_LocalPosition: {x: 100, y: -784.5192, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1062353499}
@@ -5169,7 +5169,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 537433689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 818.7783, z: 0}
+  m_LocalPosition: {x: 0, y: 818.5192, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1612896154}
@@ -5776,6 +5776,8 @@ GameObject:
   - component: {fileID: 581094829}
   - component: {fileID: 581094828}
   - component: {fileID: 581094833}
+  - component: {fileID: 581094835}
+  - component: {fileID: 581094834}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5863,6 +5865,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd85b100671abc40947ec80a8858935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &581094834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 581094827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5994a8924f25487478f021266e61e2e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: GameStarted
+  trackOnStart: 1
+  trackOnDestroy: 0
+--- !u!114 &581094835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 581094827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c68c1b8e1b76fc4d8934f82dd267f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: {fileID: 583206011}
 --- !u!1 &582628556
 GameObject:
   m_ObjectHideFlags: 0
@@ -10718,8 +10746,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1066478617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 157, y: 279, z: 0}
-  m_LocalScale: {x: 0.29069212, y: 0.29069212, z: 0.29069212}
+  m_LocalPosition: {x: 181, y: 321.5, z: 0}
+  m_LocalScale: {x: 0.33506364, y: 0.33506364, z: 0.33506364}
   m_Children:
   - {fileID: 537433690}
   - {fileID: 232126927}
@@ -13758,6 +13786,7 @@ GameObject:
   - component: {fileID: 1416992970}
   - component: {fileID: 1416992971}
   - component: {fileID: 1416992972}
+  - component: {fileID: 1416992973}
   m_Layer: 5
   m_Name: Lose
   m_TagString: Untagged
@@ -13838,6 +13867,18 @@ MonoBehaviour:
   ID: GameLost
   trackOnStart: 1
   trackOnDestroy: 0
+--- !u!114 &1416992973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1416992967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046d0dcde931003478693414eec8efe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: {fileID: 583206011}
 --- !u!1 &1422899356
 GameObject:
   m_ObjectHideFlags: 0

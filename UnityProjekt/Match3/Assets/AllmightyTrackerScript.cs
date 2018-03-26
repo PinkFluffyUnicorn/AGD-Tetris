@@ -16,6 +16,7 @@ public class AllmightyTrackerScript : MonoBehaviour {
 	void Awake () {
         if(allmightyTracker == null)
         {
+            writeToFile("openned");
             DontDestroyOnLoad(gameObject);
             allmightyTracker = this;
         }
@@ -41,6 +42,11 @@ public class AllmightyTrackerScript : MonoBehaviour {
     void Update () {
 		
 	}
+
+    void OnApplicationQuit()
+    {
+        writeToFile("closed");
+    }
 
     public void writeToFile(string data)
     {
