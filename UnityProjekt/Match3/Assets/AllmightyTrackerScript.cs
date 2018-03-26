@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class AllmightyTrackerScript : MonoBehaviour {
 
-    //the pat for match.me on android is "Dieser PC\Galaxy S6\Phone\Android\obb"
+    //the pat for match.me on android is ""
 
 
     public static AllmightyTrackerScript allmightyTracker;
+    string filePath = "/playerInfo.csv";
 	// Use this for initialization
 	void Awake () {
         if(allmightyTracker == null)
@@ -26,14 +29,11 @@ public class AllmightyTrackerScript : MonoBehaviour {
     {
         if (inFocus)
         {
-            //your app is in the background, yay!!!!
-            print(DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") + " active");
+            writeToFile("active");
         }
         else
         {
-            //the game is active! more yay!
-            print(DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") + " inactive");
-
+            writeToFile("inactive");
         }
     }
 
@@ -41,4 +41,13 @@ public class AllmightyTrackerScript : MonoBehaviour {
     void Update () {
 		
 	}
+
+    public void writeToFile(string data)
+    {
+        //BinaryFormatter bf = new BinaryFormatter();
+        if (!File.Exists(Application.persistentDataPath + filePath))
+            File.Create(Application.persistentDataPath + filePath);
+        File.AppendAllText(Application.persistentDataPath + filePath, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") +": "+ data + ",");
+        print("Wrote " + data + " to File " + Application.persistentDataPath + filePath);
+    }
 }

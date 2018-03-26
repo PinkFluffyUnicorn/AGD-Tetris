@@ -33,7 +33,7 @@ public class AddScoreToLeaderbord : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
+        AllmightyTrackerScript.allmightyTracker.writeToFile("game won " + levelNumber.text); //in das script das ein spiel gewonnen wurde
         List<string> data = highscoreHandler.GetComponent<DownloadHighscores>().getHighscores(Int32.Parse(levelNumber.text.Substring(6)));
         bool includet = false;
         for (int i = 0; i < data.Count; i++)//somewhere in the middle
@@ -42,6 +42,7 @@ public class AddScoreToLeaderbord : MonoBehaviour {
                 includet = true;
                 if(Int32.Parse(data[i].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[dataAt]) < Int32.Parse(highscore.text))
                 {
+                    AllmightyTrackerScript.allmightyTracker.writeToFile("new highscore "+ levelNumber.text); //in das script das einneuer highscore erreicht wurde
                     data[i] = (PlayerPrefs.GetString("Username") + " " + highscore.text);
                     print(PlayerPrefs.GetString("Username") + " " + highscore.text);
                     listBubbleSort(data);

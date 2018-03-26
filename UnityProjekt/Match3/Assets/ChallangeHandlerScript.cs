@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -379,6 +378,8 @@ public class ChallangeHandlerScript : MonoBehaviour {
         {
             //generate a new Challange
             currentChallange1 = allChallanges[generateNewChallangeId()];
+
+            AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
         if(currentChallange1.done == 0 && currentChallange1.goal <= currentChallange1.count)
         {
@@ -391,7 +392,8 @@ public class ChallangeHandlerScript : MonoBehaviour {
             oldChallange1 = currentChallange1;
             PlayerPrefs.SetInt("Challenge1.Completed", 1);
             //generate new Challange
-            currentChallange1 = allChallanges[generateNewChallangeId()];
+            currentChallange1 = allChallanges[generateNewChallangeId()];//TODO vielleicht erst in der runde danach abschließen
+            AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
 
         //currentChallange2
@@ -399,6 +401,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         {
             //generate a new Challange
             currentChallange2 = allChallanges[generateNewChallangeId()];
+            AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
         if (currentChallange2.done == 0 && currentChallange2.goal <= currentChallange2.count)
         {
@@ -412,6 +415,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
             PlayerPrefs.SetInt("Challenge2.Completed", 1);
             //generate new Challange
             currentChallange2 = allChallanges[generateNewChallangeId()];
+            AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
 
         //currentChallange3
@@ -419,6 +423,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         {
             //generate a new Challange
             currentChallange3 = allChallanges[generateNewChallangeId()];
+            AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
         if (currentChallange3.done == 0 && currentChallange3.goal <= currentChallange3.count)
         {
@@ -432,6 +437,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
             PlayerPrefs.SetInt("Challenge3.Completed", 1);
             //generate new Challange
             currentChallange3 = allChallanges[generateNewChallangeId()];
+            AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
     }
     int generateNewChallangeId()
