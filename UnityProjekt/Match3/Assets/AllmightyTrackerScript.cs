@@ -7,7 +7,7 @@ using System.IO;
 
 public class AllmightyTrackerScript : MonoBehaviour {
 
-    //the pat for match.me on android is ""
+    //the pat for match.me on android is "Dieser PC\Galaxy S6\Phone\Android\data\com.Balhorn.Octopus_Adventure\files"
 
 
     public static AllmightyTrackerScript allmightyTracker;

@@ -13,13 +13,15 @@ public class AddScoreToLeaderbord : MonoBehaviour {
     public Text first;
     public Text second;
     public Text third;
+    public Text fourth;
     public Text firstNumber;
     public Text secondNumber;
     public Text thirdNumber;
+    public Text fourthNumber;
 
 
     public GameObject highscoreHandler;
-    int enterysInTable = 3;
+    int enterysInTable = 4;
 
     static int usernameAt = 0;
     static int dataAt = 1;
@@ -126,6 +128,13 @@ public class AddScoreToLeaderbord : MonoBehaviour {
         }
         else
             third.text = "---";
+        if (data.Count >= startvalue + 4)
+        {
+            fourth.text = data[startvalue + 3];
+            fourthNumber.text = "" + (startvalue + 4);
+        }
+        else
+            fourth.text = "---";
     }
 
     static void listBubbleSort(List<string> data)
