@@ -28,7 +28,10 @@ public class selectUsernameScript : MonoBehaviour {
 
     public void selectPressed()
     {
-        StartCoroutine(checkUsernameInOnlineDatabase(inputText.text)); //TODO: check if username vontains any _
+        if (inputText.text.Contains("_"))
+            outputText.text = "The Username contains invalid Symbols!";
+        else
+            StartCoroutine(checkUsernameInOnlineDatabase(inputText.text));
     }
     IEnumerator uploadUsernameToOnlineDatabase(string username)
     {
@@ -41,7 +44,7 @@ public class selectUsernameScript : MonoBehaviour {
             popupToClose.SetActive(false);
         }
         else
-            print("Upload Error: " + www.error);
+            outputText.text = "An Error occured: " + www.error;
     }
 
     IEnumerator checkUsernameInOnlineDatabase(string username)
