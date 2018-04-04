@@ -18174,8 +18174,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611740715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 168, y: 298.5, z: 0}
-  m_LocalScale: {x: 0.31111112, y: 0.31111112, z: 0.31111112}
+  m_LocalPosition: {x: 169, y: 298.5, z: 0}
+  m_LocalScale: {x: 0.31296295, y: 0.31296295, z: 0.31296295}
   m_Children:
   - {fileID: 1844419283}
   - {fileID: 1785659727}
@@ -42260,6 +42260,7 @@ MonoBehaviour:
   C3GamesStartedToken: {fileID: 376239543}
   ChallengeHandler: {fileID: 759863233}
   ButtonGetReward: {fileID: 615162310}
+  Close: {fileID: 1859843943}
 --- !u!95 &1288020974
 Animator:
   serializedVersion: 3

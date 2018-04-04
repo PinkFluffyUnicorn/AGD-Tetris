@@ -31,6 +31,7 @@ public class DailyChallenge : MonoBehaviour {
     public GameObject ChallengeHandler;
 
     public GameObject ButtonGetReward;
+    public GameObject Close;
 
     Challange currentChallange1 = new Challange();
     Challange currentChallange2 = new Challange();
@@ -244,10 +245,12 @@ public class DailyChallenge : MonoBehaviour {
         if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
         {
             ButtonGetReward.SetActive(true);
+            Close.SetActive(false);
         }
         else
         {
             ButtonGetReward.SetActive(false);
+            Close.SetActive(true);
         }
 
     }
@@ -447,10 +450,12 @@ public class DailyChallenge : MonoBehaviour {
         if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
         {
             ButtonGetReward.SetActive(true);
+            Close.SetActive(false);
         }
         else
         {
             ButtonGetReward.SetActive(false);
+            Close.SetActive(true);
         }
     }
 
