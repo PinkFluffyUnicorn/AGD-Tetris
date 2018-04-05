@@ -8,16 +8,15 @@ public class PlusFiveBoosterNew : MonoBehaviour {
 
     public Text amountOfBooster;
     public GameObject BoosterHandler;
-    private bool _buttonclicked = false;
     private int amount = 0;
-    public GameObject buyBooster;
+    public GameObject buyBooster; // Button der das Booster kaufen ermöglicht, macht Shop auf oder so ? 
 
 
 
     // Use this for initialization
     void Start ()
     {
-        amount = PlayerPrefs.GetInt("PlusFiveBooster", 0);
+        amount = BoosterHandler.GetComponent<BoosterHandler>().getAMountPlusFiveBooster();
         amountOfBooster.text = amount.ToString();
         if (amount < 1)
         {
@@ -30,7 +29,27 @@ public class PlusFiveBoosterNew : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        if (amount < 1)
+        {
+            buyBooster.SetActive(true);
+        }
+        else
+        {
+            buyBooster.SetActive(false);
+        }
+    }
+
+    public void OnClick()
+    {
+        if(BoosterHandler.GetComponent<BoosterHandler>().subtractPlusFiveBooster(1))
+        {
+            amount -= 1;
+        }
+        else
+        {
+
+        }
+    }
 }
