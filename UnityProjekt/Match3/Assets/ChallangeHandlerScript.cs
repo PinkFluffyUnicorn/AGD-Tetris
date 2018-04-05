@@ -88,8 +88,6 @@ public class ChallangeHandlerScript : MonoBehaviour {
     
     void initializeNewChallanges()
     {
-
-        //TODO. randomize the miltiplikators a bit
          //t1 = all normal stones (blue, orange, yellow, 
         int t1Min = 12;
         int t1Max = 36;
@@ -144,32 +142,61 @@ public class ChallangeHandlerScript : MonoBehaviour {
         int randMax = 5;
 
 
-        //TODO: sort the s: normal stines, h/v Bombs, Bombs, games started, games won, ColorBombs, coockies1, coockies1, chocklate, stones1, stones2
-        Challange1.PlayerPrefsId = "BlueTokenDestroyd";
-        Challange1.goal = Random.Range(t1Min, t1Max);
+	/**
+	to sort the levels, first we need to know wicht tokans can appear from wich level
+
+	Ab Level x geschafft.
+	Level0:
+	ALl Normal Tokens, Games Started, Games Won
+
+	Level 1
+	Horizontal/Vertical Bombs, normal Bombs
+
+	Level 3 
+	FlowerBomb
+
+	Level 6
+	Yellow Coockies
+
+	Level 9
+	Orange Coockies
+
+	Level 26
+	Chocklate
+
+	Level 13 //wenn Wall = Stone
+	Stone1
+
+	Level 27
+	Ingrediant 1/2/3
+	*/        
+
+//Level 0
+        Challange1.PlayerPrefsId = "GameWon";
+        Challange1.goal = Random.Range(t8Min, t8Max);
         Challange1.count = 0;
-        Challange1.startValue = PlayerPrefs.GetInt(Challange1.PlayerPrefsId);
-        Challange1.Description = "Destroy " + Challange1.goal + " blue Stones!";
-        Challange1.id = 0;
-        Challange1.reward = (Challange1.goal * t1Multiplicator) + Random.Range(randMin, randMax);
+        Challange1.startValue = PlayerPrefs.GetInt(Challange17.PlayerPrefsId);
+        Challange1.Description = "Win " + Challange17.goal + " Games!";
+        Challange1.id = 16;
+        Challange1.reward = (Challange17.goal * t8Multiplicator) + Random.Range(randMin, randMax);
         Challange1.done = 0;
 
-        //Challange2.PlayerPrefsId = "ChocklateDestroyd";
-        //Challange2.goal = Random.Range(t10Min, t10Max);
-        //Challange2.count = 0;
-        //Challange2.startValue = PlayerPrefs.GetInt(Challange1.PlayerPrefsId);
-        //Challange2.Description = "Destroy " + Challange1.goal + " blue Stones!";
-        //Challange2.id = 0;
-        //Challange2.reward = (Challange2.goal * t10Multiplicator) + Random.Range(randMin, randMax);
-        //Challange2.done = 0;
+        Challange2.PlayerPrefsId = "GameStarted";
+        Challange2.goal = Random.Range(t7Min, t7Max);
+        Challange2.count = 0;
+        Challange2.startValue = PlayerPrefs.GetInt(Challange18.PlayerPrefsId);
+        Challange2.Description = "Play " + Challange18.goal + " Games!";
+        Challange2.id = 17;
+        Challange2.reward = (Challange18.goal * t7Multiplicator) + Random.Range(randMin, randMax);
+        Challange2.done = 0;
 
-        Challange3.PlayerPrefsId = "ColorBombDestroyd";
-        Challange3.goal = Random.Range(t9Min, t9Max);
+	Challange3.PlayerPrefsId = "BlueTokenDestroyd";
+        Challange3.goal = Random.Range(t1Min, t1Max);
         Challange3.count = 0;
-        Challange3.startValue = PlayerPrefs.GetInt(Challange3.PlayerPrefsId);
-        Challange3.Description = "Destroy " + Challange3.goal + " color Bombs!";
-        Challange3.id = 2;
-        Challange3.reward = (Challange3.goal * t9Multiplicator) + Random.Range(randMin, randMax);
+        Challange3.startValue = PlayerPrefs.GetInt(Challange1.PlayerPrefsId);
+        Challange3.Description = "Destroy " + Challange1.goal + " blue Stones!";
+        Challange3.id = 0;
+        Challange3.reward = (Challange1.goal * t1Multiplicator) + Random.Range(randMin, randMax);
         Challange3.done = 0;
 
         Challange4.PlayerPrefsId = "GreenTokenDestroyd";
@@ -181,132 +208,138 @@ public class ChallangeHandlerScript : MonoBehaviour {
         Challange4.reward = (Challange4.goal * t1Multiplicator) + Random.Range(randMin, randMax);
         Challange4.done = 0;
 
-        Challange5.PlayerPrefsId = "Ingridient1Destroyd";
-        Challange5.goal = Random.Range(t5Min, t5Max);
+        Challange5.PlayerPrefsId = "OrangeTokenDestroyd";
+        Challange5.goal = Random.Range(t1Min, t1Max);
         Challange5.count = 0;
-        Challange5.startValue = PlayerPrefs.GetInt(Challange5.PlayerPrefsId);
-        Challange5.Description = "Destroy " + Challange5.goal + " kiwis!";
-        Challange5.id = 4;
-        Challange5.reward = (Challange5.goal * t5Multiplicator) + Random.Range(randMin, randMax);
+        Challange5.startValue = PlayerPrefs.GetInt(Challange7.PlayerPrefsId);
+        Challange5.Description = "Destroy " + Challange7.goal + " orange Stones!";
+        Challange5.id = 6;
+        Challange5.reward = (Challange7.goal * t1Multiplicator) + Random.Range(randMin, randMax);
         Challange5.done = 0;
 
-        Challange6.PlayerPrefsId = "Ingridient2Destroyd";
-        Challange6.goal = Random.Range(t5Min, t5Max);
+        Challange6.PlayerPrefsId = "PurpleTokenDestroyd";
+        Challange6.goal = Random.Range(t1Min, t1Max);
         Challange6.count = 0;
-        Challange6.startValue = PlayerPrefs.GetInt(Challange6.PlayerPrefsId);
-        Challange6.Description = "Destroy " + Challange6.goal + " strawberrys!";
-        Challange6.id = 5;
-        Challange6.reward = (Challange6.goal * t5Multiplicator) + Random.Range(randMin, randMax);
+        Challange6.startValue = PlayerPrefs.GetInt(Challange8.PlayerPrefsId);
+        Challange6.Description = "Destroy " + Challange8.goal + " purple Stones!";
+        Challange6.id = 7;
+        Challange6.reward = (Challange8.goal * t1Multiplicator) + Random.Range(randMin, randMax);
         Challange6.done = 0;
 
-        Challange7.PlayerPrefsId = "OrangeTokenDestroyd";
+        Challange7.PlayerPrefsId = "RedTokenDestroyd";
         Challange7.goal = Random.Range(t1Min, t1Max);
         Challange7.count = 0;
-        Challange7.startValue = PlayerPrefs.GetInt(Challange7.PlayerPrefsId);
-        Challange7.Description = "Destroy " + Challange7.goal + " orange Stones!";
-        Challange7.id = 6;
-        Challange7.reward = (Challange7.goal * t1Multiplicator) + Random.Range(randMin, randMax);
+        Challange7.startValue = PlayerPrefs.GetInt(Challange9.PlayerPrefsId);
+        Challange7.Description = "Destroy " + Challange9.goal + " red Stones!";
+        Challange7.id = 8;
+        Challange7.reward = (Challange9.goal * t1Multiplicator) + Random.Range(randMin, randMax);
         Challange7.done = 0;
 
-        Challange8.PlayerPrefsId = "PurpleTokenDestroyd";
+        Challange8.PlayerPrefsId = "YellowTokenDestroyd";
         Challange8.goal = Random.Range(t1Min, t1Max);
         Challange8.count = 0;
-        Challange8.startValue = PlayerPrefs.GetInt(Challange8.PlayerPrefsId);
-        Challange8.Description = "Destroy " + Challange8.goal + " purple Stones!";
-        Challange8.id = 7;
-        Challange8.reward = (Challange8.goal * t1Multiplicator) + Random.Range(randMin, randMax);
+        Challange8.startValue = PlayerPrefs.GetInt(Challange11.PlayerPrefsId);
+        Challange8.Description = "Destroy " + Challange11.goal + " yellow Stones!";
+        Challange8.id = 10;
+        Challange8.reward = (Challange11.goal * t1Multiplicator) + Random.Range(randMin, randMax);
         Challange8.done = 0;
 
-        Challange9.PlayerPrefsId = "RedTokenDestroyd";
-        Challange9.goal = Random.Range(t1Min, t1Max);
+//Level 1
+        Challange9.PlayerPrefsId = "BombDestroyd";
+        Challange9.goal = Random.Range(t3Min, t3Max);
         Challange9.count = 0;
-        Challange9.startValue = PlayerPrefs.GetInt(Challange9.PlayerPrefsId);
-        Challange9.Description = "Destroy " + Challange9.goal + " red Stones!";
-        Challange9.id = 8;
-        Challange9.reward = (Challange9.goal * t1Multiplicator) + Random.Range(randMin, randMax);
+        Challange9.startValue = PlayerPrefs.GetInt(Challange14.PlayerPrefsId);
+        Challange9.Description = "Destroy " + Challange14.goal + " Bombs!";
+        Challange9.id = 13;
+        Challange9.reward = (Challange14.goal * t3Multiplicator) + Random.Range(randMin, randMax);
         Challange9.done = 0;
 
-        Challange10.PlayerPrefsId = "Stone1Destroyd";
-        Challange10.goal = Random.Range(t6Min, t6Max);
+        Challange10.PlayerPrefsId = "HorizontalBombDestroyd";
+        Challange10.goal = Random.Range(t2Min, t2Max);
         Challange10.count = 0;
-        Challange10.startValue = PlayerPrefs.GetInt(Challange10.PlayerPrefsId);
-        Challange10.Description = "Destroy " + Challange10.goal + " Stones!";
-        Challange10.id = 9;
-        Challange10.reward = (Challange10.goal * t6Multiplicator) + Random.Range(randMin, randMax);
+        Challange10.startValue = PlayerPrefs.GetInt(Challange15.PlayerPrefsId);
+        Challange10.Description = "Destroy " + Challange15.goal + " horizontal Bombs!";
+        Challange10.id = 14;
+        Challange10.reward = (Challange15.goal * t2Multiplicator) + Random.Range(randMin, randMax);
         Challange10.done = 0;
 
-        Challange11.PlayerPrefsId = "YellowTokenDestroyd";
-        Challange11.goal = Random.Range(t1Min, t1Max);
+        Challange11.PlayerPrefsId = "VerticalBombDestroyd";
+        Challange11.goal = Random.Range(t2Min, t2Max);
         Challange11.count = 0;
-        Challange11.startValue = PlayerPrefs.GetInt(Challange11.PlayerPrefsId);
-        Challange11.Description = "Destroy " + Challange11.goal + " yellow Stones!";
-        Challange11.id = 10;
-        Challange11.reward = (Challange11.goal * t1Multiplicator) + Random.Range(randMin, randMax);
+        Challange11.startValue = PlayerPrefs.GetInt(Challange16.PlayerPrefsId);
+        Challange11.Description = "Destroy " + Challange16.goal + " vertical Bombs!";
+        Challange11.id = 15;
+        Challange11.reward = (Challange16.goal * t2Multiplicator) + Random.Range(randMin, randMax);
         Challange11.done = 0;
 
-        Challange12.PlayerPrefsId = "Coockie1Destroyd";
-        Challange12.goal = Random.Range(t4Min, t4Max);
+//Level 3
+        Challange12.PlayerPrefsId = "ColorBombDestroyd";
+        Challange12.goal = Random.Range(t9Min, t9Max);
         Challange12.count = 0;
-        Challange12.startValue = PlayerPrefs.GetInt(Challange12.PlayerPrefsId);
-        Challange12.Description = "Destroy " + Challange12.goal + " yellow Cookies!";
-        Challange12.id = 11;
-        Challange12.reward = (Challange12.goal * t4Multiplicator) + Random.Range(randMin, randMax);
+        Challange12.startValue = PlayerPrefs.GetInt(Challange3.PlayerPrefsId);
+        Challange12.Description = "Destroy " + Challange3.goal + " color Bombs!";
+        Challange12.id = 2;
+        Challange12.reward = (Challange3.goal * t9Multiplicator) + Random.Range(randMin, randMax);
         Challange12.done = 0;
 
-        Challange13.PlayerPrefsId = "Coockie2Destroyd";
+//Level 6
+        Challange13.PlayerPrefsId = "Coockie1Destroyd";
         Challange13.goal = Random.Range(t4Min, t4Max);
         Challange13.count = 0;
-        Challange13.startValue = PlayerPrefs.GetInt(Challange13.PlayerPrefsId);
-        Challange13.Description = "Destroy " + Challange13.goal + " orange Cookies!";
-        Challange13.id = 12;
-        Challange13.reward = (Challange13.goal * t4Multiplicator) + Random.Range(randMin, randMax);
+        Challange13.startValue = PlayerPrefs.GetInt(Challange12.PlayerPrefsId);
+        Challange13.Description = "Destroy " + Challange12.goal + " yellow Cookies!";
+        Challange13.id = 11;
+        Challange13.reward = (Challange12.goal * t4Multiplicator) + Random.Range(randMin, randMax);
         Challange13.done = 0;
 
-        Challange14.PlayerPrefsId = "BombDestroyd";
-        Challange14.goal = Random.Range(t3Min, t3Max);
+//Level 9
+        Challange14.PlayerPrefsId = "Coockie2Destroyd";
+        Challange14.goal = Random.Range(t4Min, t4Max);
         Challange14.count = 0;
-        Challange14.startValue = PlayerPrefs.GetInt(Challange14.PlayerPrefsId);
-        Challange14.Description = "Destroy " + Challange14.goal + " Bombs!";
-        Challange14.id = 13;
-        Challange14.reward = (Challange14.goal * t3Multiplicator) + Random.Range(randMin, randMax);
+        Challange14.startValue = PlayerPrefs.GetInt(Challange13.PlayerPrefsId);
+        Challange14.Description = "Destroy " + Challange13.goal + " orange Cookies!";
+        Challange14.id = 12;
+        Challange14.reward = (Challange13.goal * t4Multiplicator) + Random.Range(randMin, randMax);
         Challange14.done = 0;
 
-        Challange15.PlayerPrefsId = "HorizontalBombDestroyd";
-        Challange15.goal = Random.Range(t2Min, t2Max);
+//Level 13
+        Challange15.PlayerPrefsId = "Stone1Destroyd";
+        Challange15.goal = Random.Range(t6Min, t6Max);
         Challange15.count = 0;
-        Challange15.startValue = PlayerPrefs.GetInt(Challange15.PlayerPrefsId);
-        Challange15.Description = "Destroy " + Challange15.goal + " horizontal Bombs!";
-        Challange15.id = 14;
-        Challange15.reward = (Challange15.goal * t2Multiplicator) + Random.Range(randMin, randMax);
+        Challange15.startValue = PlayerPrefs.GetInt(Challange10.PlayerPrefsId);
+        Challange15.Description = "Destroy " + Challange10.goal + " Stones!";
+        Challange15.id = 9;
+        Challange15.reward = (Challange10.goal * t6Multiplicator) + Random.Range(randMin, randMax);
         Challange15.done = 0;
 
-        Challange16.PlayerPrefsId = "VerticalBombDestroyd";
-        Challange16.goal = Random.Range(t2Min, t2Max);
+//Level 26
+        Challange16.PlayerPrefsId = "ChocklateDestroyd";
+        Challange16.goal = Random.Range(t10Min, t10Max);
         Challange16.count = 0;
-        Challange16.startValue = PlayerPrefs.GetInt(Challange16.PlayerPrefsId);
-        Challange16.Description = "Destroy " + Challange16.goal + " vertical Bombs!";
-        Challange16.id = 15;
-        Challange16.reward = (Challange16.goal * t2Multiplicator) + Random.Range(randMin, randMax);
+        Challange16.startValue = PlayerPrefs.GetInt(Challange1.PlayerPrefsId);
+        Challange16.Description = "Destroy " + Challange1.goal + " blue Stones!";
+        Challange16.id = 0;
+        Challange16.reward = (Challange2.goal * t10Multiplicator) + Random.Range(randMin, randMax);
         Challange16.done = 0;
 
-        Challange17.PlayerPrefsId = "GameWon";
-        Challange17.goal = Random.Range(t8Min, t8Max);
+//Level 27
+        Challange17.PlayerPrefsId = "Ingridient1Destroyd";
+        Challange17.goal = Random.Range(t5Min, t5Max);
         Challange17.count = 0;
-        Challange17.startValue = PlayerPrefs.GetInt(Challange17.PlayerPrefsId);
-        Challange17.Description = "Win " + Challange17.goal + " Games!";
-        Challange17.id = 16;
-        Challange17.reward = (Challange17.goal * t8Multiplicator) + Random.Range(randMin, randMax);
+        Challange17.startValue = PlayerPrefs.GetInt(Challange5.PlayerPrefsId);
+        Challange17.Description = "Destroy " + Challange5.goal + " kiwis!";
+        Challange17.id = 4;
+        Challange17.reward = (Challange5.goal * t5Multiplicator) + Random.Range(randMin, randMax);
         Challange17.done = 0;
 
-        Challange18.PlayerPrefsId = "GameStarted";
-        Challange18.goal = Random.Range(t7Min, t7Max);
+        Challange18.PlayerPrefsId = "Ingridient2Destroyd";
+        Challange18.goal = Random.Range(t5Min, t5Max);
         Challange18.count = 0;
-        Challange18.startValue = PlayerPrefs.GetInt(Challange18.PlayerPrefsId);
-        Challange18.Description = "Play " + Challange18.goal + " Games!";
-        Challange18.id = 17;
-        Challange18.reward = (Challange18.goal * t7Multiplicator) + Random.Range(randMin, randMax);
+        Challange18.startValue = PlayerPrefs.GetInt(Challange6.PlayerPrefsId);
+        Challange18.Description = "Destroy " + Challange6.goal + " strawberrys!";
+        Challange18.id = 5;
+        Challange18.reward = (Challange6.goal * t5Multiplicator) + Random.Range(randMin, randMax);
         Challange18.done = 0;
-
         //max Challange = 18
     }
 
@@ -445,7 +478,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         int rand = Random.Range(0, allChallanges.Count - 1);
         while(rand == currentChallange1.id || rand == currentChallange2.id || rand == currentChallange3.id)
         {
-            rand = Random.Range(0, allChallanges.Count - 1);
+            rand = Random.Range(0, allChallanges.Count - 1); //TODO: check for level progress
         }
         return rand;
     }
@@ -468,10 +501,6 @@ public class ChallangeHandlerScript : MonoBehaviour {
             Challenge3Bilder[i].enabled = false;
         }
 
-
-
-        //TODO: hier die Progressbar für alle hinzufügen
-        //TODO: den Reward in der Gui setzen
         print("hi");
         challange1Description.text = currentChallange1.Description;
         Challenge1reward.text = currentChallange1.reward.ToString();
