@@ -127,6 +127,8 @@ public class InitializePlayerPrefs : MonoBehaviour {
             PlayerPrefs.SetInt("NotifDaily", System.DateTime.Now.DayOfYear);
             PlayerPrefs.SetInt("NotifLives", 0); //set to one if Lives were less than three, only if it gets full & was 1 send notification
 
+            PlayerPrefs.SetInt("highestLevel", 0);
+
             PlayerPrefs.SetInt("FirstLogin", 0);
         }
     }
