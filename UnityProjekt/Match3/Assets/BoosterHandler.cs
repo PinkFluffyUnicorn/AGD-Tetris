@@ -42,6 +42,62 @@ public class BoosterHandler : MonoBehaviour
 
     public int getAMountPickAxeBooster()
     {
-        return PlayerPrefs.GetInt("PickAxeBooster", 0);
+        return PlayerPrefs.GetInt("HandBooster", 0);
+    }
+
+
+    public void addHandBooster(int newAmount)
+    {
+        int oldAmount = getAMountHandBooster();
+        PlayerPrefs.SetInt("HandBooster", oldAmount + newAmount);
+    }
+
+    public bool subtractHandBooster(int newAmount)
+    {
+        int oldAmount = PlayerPrefs.GetInt("HandBooster", 0);
+        if (oldAmount - newAmount >= 0)
+        {
+            PlayerPrefs.SetInt("HandBooster", oldAmount - newAmount);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    public int getAMountHandBooster()
+    {
+        return PlayerPrefs.GetInt("HandBooster", 0);
+    }
+
+
+
+
+    public bool subtractPlusFiveBooster(int newAmount)
+    {
+        int oldAmount = PlayerPrefs.GetInt("PlusFiveBooster", 0);
+        if (oldAmount - newAmount >= 0)
+        {
+            PlayerPrefs.SetInt("PlusFiveBooster", oldAmount - newAmount);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    public void addPlusFiveBooster(int newAmount)
+    {
+        int oldAmount = getAMountPlusFiveBooster();
+        PlayerPrefs.SetInt("PlusFiveBooster", oldAmount + newAmount);
+    }
+
+    public int getAMountPlusFiveBooster()
+    {
+        return PlayerPrefs.GetInt("PlusFiveBooster", 0);
     }
 }
