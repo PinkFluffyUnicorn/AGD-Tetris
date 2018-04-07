@@ -5,9 +5,13 @@
 #include <QDateTime>
 
 enum EEventType {
+    START_SESSION,
+    STOP_SESSION,
+    OPEN_APP,
+    CLOSE_APP,
     GAME_STARTED,
     GAME_WON,
-
+    GAME_LOST,
 };
 
 class Event
