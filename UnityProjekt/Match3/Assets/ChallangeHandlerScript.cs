@@ -58,7 +58,6 @@ public class ChallangeHandlerScript : MonoBehaviour {
     Challange oldChallange3 = new Challange();
     // Use this for initialization
     void Start () {
-
         //initialize all the challanges here
         print("initializeNewChallanges");
         initializeNewChallanges();
@@ -134,9 +133,9 @@ public class ChallangeHandlerScript : MonoBehaviour {
         int t9Multiplicator = 5;
 
         //t10 chocklate
-        //int t10Min = 12;
-        //int t10Max = 25;
-        //int t10Multiplicator = 2;
+        int t10Min = 12;
+        int t10Max = 25;
+        int t10Multiplicator = 2;
 
         int randMin = 0;
         int randMax = 5;
@@ -171,7 +170,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 	Ingrediant 1/2/3
 	*/        
 
-//Level 0
+//Level 0 - 0 - 7
         Challange1.PlayerPrefsId = "GameWon";
         Challange1.goal = Random.Range(t8Min, t8Max);
         Challange1.count = 0;
@@ -190,7 +189,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         Challange2.reward = (Challange18.goal * t7Multiplicator) + Random.Range(randMin, randMax);
         Challange2.done = 0;
 
-	Challange3.PlayerPrefsId = "BlueTokenDestroyd";
+	    Challange3.PlayerPrefsId = "BlueTokenDestroyd";
         Challange3.goal = Random.Range(t1Min, t1Max);
         Challange3.count = 0;
         Challange3.startValue = PlayerPrefs.GetInt(Challange1.PlayerPrefsId);
@@ -478,7 +477,24 @@ public class ChallangeHandlerScript : MonoBehaviour {
         int rand = Random.Range(0, allChallanges.Count - 1);
         while(rand == currentChallange1.id || rand == currentChallange2.id || rand == currentChallange3.id)
         {
-            rand = Random.Range(0, allChallanges.Count - 1); //TODO: check for level progress
+            if(PlayerPrefs.GetInt("highestLevel") < 1)
+                rand = Random.Range(0, 7);
+            if (PlayerPrefs.GetInt("highestLevel") <= 1)
+                rand = Random.Range(0, 10);
+            if (PlayerPrefs.GetInt("highestLevel") <= 3)
+                rand = Random.Range(0, 11);
+            if (PlayerPrefs.GetInt("highestLevel") <= 6)
+                rand = Random.Range(0, 12);
+            if (PlayerPrefs.GetInt("highestLevel") <= 9)
+                rand = Random.Range(0, 13);
+            if (PlayerPrefs.GetInt("highestLevel") <= 13)
+                rand = Random.Range(0, 14);
+            if (PlayerPrefs.GetInt("highestLevel") <= 26)
+                rand = Random.Range(0, 15);
+            if (PlayerPrefs.GetInt("highestLevel") <= 27)
+                rand = Random.Range(0, allChallanges.Count - 1);
+            else
+                rand = Random.Range(0, 7); 
         }
         return rand;
     }
