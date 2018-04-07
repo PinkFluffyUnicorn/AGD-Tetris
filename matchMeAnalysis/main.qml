@@ -1,4 +1,4 @@
-import QtQuick 2.7
+import QtQuick 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.0
 
@@ -11,45 +11,28 @@ ApplicationWindow {
     property var anchorMargins: 10
 
     TextField{
-        id: inputFile
+        id: inputFolder
         anchors.left: parent.left
-        anchors.right: transfer.left
+        anchors.right: read.left
         anchors.top: parent.top
         anchors.margins: anchorMargins
-        text: "input"
-    }
-
-
-    TextField {
-        id: outputFile
-        anchors.left: parent.left
-        anchors.right: transfer.left
-        anchors.top: inputFile.bottom
-//        anchors.bottom: parent.bottom
-        anchors.margins: anchorMargins
-        text: "output"
-    }
-
-    Button{
-        id: transfer
-        anchors.right: parent.right
-        anchors.top: inputFile.top
-        anchors.bottom: inputFile.bottom
-        anchors.rightMargin: anchorMargins
-        text: "transfer"
+        text: "/home/tobias/Documents/"
     }
 
     Button{
         id: read
         anchors.right: parent.right
-        anchors.top: outputFile.top
-        anchors.bottom: outputFile.bottom
+        anchors.top: inputFolder.top
+        anchors.bottom: inputFolder.bottom
         anchors.rightMargin: anchorMargins
         text: "read"
+        onClicked: {
+            dataInterpreter.readFilesInFolder(inputFolder.text)
+        }
     }
 
     TabView {
-        anchors.top: outputFile.bottom
+        anchors.top: inputFolder.bottom
         anchors.margins: anchorMargins
         anchors.bottom: parent.bottom
         anchors.right: parent.right
