@@ -10,22 +10,22 @@ public class HammerBoosterNew : MonoBehaviour
     public GameObject BoosterHandler;
     private bool _buttonclicked = false;
     private int amount = 0;
-    public GameObject buyBooster;
+     public GameObject buyBooster;
 
     
 
 	// Use this for initialization
 	void Start ()
     {
-        amount = PlayerPrefs.GetInt("PickAxeBooster", 0);
+        amount = BoosterHandler.GetComponent<BoosterHandler>().getAMountPickAxeBooster();
         amountOfHammers.text = amount.ToString();
         if(amount < 1)
         {
-            buyBooster.SetActive(true);
+             buyBooster.SetActive(true);
         }
         else
         {
-            buyBooster.SetActive(false);
+             buyBooster.SetActive(false);
         }
 
     }
@@ -33,7 +33,9 @@ public class HammerBoosterNew : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(_buttonclicked)
+        amount = PlayerPrefs.GetInt("PickAxeBooster", 0);
+        amountOfHammers.text = amount.ToString();
+        if (_buttonclicked)
         {
             //abfragen ob eingelöst, dann Summe abziehen und _buttonclicked auf false setzen 
             if(1 == 1)

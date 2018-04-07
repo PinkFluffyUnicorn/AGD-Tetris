@@ -20,20 +20,22 @@ public class PlusFiveBoosterNew : MonoBehaviour {
         amountOfBooster.text = amount.ToString();
         if (amount < 1)
         {
-            buyBooster.SetActive(true);
+             buyBooster.SetActive(true);
         }
         else
         {
-            buyBooster.SetActive(false);
+             buyBooster.SetActive(false);
         }
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        amount = BoosterHandler.GetComponent<BoosterHandler>().getAMountPlusFiveBooster();
+        amountOfBooster.text = amount.ToString();
         if (amount < 1)
         {
-            buyBooster.SetActive(true);
+             buyBooster.SetActive(true);
         }
         else
         {
@@ -46,6 +48,7 @@ public class PlusFiveBoosterNew : MonoBehaviour {
         if(BoosterHandler.GetComponent<BoosterHandler>().subtractPlusFiveBooster(1))
         {
             amount -= 1;
+            BoosterHandler.GetComponent<BoosterHandler>().subtractPlusFiveBooster(1);
         }
         else
         {
