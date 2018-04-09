@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtCharts 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.0
 
@@ -84,7 +85,32 @@ Rectangle {
         }
         Tab {
             title: "Blue"
-            Rectangle { color: "blue" }
+            Item {
+                anchors.fill: parent
+
+                //![1]
+                ChartView {
+                    width: 400
+                    height: 300
+                    theme: ChartView.ChartThemeBrownSand
+                    antialiasing: true
+
+                    PieSeries {
+                        id: pieSeries
+                        PieSlice { label: "eaten"; value: 94.9 }
+                        PieSlice { label: "not yet eaten"; value: 5.1 }
+                    }
+                }
+
+                // Add data dynamically to the series
+                Component.onCompleted: {
+                    for (var i = 0; i <= 10; i++) {
+                        series1.append(i, Math.random());
+                        series2.append(i, Math.random());
+                    }
+                }
+                //![1]
+            }
         }
         Tab {
             title: "Green"
