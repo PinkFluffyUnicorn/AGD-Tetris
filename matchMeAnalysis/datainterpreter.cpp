@@ -4,9 +4,9 @@
 #include <QFile>
 #include <QDateTime>
 
-DataInterpreter::DataInterpreter()
+DataInterpreter::DataInterpreter(QQuickItem *comItem)
 {
-
+    _comItem = comItem;
 }
 
 DataInterpreter::~DataInterpreter()
@@ -67,5 +67,30 @@ void DataInterpreter::readFilesInFolder(QString folderPath)
             }
         }
     }
+}
+
+//this method should be calld after the readFilesInFolder
+void DataInterpreter::fillOverview()
+{
+    //calculate the needed data
+    int startCount = 0;
+    int lostCount = 0;
+    int wonCount = 0;
+    for(Event *e : _events){
+        if(e->getType() == EEventType::GAME_STARTED)
+            startCount ++;
+        if(e->getType() == EEventType::GAME_LOST)
+            lostCount ++;
+        if(e->getType() == EEventType::GAME_WON)
+            wonCount ++;
+    }
+
+    //send the calculated data
+    QVariant returnedValue;
+    QMetaObject::invokeMethod(_comItem, "fillOverview",
+            Q_RETURN_ARG(QVariant, returnedValue),
+            Q_ARG(QVariant, QVariant(startCount)),
+              Q_ARG(QVariant, QVariant(lostCount)),
+              Q_ARG(QVariant, QVariant(wonCount)));
 }
 

@@ -1,7 +1,7 @@
 #ifndef DATAINTERPRETER_H
 #define DATAINTERPRETER_H
 
-#include <QObject>
+#include <QQuickItem>
 
 #include "event.h"
 
@@ -9,12 +9,14 @@ class DataInterpreter : public QObject
 {
     Q_OBJECT
 public:
-    DataInterpreter();
+    DataInterpreter(QQuickItem *comItem);
     ~DataInterpreter();
 
     Q_INVOKABLE void readFilesInFolder(QString folderPath);
+    Q_INVOKABLE void fillOverview();
 private:
     QList<Event*> _events;
+    QQuickItem *_comItem;
 };
 
 #endif // DATAINTERPRETER_H
