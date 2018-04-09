@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtCharts 2.2
+import QtCharts 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.0
 
@@ -11,10 +11,14 @@ Rectangle {
 
     property var anchorMargins: 10
 
+    property var startedGamesTotal: 0
+    property var lostGamesTotal: 0
+    property var wonGamesTotal : 0
+
     function fillOverview(started, lost, won){
-        tabView.startedGamesText = started
-        tabView.lostGamesText = lost
-        tabView.wonGamesText = won
+        startedGamesTotal = started
+        lostGamesTotal = lost
+        wonGamesTotal = won
         return "some return value"
     }
 
@@ -48,9 +52,6 @@ Rectangle {
         anchors.right: parent.right
         anchors.left: parent.left
 
-        property string startedGamesText: "0"
-        property string lostGamesText: "0"
-        property string wonGamesText : "0"
         Tab {
             title: "Overview"
             anchors.fill: parent
@@ -60,7 +61,7 @@ Rectangle {
                         text: "Started Games (total):"
                     }
                     Text{
-                        text: tabView.startedGamesText
+                        text: startedGamesTotal
                     }
                 }
                 RowLayout{//lost games games
@@ -68,7 +69,7 @@ Rectangle {
                         text: "Lost Games (total):"
                     }
                     Text{
-                        text: tabView.lostGamesText
+                        text: lostGamesTotal
                     }
                 }
                 RowLayout{//won games
@@ -76,7 +77,7 @@ Rectangle {
                         text: "Won Games (total):"
                     }
                     Text{
-                        text: tabView.wonGamesText
+                        text: wonGamesTotal
                     }
                 }
             }
@@ -84,32 +85,22 @@ Rectangle {
 //            Rectangle { color: "red" }
         }
         Tab {
-            title: "Blue"
+            title: "Pie Chart"
             Item {
                 anchors.fill: parent
 
                 //![1]
                 ChartView {
-                    width: 400
-                    height: 300
+                    anchors.fill: parent
                     theme: ChartView.ChartThemeBrownSand
                     antialiasing: true
 
                     PieSeries {
                         id: pieSeries
-                        PieSlice { label: "eaten"; value: 94.9 }
-                        PieSlice { label: "not yet eaten"; value: 5.1 }
+                        PieSlice { label: "Lost"; value: lostGamesTotal }
+                        PieSlice { label: "Won"; value: wonGamesTotal }
                     }
                 }
-
-                // Add data dynamically to the series
-                Component.onCompleted: {
-                    for (var i = 0; i <= 10; i++) {
-                        series1.append(i, Math.random());
-                        series2.append(i, Math.random());
-                    }
-                }
-                //![1]
             }
         }
         Tab {
