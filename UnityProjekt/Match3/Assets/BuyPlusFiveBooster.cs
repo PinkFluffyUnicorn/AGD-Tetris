@@ -25,6 +25,7 @@ public class BuyPlusFiveBooster : MonoBehaviour {
             enoughMoney.SetActive(true);
             notEnoughMoney.SetActive(false);
             BoosterHandler.GetComponent<BoosterHandler>().addPlusFiveBooster(amount);
+            Player.Instance.GainBooster(typeof(PlusFiveBooster), amount);
         }
         else
         {

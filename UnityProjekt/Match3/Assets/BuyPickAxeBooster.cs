@@ -25,6 +25,8 @@ public class BuyPickAxeBooster : MonoBehaviour {
             enoughMoney.SetActive(true);
             notEnoughMoney.SetActive(false);
             BoosterHandler.GetComponent<BoosterHandler>().addPickAxeBooster(amount);
+            System.Type HammerType = typeof(HammerBooster);
+            Player.Instance.GainBooster(HammerType, amount);
         }
         else
         {
