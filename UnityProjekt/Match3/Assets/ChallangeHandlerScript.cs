@@ -520,7 +520,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         print("hi");
         challange1Description.text = currentChallange1.Description;
         Challenge1reward.text = currentChallange1.reward.ToString();
-        Challenge1Slider.value = currentChallange1.count / currentChallange1.goal;
+        Challenge1Slider.value = (float)currentChallange1.count / (float)currentChallange1.goal;
         switch (currentChallange1.PlayerPrefsId)
         {
             case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
@@ -544,7 +544,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         }
         challange2Description.text = currentChallange2.Description;
         Challenge2reward.text = currentChallange2.reward.ToString();
-        Challenge2Slider.value = currentChallange2.count / currentChallange2.goal;
+        Challenge2Slider.value = (float)currentChallange2.count / (float)currentChallange2.goal;
         switch (currentChallange2.PlayerPrefsId)
         {
             case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
@@ -568,7 +568,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         }
         challange3Description.text = currentChallange3.Description;
         Challenge3reward.text = currentChallange3.reward.ToString();
-        Challenge3Slider.value = currentChallange3.count / currentChallange3.goal;
+        Challenge3Slider.value = (float)currentChallange3.count / (float)currentChallange3.goal;
         switch (currentChallange3.PlayerPrefsId)
         {
             case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;

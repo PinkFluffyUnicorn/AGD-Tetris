@@ -76,7 +76,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange1Description.text = oldChallange1.Description;
             Challenge1reward.text = oldChallange1.reward.ToString();
-            Challenge1Slider.value = oldChallange1.count / oldChallange1.goal;
+            Challenge1Slider.value = (float)oldChallange1.count / (float)oldChallange1.goal;
             challange1Done.SetActive(true);
             switch (oldChallange1.PlayerPrefsId)
             {
@@ -104,7 +104,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange1Description.text = currentChallange1.Description;
             Challenge1reward.text = currentChallange1.reward.ToString();
-            Challenge1Slider.value = currentChallange1.count / currentChallange1.goal;
+            Challenge1Slider.value = (float)currentChallange1.count / (float)currentChallange1.goal;
             challange1Done.SetActive(false);
             switch (currentChallange1.PlayerPrefsId)
             {
@@ -134,7 +134,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange2Description.text = oldChallange2.Description;
             Challenge2reward.text = oldChallange2.reward.ToString();
-            Challenge2Slider.value = oldChallange2.count / oldChallange2.goal;
+            Challenge2Slider.value = (float)oldChallange2.count / (float)oldChallange2.goal;
             challange2Done.SetActive(true);
             switch (oldChallange2.PlayerPrefsId)
             {
@@ -162,7 +162,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange2Description.text = currentChallange2.Description;
             Challenge2reward.text = currentChallange2.reward.ToString();
-            Challenge2Slider.value = currentChallange2.count / currentChallange2.goal;
+            Challenge2Slider.value = (float)currentChallange2.count / (float)currentChallange2.goal;
             challange2Done.SetActive(false);
             switch (currentChallange2.PlayerPrefsId)
             {
@@ -190,7 +190,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange3Description.text = oldChallange3.Description;
             Challenge3reward.text = oldChallange3.reward.ToString();
-            Challenge3Slider.value = oldChallange3.count / oldChallange3.goal;
+            Challenge3Slider.value = (float)oldChallange3.count / (float)oldChallange3.goal;
             challange3Done.SetActive(true);
             switch (oldChallange3.PlayerPrefsId)
             {
@@ -218,7 +218,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange3Description.text = currentChallange3.Description;
             Challenge3reward.text = currentChallange3.reward.ToString();
-            Challenge3Slider.value = currentChallange3.count / currentChallange3.goal;
+            Challenge3Slider.value = (float)currentChallange3.count / (float)currentChallange3.goal;
             challange3Done.SetActive(false);
             switch (currentChallange3.PlayerPrefsId)
             {
@@ -280,7 +280,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange1Description.text = oldChallange1.Description;
             Challenge1reward.text = oldChallange1.reward.ToString();
-            Challenge1Slider.value = oldChallange1.count / oldChallange1.goal;
+            Challenge1Slider.value = (float)oldChallange1.count / (float)oldChallange1.goal;
             challange1Done.SetActive(true);
             switch (oldChallange1.PlayerPrefsId)
             {
@@ -308,7 +308,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange1Description.text = currentChallange1.Description;
             Challenge1reward.text = currentChallange1.reward.ToString();
-            Challenge1Slider.value = currentChallange1.count / currentChallange1.goal;
+            Challenge1Slider.value = (float)currentChallange1.count / (float)currentChallange1.goal;
             challange1Done.SetActive(false);
             switch (currentChallange1.PlayerPrefsId)
             {
@@ -338,7 +338,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange2Description.text = oldChallange2.Description;
             Challenge2reward.text = oldChallange2.reward.ToString();
-            Challenge2Slider.value = oldChallange2.count / oldChallange2.goal;
+            Challenge2Slider.value = (float)oldChallange2.count / (float)oldChallange2.goal;
             challange2Done.SetActive(true);
             switch (oldChallange2.PlayerPrefsId)
             {
@@ -366,7 +366,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange2Description.text = currentChallange2.Description;
             Challenge2reward.text = currentChallange2.reward.ToString();
-            Challenge2Slider.value = currentChallange2.count / currentChallange2.goal;
+            Challenge2Slider.value = (float)currentChallange2.count / (float)currentChallange2.goal;
             challange2Done.SetActive(false);
             switch (currentChallange2.PlayerPrefsId)
             {
@@ -394,7 +394,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange3Description.text = oldChallange3.Description;
             Challenge3reward.text = oldChallange3.reward.ToString();
-            Challenge3Slider.value = oldChallange3.count / oldChallange3.goal;
+            Challenge3Slider.value = (float)oldChallange3.count / (float)oldChallange3.goal;
             challange3Done.SetActive(true);
             switch (oldChallange3.PlayerPrefsId)
             {
@@ -422,7 +422,7 @@ public class DailyChallenge : MonoBehaviour {
         {
             challange3Description.text = currentChallange3.Description;
             Challenge3reward.text = currentChallange3.reward.ToString();
-            Challenge3Slider.value = currentChallange3.count / currentChallange3.goal;
+            Challenge3Slider.value = (float)currentChallange3.count / (float)currentChallange3.goal;
             challange3Done.SetActive(false);
             switch (currentChallange3.PlayerPrefsId)
             {
