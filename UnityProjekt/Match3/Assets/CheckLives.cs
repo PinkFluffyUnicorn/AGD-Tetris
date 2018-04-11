@@ -21,7 +21,8 @@ public class CheckLives : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(!enoughLives)
+        enoughLives = LiveHandler.GetComponent<LiveHandelerScript>().getLives() >= amount;
+        if (!enoughLives)
         {
             startButton.enabled = false;
             PopUp.SetActive(true);

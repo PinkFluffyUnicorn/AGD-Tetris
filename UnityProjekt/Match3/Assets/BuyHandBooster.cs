@@ -25,6 +25,7 @@ public class BuyHandBooster : MonoBehaviour {
             enoughMoney.SetActive(true);
             notEnoughMoney.SetActive(false);
             BoosterHandler.GetComponent<BoosterHandler>().addHandBooster(amount);
+            Player.Instance.GainBooster(typeof(HandBooster) , amount);
         }
         else
         {
