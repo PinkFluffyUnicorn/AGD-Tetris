@@ -56,7 +56,7 @@ public class AddScoreToLeaderbord : MonoBehaviour {
 
         if (!includet)
         {
-            data.Add(highscore.text + " " + PlayerPrefs.GetString("Username"));
+            data.Add(PlayerPrefs.GetString("Username") + " " + highscore.text);
             listBubbleSort(data);
             StartCoroutine(uploadUsernameToOnlineDatabase());
         }
@@ -146,7 +146,8 @@ public class AddScoreToLeaderbord : MonoBehaviour {
         {
             for (i = 0; i < j; i++)
             {
-                print(data[i].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)[dataAt]);
+                print(i + 1 + " "+ data.Count + " "+ data[i + 1]);
+                print(data[i + 1].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1]);
                 if (Int32.Parse(data[i].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)[dataAt]) < Int32.Parse(data[i + 1].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)[dataAt]))
                     exchange(data, i, i + 1);
             }

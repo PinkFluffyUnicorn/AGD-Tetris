@@ -57,9 +57,9 @@ public class getHighscores : MonoBehaviour
             bool matched = false;
             for (int i = 0; i < data.Count; i++)//somewhere in the middle
             {
-                matched = true;
                 if (data[i].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)[0].Equals(PlayerPrefs.GetString("Username")))
                 {
+                    matched = true;
                     if (i <= Mathf.FloorToInt((float)enterysInTable / 2f) || data.Count < enterysInTable)//higher
                         fillTable(data, 0);
                     else if (i >= (data.Count - Mathf.FloorToInt((float)enterysInTable / 2f)))//smaller
