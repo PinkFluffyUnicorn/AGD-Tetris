@@ -335,7 +335,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         Challange17.Description = "Destroy " + Challange18.goal + " strawberrys!";
         Challange17.id = 5;
         Challange17.reward = (Challange18.goal * t5Multiplicator) + Random.Range(randMin, randMax);
-        Challange18.done = 0;
+        Challange17.done = 0;
         //max Challange = 18
     }
 
