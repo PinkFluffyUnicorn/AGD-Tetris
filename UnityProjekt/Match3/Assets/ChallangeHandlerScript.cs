@@ -47,7 +47,6 @@ public class ChallangeHandlerScript : MonoBehaviour {
     Challange Challange15 = new Challange();
     Challange Challange16 = new Challange();
     Challange Challange17 = new Challange();
-    Challange Challange18 = new Challange();
 
     Challange currentChallange1 = new Challange();
     Challange currentChallange2 = new Challange();
@@ -60,7 +59,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
     void Start () {
         //initialize all the challanges here
         initializeNewChallanges();
-        allChallanges = new List<Challange> { Challange1/*, Challange2*/, Challange3, Challange4, Challange5, Challange6, Challange7, Challange8, Challange9, Challange10, Challange11, Challange12, Challange13, Challange14, Challange15, Challange16, Challange17, Challange18 };
+        allChallanges = new List<Challange> { Challange1, Challange2, Challange3, Challange4, Challange5, Challange6, Challange7, Challange8, Challange9, Challange10, Challange11, Challange12, Challange13, Challange14, Challange15, Challange16, Challange17 };
 
         //fill old challanges
         initializeCurrentChallanges();
@@ -170,7 +169,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 //Level 0 - 0 - 7
         Challange1.PlayerPrefsId = "GameWon";
         Challange1.goal = Random.Range(t8Min, t8Max);
-        Challange1.count = 0;
+        Challange1.count = 0;//PlayerPrefs.GetInt(Challange1.PlayerPrefsId);
         Challange1.startValue = PlayerPrefs.GetInt(Challange1.PlayerPrefsId);
         Challange1.Description = "Win " + Challange1.goal + " Games!";
         Challange1.id = 16;
@@ -179,7 +178,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
         Challange2.PlayerPrefsId = "GameStarted";
         Challange2.goal = Random.Range(t7Min, t7Max);
-        Challange2.count = 0;
+        Challange2.count = 0;//PlayerPrefs.GetInt(Challange2.PlayerPrefsId);
         Challange2.startValue = PlayerPrefs.GetInt(Challange2.PlayerPrefsId);
         Challange2.Description = "Play " + Challange2.goal + " Games!";
         Challange2.id = 17;
@@ -188,7 +187,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
 	    Challange3.PlayerPrefsId = "BlueTokenDestroyd";
         Challange3.goal = Random.Range(t1Min, t1Max);
-        Challange3.count = 0;
+        Challange3.count = 0;//PlayerPrefs.GetInt(Challange3.PlayerPrefsId);
         Challange3.startValue = PlayerPrefs.GetInt(Challange3.PlayerPrefsId);
         Challange3.Description = "Destroy " + Challange3.goal + " blue Stones!";
         Challange3.id = 0;
@@ -197,7 +196,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
         Challange4.PlayerPrefsId = "GreenTokenDestroyd";
         Challange4.goal = Random.Range(t1Min, t1Max);
-        Challange4.count = 0;
+        Challange4.count = 0;//PlayerPrefs.GetInt(Challange4.PlayerPrefsId);
         Challange4.startValue = PlayerPrefs.GetInt(Challange4.PlayerPrefsId);
         Challange4.Description = "Destroy " + Challange4.goal + " green Stones!";
         Challange4.id = 3;
@@ -206,7 +205,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
         Challange5.PlayerPrefsId = "OrangeTokenDestroyd";
         Challange5.goal = Random.Range(t1Min, t1Max);
-        Challange5.count = 0;
+        Challange5.count = 0;//PlayerPrefs.GetInt(Challange5.PlayerPrefsId);
         Challange5.startValue = PlayerPrefs.GetInt(Challange5.PlayerPrefsId);
         Challange5.Description = "Destroy " + Challange5.goal + " orange Stones!";
         Challange5.id = 6;
@@ -215,7 +214,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
         Challange6.PlayerPrefsId = "PurpleTokenDestroyd";
         Challange6.goal = Random.Range(t1Min, t1Max);
-        Challange6.count = 0;
+        Challange6.count = 0;//PlayerPrefs.GetInt(Challange6.PlayerPrefsId);
         Challange6.startValue = PlayerPrefs.GetInt(Challange6.PlayerPrefsId);
         Challange6.Description = "Destroy " + Challange6.goal + " purple Stones!";
         Challange6.id = 7;
@@ -224,7 +223,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
         Challange7.PlayerPrefsId = "RedTokenDestroyd";
         Challange7.goal = Random.Range(t1Min, t1Max);
-        Challange7.count = 0;
+        Challange7.count = 0;//PlayerPrefs.GetInt(Challange7.PlayerPrefsId);
         Challange7.startValue = PlayerPrefs.GetInt(Challange7.PlayerPrefsId);
         Challange7.Description = "Destroy " + Challange7.goal + " red Stones!";
         Challange7.id = 8;
@@ -233,17 +232,18 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
         Challange8.PlayerPrefsId = "YellowTokenDestroyd";
         Challange8.goal = Random.Range(t1Min, t1Max);
-        Challange8.count = 0;
+        Challange8.count = 0;//PlayerPrefs.GetInt(Challange8.PlayerPrefsId);
         Challange8.startValue = PlayerPrefs.GetInt(Challange8.PlayerPrefsId);
         Challange8.Description = "Destroy " + Challange8.goal + " yellow Stones!";
         Challange8.id = 10;
         Challange8.reward = (Challange8.goal * t1Multiplicator) + Random.Range(randMin, randMax);
         Challange8.done = 0;
 
+
 //Level 1
         Challange9.PlayerPrefsId = "BombDestroyd";
         Challange9.goal = Random.Range(t3Min, t3Max);
-        Challange9.count = 0;
+        Challange9.count = 0;//PlayerPrefs.GetInt(Challange9.PlayerPrefsId);
         Challange9.startValue = PlayerPrefs.GetInt(Challange9.PlayerPrefsId);
         Challange9.Description = "Destroy " + Challange9.goal + " Bombs!";
         Challange9.id = 13;
@@ -252,7 +252,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
         Challange10.PlayerPrefsId = "HorizontalBombDestroyd";
         Challange10.goal = Random.Range(t2Min, t2Max);
-        Challange10.count = 0;
+        Challange10.count = 0;//PlayerPrefs.GetInt(Challange10.PlayerPrefsId);
         Challange10.startValue = PlayerPrefs.GetInt(Challange10.PlayerPrefsId);
         Challange10.Description = "Destroy " + Challange10.goal + " horizontal Bombs!";
         Challange10.id = 14;
@@ -261,7 +261,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
         Challange11.PlayerPrefsId = "VerticalBombDestroyd";
         Challange11.goal = Random.Range(t2Min, t2Max);
-        Challange11.count = 0;
+        Challange11.count = 0;//PlayerPrefs.GetInt(Challange11.PlayerPrefsId);
         Challange11.startValue = PlayerPrefs.GetInt(Challange11.PlayerPrefsId);
         Challange11.Description = "Destroy " + Challange11.goal + " vertical Bombs!";
         Challange11.id = 15;
@@ -271,7 +271,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 //Level 3
         Challange12.PlayerPrefsId = "ColorBombDestroyd";
         Challange12.goal = Random.Range(t9Min, t9Max);
-        Challange12.count = 0;
+        Challange12.count = 0;//PlayerPrefs.GetInt(Challange12.PlayerPrefsId);
         Challange12.startValue = PlayerPrefs.GetInt(Challange12.PlayerPrefsId);
         Challange12.Description = "Destroy " + Challange12.goal + " color Bombs!";
         Challange12.id = 2;
@@ -281,7 +281,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 //Level 6
         Challange13.PlayerPrefsId = "Coockie1Destroyd";
         Challange13.goal = Random.Range(t4Min, t4Max);
-        Challange13.count = 0;
+        Challange13.count = 0;//PlayerPrefs.GetInt(Challange13.PlayerPrefsId);
         Challange13.startValue = PlayerPrefs.GetInt(Challange13.PlayerPrefsId);
         Challange13.Description = "Destroy " + Challange13.goal + " yellow Cookies!";
         Challange13.id = 11;
@@ -291,7 +291,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 //Level 9
         Challange14.PlayerPrefsId = "Coockie2Destroyd";
         Challange14.goal = Random.Range(t4Min, t4Max);
-        Challange14.count = 0;
+        Challange14.count = 0;//PlayerPrefs.GetInt(Challange14.PlayerPrefsId);
         Challange14.startValue = PlayerPrefs.GetInt(Challange14.PlayerPrefsId);
         Challange14.Description = "Destroy " + Challange14.goal + " orange Cookies!";
         Challange14.id = 12;
@@ -301,7 +301,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 //Level 13
         Challange15.PlayerPrefsId = "Stone1Destroyd";
         Challange15.goal = Random.Range(t6Min, t6Max);
-        Challange15.count = 0;
+        Challange15.count = 0;//PlayerPrefs.GetInt(Challange15.PlayerPrefsId);
         Challange15.startValue = PlayerPrefs.GetInt(Challange15.PlayerPrefsId);
         Challange15.Description = "Destroy " + Challange15.goal + " Stones!";
         Challange15.id = 9;
@@ -321,22 +321,22 @@ public class ChallangeHandlerScript : MonoBehaviour {
 //Level 27
         Challange16.PlayerPrefsId = "Ingridient1Destroyd";
         Challange16.goal = Random.Range(t5Min, t5Max);
-        Challange16.count = 0;
-        Challange16.startValue = PlayerPrefs.GetInt(Challange17.PlayerPrefsId);
-        Challange16.Description = "Destroy " + Challange17.goal + " kiwis!";
+        Challange16.count = 0;//PlayerPrefs.GetInt(Challange16.PlayerPrefsId);
+        Challange16.startValue = PlayerPrefs.GetInt(Challange16.PlayerPrefsId);
+        Challange16.Description = "Destroy " + Challange16.goal + " kiwis!";
         Challange16.id = 4;
-        Challange16.reward = (Challange17.goal * t5Multiplicator) + Random.Range(randMin, randMax);
+        Challange16.reward = (Challange16.goal * t5Multiplicator) + Random.Range(randMin, randMax);
         Challange16.done = 0;
 
         Challange17.PlayerPrefsId = "Ingridient2Destroyd";
         Challange17.goal = Random.Range(t5Min, t5Max);
-        Challange17.count = 0;
-        Challange17.startValue = PlayerPrefs.GetInt(Challange18.PlayerPrefsId);
-        Challange17.Description = "Destroy " + Challange18.goal + " strawberrys!";
+        Challange17.count = 0;//PlayerPrefs.GetInt(Challange17.PlayerPrefsId);
+        Challange17.startValue = PlayerPrefs.GetInt(Challange17.PlayerPrefsId);
+        Challange17.Description = "Destroy " + Challange17.goal + " strawberrys!";
         Challange17.id = 5;
-        Challange17.reward = (Challange18.goal * t5Multiplicator) + Random.Range(randMin, randMax);
-        Challange18.done = 0;
-        //max Challange = 18
+        Challange17.reward = (Challange17.goal * t5Multiplicator) + Random.Range(randMin, randMax);
+        Challange17.done = 0;
+        //max Challange = 17
     }
 
     void initializeCurrentChallanges()
@@ -380,6 +380,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         //currentChallange2.done = 1;
         //currentChallange3.done = 1;
     }
+
     void updateCurrentChallanges()
     {
         PlayerPrefs.SetInt("currentChallange1.goal", currentChallange1.goal);
@@ -389,6 +390,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         PlayerPrefs.SetInt("currentChallange1.id", currentChallange1.id);
         PlayerPrefs.SetInt("currentChallange1.reward", currentChallange1.reward);
         PlayerPrefs.SetInt("currentChallange1.done", currentChallange1.done);
+        PlayerPrefs.SetInt("currentChallange1.startValue", currentChallange1.startValue);
 
         PlayerPrefs.SetInt("currentChallange2.goal", currentChallange2.goal);
         PlayerPrefs.SetInt("currentChallange2.count", currentChallange2.count);
@@ -397,6 +399,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         PlayerPrefs.SetInt("currentChallange2.id", currentChallange2.id);
         PlayerPrefs.SetInt("currentChallange2.reward", currentChallange2.reward);
         PlayerPrefs.SetInt("currentChallange2.done", currentChallange2.done);
+        PlayerPrefs.SetInt("currentChallange2.startValue", currentChallange2.startValue);
 
         PlayerPrefs.SetInt("currentChallange3.goal", currentChallange3.goal);
         PlayerPrefs.SetInt("currentChallange3.count", currentChallange3.count);
@@ -405,9 +408,11 @@ public class ChallangeHandlerScript : MonoBehaviour {
         PlayerPrefs.SetInt("currentChallange3.id", currentChallange3.id);
         PlayerPrefs.SetInt("currentChallange3.reward", currentChallange3.reward);
         PlayerPrefs.SetInt("currentChallange3.done", currentChallange3.done);
+        PlayerPrefs.SetInt("currentChallange3.startValue", currentChallange3.startValue);
     }
     void checkIfChallangeIsDone()
     {
+
         //currentChallange1
         if(currentChallange1.done == 1)
         {
@@ -416,7 +421,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
 
             AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
-        if(currentChallange1.done == 0 && currentChallange1.startValue + currentChallange1.goal <= currentChallange1.count )
+        if(currentChallange1.done == 0 && currentChallange1.goal <= currentChallange1.count )
         {
             print(currentChallange1.done == 0 && currentChallange1.goal <= currentChallange1.count);
             print(currentChallange1.done + currentChallange1.goal + currentChallange1.count);
@@ -440,7 +445,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
             currentChallange2 = allChallanges[generateNewChallangeId()];
             AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
-        if (currentChallange2.done == 0 && currentChallange2.startValue + currentChallange2.goal <= currentChallange2.count)
+        if (currentChallange2.done == 0 && currentChallange2.goal <= currentChallange2.count)
         {
             //open popup for the player
             challange1Done.SetActive(true);
@@ -462,7 +467,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
             currentChallange3 = allChallanges[generateNewChallangeId()];
             AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
-        if (currentChallange3.done == 0 && currentChallange3.startValue + currentChallange3.goal <= currentChallange3.count )
+        if (currentChallange3.done == 0 && currentChallange3.goal <= currentChallange3.count )
         {
             //open popup for the player
             challange1Done.SetActive(true);
@@ -477,32 +482,52 @@ public class ChallangeHandlerScript : MonoBehaviour {
             AllmightyTrackerScript.allmightyTracker.writeToFile("doneChallange"); //in das script das eine aufgabe abgeschlossen wurde
         }
     }
+
     int generateNewChallangeId()
     {
-        int rand = Random.Range(0, allChallanges.Count - 1);
-        while(rand == currentChallange1.id || rand == currentChallange2.id || rand == currentChallange3.id)
+        int rand;
+        if (PlayerPrefs.GetInt("highestLevel") < 1)
+            rand = Random.Range(0, 7);
+        else if (PlayerPrefs.GetInt("highestLevel") <= 1)
+            rand = Random.Range(0, 10);
+        else if (PlayerPrefs.GetInt("highestLevel") <= 3)
+            rand = Random.Range(0, 11);
+        else if (PlayerPrefs.GetInt("highestLevel") <= 6)
+            rand = Random.Range(0, 12);
+        else if (PlayerPrefs.GetInt("highestLevel") <= 9)
+            rand = Random.Range(0, 13);
+        else if (PlayerPrefs.GetInt("highestLevel") <= 13)
+            rand = Random.Range(0, 14);
+        else if (PlayerPrefs.GetInt("highestLevel") <= 26)
+            rand = Random.Range(0, 15);
+        else if (PlayerPrefs.GetInt("highestLevel") <= 27)
+            rand = Random.Range(0, allChallanges.Count - 1);
+        else
+            rand = Random.Range(0, 7);
+        while (rand == currentChallange1.id || rand == currentChallange2.id || rand == currentChallange3.id)
         {
             if(PlayerPrefs.GetInt("highestLevel") < 1)
                 rand = Random.Range(0, 7);
-            if (PlayerPrefs.GetInt("highestLevel") <= 1)
+            else if (PlayerPrefs.GetInt("highestLevel") <= 1)
                 rand = Random.Range(0, 10);
-            if (PlayerPrefs.GetInt("highestLevel") <= 3)
+            else if (PlayerPrefs.GetInt("highestLevel") <= 3)
                 rand = Random.Range(0, 11);
-            if (PlayerPrefs.GetInt("highestLevel") <= 6)
+            else if (PlayerPrefs.GetInt("highestLevel") <= 6)
                 rand = Random.Range(0, 12);
-            if (PlayerPrefs.GetInt("highestLevel") <= 9)
+            else if (PlayerPrefs.GetInt("highestLevel") <= 9)
                 rand = Random.Range(0, 13);
-            if (PlayerPrefs.GetInt("highestLevel") <= 13)
+            else if (PlayerPrefs.GetInt("highestLevel") <= 13)
                 rand = Random.Range(0, 14);
-            if (PlayerPrefs.GetInt("highestLevel") <= 26)
+            else if (PlayerPrefs.GetInt("highestLevel") <= 26)
                 rand = Random.Range(0, 15);
-            if (PlayerPrefs.GetInt("highestLevel") <= 27)
+            else if (PlayerPrefs.GetInt("highestLevel") <= 27)
                 rand = Random.Range(0, allChallanges.Count - 1);
             else
                 rand = Random.Range(0, 7); 
         }
         return rand;
     }
+
     void updateChallangesGui()
     {
         List<Image> Challenge1Bilder = new List<Image>{ C1BlueToken, C1ColorBomb, C1GreenToken, C1Ingridient1Token, C1Ingridient2Token, C1OrangeToken, C1PurpleToken, C1RedToken, C1Stone1Token, C1Stone2Token, C1YellowToken, C1Coockie1Token, C1Coockie2Token, C1BombToken, C1HorizontalBombToken, C1VerticalBombToken, C1GamesWonToken, C1GamesStartedToken };
