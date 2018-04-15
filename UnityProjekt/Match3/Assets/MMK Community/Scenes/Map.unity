@@ -8269,7 +8269,7 @@ GameObject:
   - component: {fileID: 307186221}
   - component: {fileID: 307186220}
   m_Layer: 5
-  m_Name: '1. '
+  m_Name: 9.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17010,7 +17010,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'totel points      name '
+  m_Text: 'total points      name '
 --- !u!222 &561085927
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17207,7 +17207,7 @@ GameObject:
   - component: {fileID: 579404299}
   - component: {fileID: 579404298}
   m_Layer: 5
-  m_Name: '1. '
+  m_Name: 5.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18175,8 +18175,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611740715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 163, y: 290, z: 0}
-  m_LocalScale: {x: 0.30185184, y: 0.30185184, z: 0.30185184}
+  m_LocalPosition: {x: 180, y: 320, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
   m_Children:
   - {fileID: 1844419283}
   - {fileID: 1785659727}
@@ -27902,7 +27902,7 @@ GameObject:
   - component: {fileID: 885446282}
   - component: {fileID: 885446281}
   m_Layer: 5
-  m_Name: '1. '
+  m_Name: 6.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28911,7 +28911,7 @@ GameObject:
   - component: {fileID: 913552264}
   - component: {fileID: 913552263}
   m_Layer: 5
-  m_Name: '1. '
+  m_Name: 4.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30200,6 +30200,16 @@ MonoBehaviour:
   person8: {fileID: 876131474}
   person9: {fileID: 189815244}
   person10: {fileID: 402176717}
+  levelNumber1: {fileID: 341210409}
+  levelNumber2: {fileID: 1528365084}
+  levelNumber3: {fileID: 1512536127}
+  levelNumber4: {fileID: 913552263}
+  levelNumber5: {fileID: 579404298}
+  levelNumber6: {fileID: 885446281}
+  levelNumber7: {fileID: 1568849531}
+  levelNumber8: {fileID: 1230160087}
+  levelNumber9: {fileID: 307186220}
+  levelNumber10: {fileID: 1693636991}
   buttonText: {fileID: 0}
   descriptionText: {fileID: 0}
   highscoreDownloader: {fileID: 1364386350}
@@ -40418,7 +40428,7 @@ GameObject:
   - component: {fileID: 1230160088}
   - component: {fileID: 1230160087}
   m_Layer: 5
-  m_Name: '1. '
+  m_Name: 8.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49443,7 +49453,7 @@ GameObject:
   - component: {fileID: 1512536128}
   - component: {fileID: 1512536127}
   m_Layer: 5
-  m_Name: 1. (1)
+  m_Name: 3.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50375,7 +50385,7 @@ GameObject:
   - component: {fileID: 1528365085}
   - component: {fileID: 1528365084}
   m_Layer: 5
-  m_Name: '1. '
+  m_Name: '2. '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51724,7 +51734,7 @@ GameObject:
   - component: {fileID: 1568849532}
   - component: {fileID: 1568849531}
   m_Layer: 5
-  m_Name: '1. '
+  m_Name: 7.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56920,7 +56930,7 @@ GameObject:
   - component: {fileID: 1693636992}
   - component: {fileID: 1693636991}
   m_Layer: 5
-  m_Name: '1. '
+  m_Name: 10.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56973,7 +56983,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: '10. '
