@@ -10,9 +10,9 @@ public class HandleMoney : MonoBehaviour {
 	void Update ()
     {
         int money = Player.Instance.HardCurrency;
-        if (money < 2000)
+        if (money < 5000)
         {
-            Player.Instance.GainCurrency(5000);
+            Player.Instance.GainCurrency(10000);
         }
 		
 	}

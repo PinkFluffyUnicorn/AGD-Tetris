@@ -27,6 +27,11 @@ public class CheckLives : MonoBehaviour {
             startButton.enabled = false;
             PopUp.SetActive(true);
         }
+        else
+        {
+            startButton.enabled = true;
+            PopUp.SetActive(false);
+        }
         
 	}
 
