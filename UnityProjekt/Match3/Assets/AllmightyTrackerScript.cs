@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 public class AllmightyTrackerScript : MonoBehaviour {
 
+
+    //public Text DebugAusgabe;
     //the pat for match.me on android is "Dieser PC\Galaxy S6\Phone\Android\data\com.Balhorn.Octopus_Adventure\files"
 
 
@@ -55,5 +58,6 @@ public class AllmightyTrackerScript : MonoBehaviour {
             File.Create(Application.persistentDataPath + filePath);
         File.AppendAllText(Application.persistentDataPath + filePath, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") +": "+ data + ",");
         print("Wrote " + data + " to File " + Application.persistentDataPath + filePath);
+        //DebugAusgabe.text = Application.persistentDataPath;
     }
 }
