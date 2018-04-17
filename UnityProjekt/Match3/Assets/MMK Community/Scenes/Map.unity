@@ -11670,7 +11670,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 442673851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1170.2639, y: -2578.7, z: 0}
+  m_LocalPosition: {x: -1170.3, y: -2522, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 342237974}
@@ -11681,8 +11681,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1170.2639, y: -2578.7}
-  m_SizeDelta: {x: 934, y: 594.8}
+  m_AnchoredPosition: {x: -1170.3, y: -2522}
+  m_SizeDelta: {x: 934, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &442673853
 MonoBehaviour:
@@ -28769,7 +28769,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Get twice as many Diamonds for the next 2 hours !
+  m_Text: Get twice as many Diamonds for the next 30 minutes!
 --- !u!222 &981049111
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43763,7 +43763,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Have unlimited amount of Lives for the next 2 hours!
+  m_Text: Have unlimited amount of Lives for the next 30 minutes!
 --- !u!222 &1467635574
 CanvasRenderer:
   m_ObjectHideFlags: 0
