@@ -12,8 +12,6 @@ public class AllmightyTrackerScript : MonoBehaviour {
 
     public Text DebugText;
 
-    public Text DebugText2;
-
 
     public static AllmightyTrackerScript allmightyTracker;
     string filePath = "/playerInfo.csv";
@@ -59,18 +57,14 @@ public class AllmightyTrackerScript : MonoBehaviour {
         string persisteneDataPath = Application.persistentDataPath;
         //change path if it starts with /data/data/ to /Android/data
 
-        if(persisteneDataPath.StartsWith("/data/data/"))
-        {
-            string endPart = persisteneDataPath.Substring(5); //     /data/com.Balhorn...
-            persisteneDataPath = "Android"+endPart;
-        }
-        DebugText.text = persisteneDataPath;
-
         if (!File.Exists(persisteneDataPath + filePath))
             File.Create(persisteneDataPath + filePath);
         File.AppendAllText(persisteneDataPath + filePath, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") +": "+ data + ",");
         print("Wrote " + data + " to File " + persisteneDataPath + filePath);
 
-        DebugText2.text = persisteneDataPath;
+        if (DebugText != null)
+        {
+            DebugText.text = persisteneDataPath;
+        }
     }
 }
