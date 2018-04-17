@@ -46,9 +46,10 @@ public class EventHandlerScript : MonoBehaviour {
 
     public void Update()
     {
+        int DaysSinceStart = CalculateDaysSinceStart();
         if (PlayerPrefs.GetInt("Event2GoingOn", 0) == 1)
         {
-            if ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - getStartEvent2() > getDurationEvent2())
+            if ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - getStartEvent2() > getDurationEvent2() || DaysSinceStart > 4)
             {
                 PlayerPrefs.SetInt("Event2GoingOn", 0);
             }
@@ -56,7 +57,7 @@ public class EventHandlerScript : MonoBehaviour {
 
         if (PlayerPrefs.GetInt("Event1GoingOn", 0) == 1)
         {
-            if ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - getStartEvent1() > getDurationEvent1())
+            if ((int)System.DateTime.Now.TimeOfDay.TotalSeconds - getStartEvent1() > getDurationEvent1() ||DaysSinceStart > 2)
             {
                 PlayerPrefs.SetInt("Event1GoingOn", 0);
             }
