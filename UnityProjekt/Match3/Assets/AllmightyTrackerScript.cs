@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -8,6 +9,10 @@ using System.IO;
 public class AllmightyTrackerScript : MonoBehaviour {
 
     //the pat for match.me on android is "Dieser PC\Galaxy S6\Phone\Android\data\com.Balhorn.Octopus_Adventure\files"
+
+    public Text DebugText;
+
+    public Text DebugText2;
 
 
     public static AllmightyTrackerScript allmightyTracker;
@@ -51,9 +56,21 @@ public class AllmightyTrackerScript : MonoBehaviour {
     public void writeToFile(string data)
     {
         //BinaryFormatter bf = new BinaryFormatter();
-        if (!File.Exists(Application.persistentDataPath + filePath))
-            File.Create(Application.persistentDataPath + filePath);
-        File.AppendAllText(Application.persistentDataPath + filePath, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") +": "+ data + ",");
-        print("Wrote " + data + " to File " + Application.persistentDataPath + filePath);
+        string persisteneDataPath = Application.persistentDataPath;
+        //change path if it starts with /data/data/ to /Android/data
+
+        if(persisteneDataPath.StartsWith("/data/data/"))
+        {
+            string endPart = persisteneDataPath.Substring(5); //     /data/com.Balhorn...
+            persisteneDataPath = "Android"+endPart;
+        }
+        DebugText.text = persisteneDataPath;
+
+        if (!File.Exists(persisteneDataPath + filePath))
+            File.Create(persisteneDataPath + filePath);
+        File.AppendAllText(persisteneDataPath + filePath, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") +": "+ data + ",");
+        print("Wrote " + data + " to File " + persisteneDataPath + filePath);
+
+        DebugText2.text = persisteneDataPath;
     }
 }
