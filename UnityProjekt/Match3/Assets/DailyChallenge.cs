@@ -177,6 +177,10 @@ public class DailyChallenge : MonoBehaviour {
         {
             allChallangesDone.SetActive(true);
         }
+        else
+        {
+            allChallangesDone.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -306,6 +310,10 @@ public class DailyChallenge : MonoBehaviour {
         if (PlayerPrefs.GetInt("allChallangesDone", 0) == 1)
         {
             allChallangesDone.SetActive(true);
+        }
+        else
+        {
+            allChallangesDone.SetActive(false);
         }
     }
 
