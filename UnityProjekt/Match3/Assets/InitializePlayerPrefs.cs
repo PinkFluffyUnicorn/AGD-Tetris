@@ -93,6 +93,7 @@ public class InitializePlayerPrefs : MonoBehaviour {
             PlayerPrefs.SetInt("Challenge1.Completed", 0);// only 1 when an old Challenge is completed and has to be shown in POP UP 
             PlayerPrefs.SetInt("Challenge2.Completed", 0);
             PlayerPrefs.SetInt("Challenge3.Completed", 0);
+            PlayerPrefs.SetInt("allChallangesDone", 0);
 
             //Only new Challanges when a new Day starts 
             PlayerPrefs.SetInt("ChallangeDate", 0);

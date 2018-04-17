@@ -32,6 +32,8 @@ public class ChallangeHandlerScript : MonoBehaviour {
     public GameObject challange2Done;
     public GameObject challange3Done;
 
+    public GameObject allChallangesDone;
+
     List<Challange> allChallanges;
 
     Challange Challange1 = new Challange();
@@ -62,10 +64,12 @@ public class ChallangeHandlerScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        initializeCurrentChallanges();
 
         int today = System.DateTime.Now.DayOfYear;
         int lastDay = PlayerPrefs.GetInt("ChallangeDate", 0);
 
+        //lastDay = 0;
         if (today != lastDay)
         {
             currentChallange1.done = 1;
@@ -75,23 +79,31 @@ public class ChallangeHandlerScript : MonoBehaviour {
             PlayerPrefs.SetInt("Challenge2.Completed", 0);
             PlayerPrefs.SetInt("Challenge3.Completed", 0);
             PlayerPrefs.SetInt("ChallangeDate", today);
+            PlayerPrefs.SetInt("allChallangesDone", 0);
+
+            //initialize all the challanges here
+            initializeNewChallanges();
+            allChallanges = new List<Challange> { Challange1, Challange2, Challange3, Challange4, Challange5, Challange6, Challange7, Challange8, Challange9, Challange10, Challange11, Challange12, Challange13, Challange14, Challange15, Challange16, Challange17 };
+
+            //fill old challanges
+            initializeCurrentChallanges();
+            print("Challange1: " + currentChallange1.Description + " Done: " + currentChallange1.done + " count: " + currentChallange1.count + " startValue: " + currentChallange1.startValue);
+
+            //check if challange was complete. if so, generate a new one
+            checkIfChallangeIsDone();
+
+            //update playerPrefs
+            updateCurrentChallanges();
+            
         }
-        //initialize all the challanges here
-        initializeNewChallanges();
-        allChallanges = new List<Challange> { Challange1, Challange2, Challange3, Challange4, Challange5, Challange6, Challange7, Challange8, Challange9, Challange10, Challange11, Challange12, Challange13, Challange14, Challange15, Challange16, Challange17 };
-
-        //fill old challanges
-        initializeCurrentChallanges();
-        print("Challange1: "+currentChallange1.Description + " Done: " +currentChallange1.done+" count: "+currentChallange1.count+" startValue: "+currentChallange1.startValue);
-
-        //check if challange was complete. if so, generate a new one
-        checkIfChallangeIsDone();
-
-        //update playerPrefs
-        updateCurrentChallanges();
+        else
+        {
+            updateChallangesDone();
+        }
 
         //update the challanges gui
         updateChallangesGui();
+
     }
 	
 	// Update is called once per frame
@@ -566,6 +578,8 @@ public class ChallangeHandlerScript : MonoBehaviour {
             Challenge3Bilder[i].enabled = false;
         }
 
+        
+
         challange1Description.text = currentChallange1.Description;
         Challenge1reward.text = currentChallange1.reward.ToString();
         Challenge1Slider.value = (float)currentChallange1.count / (float)currentChallange1.goal;
@@ -662,7 +676,53 @@ public class ChallangeHandlerScript : MonoBehaviour {
             case "GameWon": C3GamesWonToken.enabled = true; break;
             case "GameStarted": C3GamesStartedToken.enabled = true; break;
         }
+        if(PlayerPrefs.GetInt("allChallangesDone", 0) == 1)
+        {
+            allChallangesDone.SetActive(true);
+        }
+        else
+        {
+            allChallangesDone.SetActive(false);
+        }
+    }
 
+    // 
+    private void updateChallangesDone()
+    {
+        if(currentChallange1.count >= currentChallange1.goal && PlayerPrefs.GetInt("currentChallange1.done", 1) == 0)
+        {
+            currentChallange1.done = 1;
+            moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(currentChallange1.reward);
+            challange1DonePopUp.SetActive(true);
+            PlayerPrefs.SetInt("currentChallange1.done", 1);
+            if (currentChallange2.done == 1 && currentChallange3.done == 1)
+            {
+                PlayerPrefs.SetInt("allChallangesDone", 1);
+            }
+           
+        }
+        if (currentChallange2.count >= currentChallange2.goal && PlayerPrefs.GetInt("currentChallange2.done", 1) == 0)
+        {
+            currentChallange2.done = 1;
+            moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(currentChallange2.reward);
+            challange2DonePopUp.SetActive(true);
+            PlayerPrefs.SetInt("currentChallange2.done", 1);
+            if (currentChallange1.done == 1 && currentChallange3.done == 1)
+            {
+                PlayerPrefs.SetInt("allChallangesDone", 1);
+            }
+        }
+        if (currentChallange3.count >= currentChallange3.goal && PlayerPrefs.GetInt("currentChallange3.done", 1) == 0)
+        {
+            currentChallange3.done = 1;
+            moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(currentChallange3.reward);
+            challange3DonePopUp.SetActive(true);
+            PlayerPrefs.SetInt("currentChallange3.done", 1);
+            if (currentChallange2.done == 1 && currentChallange1.done == 1)
+            {
+                PlayerPrefs.SetInt("allChallangesDone", 1);
+            }
+        }
     }
 
     private void storeOldChallange(Challange currentChallange, int index)

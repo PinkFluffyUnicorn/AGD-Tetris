@@ -33,6 +33,8 @@ public class DailyChallenge : MonoBehaviour {
     public GameObject ButtonGetReward;
     public GameObject Close;
 
+    public GameObject allChallangesDone;
+
     Challange currentChallange1 = new Challange();
     Challange currentChallange2 = new Challange();
     Challange currentChallange3 = new Challange();
@@ -71,177 +73,96 @@ public class DailyChallenge : MonoBehaviour {
             Challenge3Bilder[i].enabled = false;
         }
 
-
-        if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1)// neue Challange 1
+        challange1Description.text = currentChallange1.Description;
+        Challenge1reward.text = currentChallange1.reward.ToString();
+        Challenge1Slider.value = (float)currentChallange1.count / (float)currentChallange1.goal;
+        challange1Done.SetActive(false);
+        if (currentChallange1.done == 1)
         {
-            challange1Description.text = oldChallange1.Description;
-            Challenge1reward.text = oldChallange1.reward.ToString();
-            Challenge1Slider.value = (float)oldChallange1.count / (float)oldChallange1.goal;
             challange1Done.SetActive(true);
-            switch (oldChallange1.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
-                case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C1RedToken.enabled = true; break;
-                case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C1BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
-                case "GameWon": C1GamesWonToken.enabled = true; break;
-                case "GameStarted": C1GamesStartedToken.enabled = true; break;
-            }
         }
-        else
+        switch (currentChallange1.PlayerPrefsId)
         {
-            challange1Description.text = currentChallange1.Description;
-            Challenge1reward.text = currentChallange1.reward.ToString();
-            Challenge1Slider.value = (float)currentChallange1.count / (float)currentChallange1.goal;
-            challange1Done.SetActive(false);
-            switch (currentChallange1.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
-                case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C1RedToken.enabled = true; break;
-                case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C1BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
-                case "GameWon": C1GamesWonToken.enabled = true; break;
-                case "GameStarted": C1GamesStartedToken.enabled = true; break;
-            }
+            case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
+            case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
+            case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
+            case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
+            case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
+            case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
+            case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
+            case "RedTokenDestroyd": C1RedToken.enabled = true; break;
+            case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
+            case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
+            case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
+            case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
+            case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
+            case "BombDestroyd": C1BombToken.enabled = true; break;
+            case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
+            case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
+            case "GameWon": C1GamesWonToken.enabled = true; break;
+            case "GameStarted": C1GamesStartedToken.enabled = true; break;
         }
 
-
-        if (PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1)
+        challange2Description.text = currentChallange2.Description;
+        Challenge2reward.text = currentChallange2.reward.ToString();
+        Challenge2Slider.value = (float)currentChallange2.count / (float)currentChallange2.goal;
+        challange2Done.SetActive(false);
+        if (currentChallange2.done == 1)
         {
-            challange2Description.text = oldChallange2.Description;
-            Challenge2reward.text = oldChallange2.reward.ToString();
-            Challenge2Slider.value = (float)oldChallange2.count / (float)oldChallange2.goal;
             challange2Done.SetActive(true);
-            switch (oldChallange2.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
-                case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C2RedToken.enabled = true; break;
-                case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C2BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
-                case "GameWon": C2GamesWonToken.enabled = true; break;
-                case "GameStarted": C2GamesStartedToken.enabled = true; break;
-            }
         }
-        else
+        switch (currentChallange2.PlayerPrefsId)
         {
-            challange2Description.text = currentChallange2.Description;
-            Challenge2reward.text = currentChallange2.reward.ToString();
-            Challenge2Slider.value = (float)currentChallange2.count / (float)currentChallange2.goal;
-            challange2Done.SetActive(false);
-            switch (currentChallange2.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
-                case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C2RedToken.enabled = true; break;
-                case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C2BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
-                case "GameWon": C2GamesWonToken.enabled = true; break;
-                case "GameStarted": C2GamesStartedToken.enabled = true; break;
-            }
+            case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
+            case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
+            case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
+            case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
+            case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
+            case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
+            case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
+            case "RedTokenDestroyd": C2RedToken.enabled = true; break;
+            case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
+            case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
+            case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
+            case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
+            case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
+            case "BombDestroyd": C2BombToken.enabled = true; break;
+            case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
+            case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
+            case "GameWon": C2GamesWonToken.enabled = true; break;
+            case "GameStarted": C2GamesStartedToken.enabled = true; break;
         }
-        if (PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
+
+        challange3Description.text = currentChallange3.Description;
+        Challenge3reward.text = currentChallange3.reward.ToString();
+        Challenge3Slider.value = (float)currentChallange3.count / (float)currentChallange3.goal;
+        challange3Done.SetActive(false);
+        if (currentChallange3.done == 1)
         {
-            challange3Description.text = oldChallange3.Description;
-            Challenge3reward.text = oldChallange3.reward.ToString();
-            Challenge3Slider.value = (float)oldChallange3.count / (float)oldChallange3.goal;
             challange3Done.SetActive(true);
-            switch (oldChallange3.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
-                case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C3RedToken.enabled = true; break;
-                case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C3BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
-                case "GameWon": C3GamesWonToken.enabled = true; break;
-                case "GameStarted": C3GamesStartedToken.enabled = true; break;
-            }
         }
-        else
+        switch (currentChallange3.PlayerPrefsId)
         {
-            challange3Description.text = currentChallange3.Description;
-            Challenge3reward.text = currentChallange3.reward.ToString();
-            Challenge3Slider.value = (float)currentChallange3.count / (float)currentChallange3.goal;
-            challange3Done.SetActive(false);
-            switch (currentChallange3.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
-                case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C3RedToken.enabled = true; break;
-                case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C3BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
-                case "GameWon": C3GamesWonToken.enabled = true; break;
-                case "GameStarted": C3GamesStartedToken.enabled = true; break;
-            }
+            case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
+            case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
+            case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
+            case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
+            case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
+            case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
+            case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
+            case "RedTokenDestroyd": C3RedToken.enabled = true; break;
+            case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
+            case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
+            case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
+            case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
+            case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
+            case "BombDestroyd": C3BombToken.enabled = true; break;
+            case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
+            case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
+            case "GameWon": C3GamesWonToken.enabled = true; break;
+            case "GameStarted": C3GamesStartedToken.enabled = true; break;
         }
+
         if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
         {
             ButtonGetReward.SetActive(true);
@@ -252,7 +173,10 @@ public class DailyChallenge : MonoBehaviour {
             ButtonGetReward.SetActive(false);
             Close.SetActive(true);
         }
-
+        if(PlayerPrefs.GetInt("allChallangesDone", 0) == 1)
+        {
+            allChallangesDone.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -276,176 +200,97 @@ public class DailyChallenge : MonoBehaviour {
             Challenge3Bilder[i].enabled = false;
         }
 
-        if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1)// neue Challange 1
+
+        challange1Description.text = currentChallange1.Description;
+        Challenge1reward.text = currentChallange1.reward.ToString();
+        Challenge1Slider.value = (float)currentChallange1.count / (float)currentChallange1.goal;
+        challange1Done.SetActive(false);
+        if(currentChallange1.done == 1)
         {
-            challange1Description.text = oldChallange1.Description;
-            Challenge1reward.text = oldChallange1.reward.ToString();
-            Challenge1Slider.value = (float)oldChallange1.count / (float)oldChallange1.goal;
             challange1Done.SetActive(true);
-            switch (oldChallange1.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
-                case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C1RedToken.enabled = true; break;
-                case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C1BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
-                case "GameWon": C1GamesWonToken.enabled = true; break;
-                case "GameStarted": C1GamesStartedToken.enabled = true; break;
-            }
         }
-        else
+        switch (currentChallange1.PlayerPrefsId)
         {
-            challange1Description.text = currentChallange1.Description;
-            Challenge1reward.text = currentChallange1.reward.ToString();
-            Challenge1Slider.value = (float)currentChallange1.count / (float)currentChallange1.goal;
-            challange1Done.SetActive(false);
-            switch (currentChallange1.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
-                case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C1RedToken.enabled = true; break;
-                case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C1BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
-                case "GameWon": C1GamesWonToken.enabled = true; break;
-                case "GameStarted": C1GamesStartedToken.enabled = true; break;
-            }
+            case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
+            case "ColorBombDestroyd": C1ColorBomb.enabled = true; ; break;
+            case "GreenTokenDestroyd": C1GreenToken.enabled = true; break;
+            case "Ingridient1Destroyd": C1Ingridient1Token.enabled = true; break;
+            case "Ingridient2Destroyd": C1Ingridient2Token.enabled = true; break;
+            case "OrangeTokenDestroyd": C1OrangeToken.enabled = true; break;
+            case "PurpleTokenDestroyd": C1PurpleToken.enabled = true; break;
+            case "RedTokenDestroyd": C1RedToken.enabled = true; break;
+            case "Stone1Destroyd": C1Stone1Token.enabled = true; break;
+            case "Stone2Destroyd": C1Stone2Token.enabled = true; break;
+            case "YellowTokenDestroyd": C1YellowToken.enabled = true; break;
+            case "Coockie1Destroyd": C1Coockie1Token.enabled = true; break;
+            case "Coockie2Destroyd": C1Coockie2Token.enabled = true; break;
+            case "BombDestroyd": C1BombToken.enabled = true; break;
+            case "HorizontalBombDestroyd": C1HorizontalBombToken.enabled = true; break;
+            case "VerticalBombDestroyd": C1VerticalBombToken.enabled = true; break;
+            case "GameWon": C1GamesWonToken.enabled = true; break;
+            case "GameStarted": C1GamesStartedToken.enabled = true; break;
         }
 
-
-        if (PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1)
+        challange2Description.text = currentChallange2.Description;
+        Challenge2reward.text = currentChallange2.reward.ToString();
+        Challenge2Slider.value = (float)currentChallange2.count / (float)currentChallange2.goal;
+        challange2Done.SetActive(false);
+        if (currentChallange2.done == 1)
         {
-            challange2Description.text = oldChallange2.Description;
-            Challenge2reward.text = oldChallange2.reward.ToString();
-            Challenge2Slider.value = (float)oldChallange2.count / (float)oldChallange2.goal;
             challange2Done.SetActive(true);
-            switch (oldChallange2.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
-                case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C2RedToken.enabled = true; break;
-                case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C2BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
-                case "GameWon": C2GamesWonToken.enabled = true; break;
-                case "GameStarted": C2GamesStartedToken.enabled = true; break;
-            }
         }
-        else
+        switch (currentChallange2.PlayerPrefsId)
         {
-            challange2Description.text = currentChallange2.Description;
-            Challenge2reward.text = currentChallange2.reward.ToString();
-            Challenge2Slider.value = (float)currentChallange2.count / (float)currentChallange2.goal;
-            challange2Done.SetActive(false);
-            switch (currentChallange2.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
-                case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C2RedToken.enabled = true; break;
-                case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C2BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
-                case "GameWon": C2GamesWonToken.enabled = true; break;
-                case "GameStarted": C2GamesStartedToken.enabled = true; break;
-            }
+            case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
+            case "ColorBombDestroyd": C2ColorBomb.enabled = true; break;
+            case "GreenTokenDestroyd": C2GreenToken.enabled = true; break;
+            case "Ingridient1Destroyd": C2Ingridient1Token.enabled = true; break;
+            case "Ingridient2Destroyd": C2Ingridient2Token.enabled = true; break;
+            case "OrangeTokenDestroyd": C2OrangeToken.enabled = true; break;
+            case "PurpleTokenDestroyd": C2PurpleToken.enabled = true; break;
+            case "RedTokenDestroyd": C2RedToken.enabled = true; break;
+            case "Stone1Destroyd": C2Stone1Token.enabled = true; break;
+            case "Stone2Destroyd": C2Stone2Token.enabled = true; break;
+            case "YellowTokenDestroyd": C2YellowToken.enabled = true; break;
+            case "Coockie1Destroyd": C2Coockie1Token.enabled = true; break;
+            case "Coockie2Destroyd": C2Coockie2Token.enabled = true; break;
+            case "BombDestroyd": C2BombToken.enabled = true; break;
+            case "HorizontalBombDestroyd": C2HorizontalBombToken.enabled = true; break;
+            case "VerticalBombDestroyd": C2VerticalBombToken.enabled = true; break;
+            case "GameWon": C2GamesWonToken.enabled = true; break;
+            case "GameStarted": C2GamesStartedToken.enabled = true; break;
         }
-        if (PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
+
+        challange3Description.text = currentChallange3.Description;
+        Challenge3reward.text = currentChallange3.reward.ToString();
+        Challenge3Slider.value = (float)currentChallange3.count / (float)currentChallange3.goal;
+        challange3Done.SetActive(false);
+        if (currentChallange3.done == 1)
         {
-            challange3Description.text = oldChallange3.Description;
-            Challenge3reward.text = oldChallange3.reward.ToString();
-            Challenge3Slider.value = (float)oldChallange3.count / (float)oldChallange3.goal;
             challange3Done.SetActive(true);
-            switch (oldChallange3.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
-                case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C3RedToken.enabled = true; break;
-                case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C3BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
-                case "GameWon": C3GamesWonToken.enabled = true; break;
-                case "GameStarted": C3GamesStartedToken.enabled = true; break;
-            }
         }
-        else
+        switch (currentChallange3.PlayerPrefsId)
         {
-            challange3Description.text = currentChallange3.Description;
-            Challenge3reward.text = currentChallange3.reward.ToString();
-            Challenge3Slider.value = (float)currentChallange3.count / (float)currentChallange3.goal;
-            challange3Done.SetActive(false);
-            switch (currentChallange3.PlayerPrefsId)
-            {
-                case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
-                case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
-                case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
-                case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
-                case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
-                case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
-                case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
-                case "RedTokenDestroyd": C3RedToken.enabled = true; break;
-                case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
-                case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
-                case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
-                case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
-                case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
-                case "BombDestroyd": C3BombToken.enabled = true; break;
-                case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
-                case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
-                case "GameWon": C3GamesWonToken.enabled = true; break;
-                case "GameStarted": C3GamesStartedToken.enabled = true; break;
-            }
+            case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;
+            case "ColorBombDestroyd": C3ColorBomb.enabled = true; break;
+            case "GreenTokenDestroyd": C3GreenToken.enabled = true; break;
+            case "Ingridient1Destroyd": C3Ingridient1Token.enabled = true; break;
+            case "Ingridient2Destroyd": C3Ingridient2Token.enabled = true; break;
+            case "OrangeTokenDestroyd": C3OrangeToken.enabled = true; break;
+            case "PurpleTokenDestroyd": C3PurpleToken.enabled = true; break;
+            case "RedTokenDestroyd": C3RedToken.enabled = true; break;
+            case "Stone1Destroyd": C3Stone1Token.enabled = true; break;
+            case "Stone2Destroyd": C3Stone2Token.enabled = true; break;
+            case "YellowTokenDestroyd": C3YellowToken.enabled = true; break;
+            case "Coockie1Destroyd": C3Coockie1Token.enabled = true; break;
+            case "Coockie2Destroyd": C3Coockie2Token.enabled = true; break;
+            case "BombDestroyd": C3BombToken.enabled = true; break;
+            case "HorizontalBombDestroyd": C3HorizontalBombToken.enabled = true; break;
+            case "VerticalBombDestroyd": C3VerticalBombToken.enabled = true; break;
+            case "GameWon": C3GamesWonToken.enabled = true; break;
+            case "GameStarted": C3GamesStartedToken.enabled = true; break;
         }
+
 
         if (PlayerPrefs.GetInt("Challenge1.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge2.Completed", 0) == 1 || PlayerPrefs.GetInt("Challenge3.Completed", 0) == 1)
         {
@@ -456,6 +301,11 @@ public class DailyChallenge : MonoBehaviour {
         {
             ButtonGetReward.SetActive(false);
             Close.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("allChallangesDone", 0) == 1)
+        {
+            allChallangesDone.SetActive(true);
         }
     }
 
