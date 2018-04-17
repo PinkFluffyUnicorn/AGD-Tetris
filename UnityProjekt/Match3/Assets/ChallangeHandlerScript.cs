@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class ChallangeHandlerScript : MonoBehaviour {
 
-    public GameObject challange1Done;
-    public GameObject challange2Done;
-    public GameObject challange3Done;
+    public GameObject challange1DonePopUp;
+    public GameObject challange2DonePopUp;
+    public GameObject challange3DonePopUp;
 
     public Text challange1Description;
     public Text challange2Description;
@@ -27,6 +27,10 @@ public class ChallangeHandlerScript : MonoBehaviour {
     public Image C3BlueToken, C3ColorBomb, C3GreenToken, C3Ingridient1Token, C3Ingridient2Token, C3OrangeToken, C3PurpleToken, C3RedToken, C3Stone1Token, C3Stone2Token, C3YellowToken, C3Coockie1Token, C3Coockie2Token, C3BombToken, C3HorizontalBombToken, C3VerticalBombToken, C3GamesWonToken, C3GamesStartedToken;
 
     public GameObject moneyHandler;
+
+    public GameObject challange1Done;
+    public GameObject challange2Done;
+    public GameObject challange3Done;
 
     List<Challange> allChallanges;
 
@@ -57,6 +61,21 @@ public class ChallangeHandlerScript : MonoBehaviour {
     Challange oldChallange3 = new Challange();
     // Use this for initialization
     void Start () {
+
+
+        int today = System.DateTime.Now.DayOfYear;
+        int lastDay = PlayerPrefs.GetInt("ChallangeDate", 0);
+
+        if (today != lastDay)
+        {
+            currentChallange1.done = 1;
+            currentChallange2.done = 1;
+            currentChallange3.done = 1;
+            PlayerPrefs.SetInt("Challenge1.Completed", 0);
+            PlayerPrefs.SetInt("Challenge2.Completed", 0);
+            PlayerPrefs.SetInt("Challenge3.Completed", 0);
+            PlayerPrefs.SetInt("ChallangeDate", today);
+        }
         //initialize all the challanges here
         initializeNewChallanges();
         allChallanges = new List<Challange> { Challange1, Challange2, Challange3, Challange4, Challange5, Challange6, Challange7, Challange8, Challange9, Challange10, Challange11, Challange12, Challange13, Challange14, Challange15, Challange16, Challange17 };
@@ -426,7 +445,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
             print(currentChallange1.done == 0 && currentChallange1.goal <= currentChallange1.count);
             print(currentChallange1.done + currentChallange1.goal + currentChallange1.count);
             //open popup for the player
-            challange1Done.SetActive(true);
+            challange1DonePopUp.SetActive(true);
             //give the player his reward
             moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(currentChallange1.reward);
             //store old Challenge to show in Pop Up
@@ -448,7 +467,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         if (currentChallange2.done == 0 && currentChallange2.goal <= currentChallange2.count)
         {
             //open popup for the player
-            challange1Done.SetActive(true);
+            challange1DonePopUp.SetActive(true);
             //give the player his reward
             moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(currentChallange2.reward);
             //store old Challange for Pop UP
@@ -470,7 +489,7 @@ public class ChallangeHandlerScript : MonoBehaviour {
         if (currentChallange3.done == 0 && currentChallange3.goal <= currentChallange3.count )
         {
             //open popup for the player
-            challange1Done.SetActive(true);
+            challange1DonePopUp.SetActive(true);
             //give the player his reward
             moneyHandler.GetComponent<MoneyHandlerScript>().addMoney(currentChallange3.reward);
             //store old Challange for Pop UP
@@ -550,6 +569,14 @@ public class ChallangeHandlerScript : MonoBehaviour {
         challange1Description.text = currentChallange1.Description;
         Challenge1reward.text = currentChallange1.reward.ToString();
         Challenge1Slider.value = (float)currentChallange1.count / (float)currentChallange1.goal;
+        if(currentChallange1.done == 1)
+        {
+            challange1Done.SetActive(true);
+        }
+        else
+        {
+            challange1Done.SetActive(false);
+        }
         switch (currentChallange1.PlayerPrefsId)
         {
             case "BlueTokenDestroyd": C1BlueToken.enabled = true; break;
@@ -574,6 +601,14 @@ public class ChallangeHandlerScript : MonoBehaviour {
         challange2Description.text = currentChallange2.Description;
         Challenge2reward.text = currentChallange2.reward.ToString();
         Challenge2Slider.value = (float)currentChallange2.count / (float)currentChallange2.goal;
+        if (currentChallange2.done == 1)
+        {
+            challange2Done.SetActive(true);
+        }
+        else
+        {
+            challange2Done.SetActive(false);
+        }
         switch (currentChallange2.PlayerPrefsId)
         {
             case "BlueTokenDestroyd": C2BlueToken.enabled = true; break;
@@ -598,6 +633,14 @@ public class ChallangeHandlerScript : MonoBehaviour {
         challange3Description.text = currentChallange3.Description;
         Challenge3reward.text = currentChallange3.reward.ToString();
         Challenge3Slider.value = (float)currentChallange3.count / (float)currentChallange3.goal;
+        if (currentChallange3.done == 1)
+        {
+            challange3Done.SetActive(true);
+        }
+        else
+        {
+            challange3Done.SetActive(false);
+        }
         switch (currentChallange3.PlayerPrefsId)
         {
             case "BlueTokenDestroyd": C3BlueToken.enabled = true; break;

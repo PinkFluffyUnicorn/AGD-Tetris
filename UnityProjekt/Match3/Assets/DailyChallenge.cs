@@ -459,12 +459,6 @@ public class DailyChallenge : MonoBehaviour {
         }
     }
 
-    public void ButtonGetRewardOnClick()
-    {
-        PlayerPrefs.SetInt("Challenge1.Completed", 0);
-        PlayerPrefs.SetInt("Challenge2.Completed", 0);
-        PlayerPrefs.SetInt("Challenge3.Completed", 0);
-    }
 
     
 }

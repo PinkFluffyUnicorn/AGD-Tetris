@@ -94,6 +94,9 @@ public class InitializePlayerPrefs : MonoBehaviour {
             PlayerPrefs.SetInt("Challenge2.Completed", 0);
             PlayerPrefs.SetInt("Challenge3.Completed", 0);
 
+            //Only new Challanges when a new Day starts 
+            PlayerPrefs.SetInt("ChallangeDate", 0);
+
 
             //Daily Bonus 
             PlayerPrefs.SetInt("NumberOfBonus", 0);
