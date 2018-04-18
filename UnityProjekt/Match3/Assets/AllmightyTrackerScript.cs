@@ -54,13 +54,23 @@ public class AllmightyTrackerScript : MonoBehaviour {
     public void writeToFile(string data)
     {
         //BinaryFormatter bf = new BinaryFormatter();
-        if (!File.Exists(Application.persistentDataPath + filePath))
-            File.Create(Application.persistentDataPath + filePath);
-        File.AppendAllText(Application.persistentDataPath + filePath, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") +": "+ data + ",");
-        print("Wrote " + data + " to File " + Application.persistentDataPath + filePath);
-        if (DebugAusgabe != null)
+        try
         {
-            DebugAusgabe.text = Application.persistentDataPath;
+            if (!File.Exists(Application.persistentDataPath + filePath))
+                File.Create(Application.persistentDataPath + filePath);
+            File.AppendAllText(Application.persistentDataPath + filePath, DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss") + ": " + data + ",");
+            print("Wrote " + data + " to File " + Application.persistentDataPath + filePath);
+            if (DebugAusgabe != null)
+            {
+                DebugAusgabe.text = Application.persistentDataPath;
+            }
+        }
+        catch (Exception e)
+        {
+            if (DebugAusgabe != null)
+            {
+                DebugAusgabe.text = e.Message;
+            }
         }
     }
 }
